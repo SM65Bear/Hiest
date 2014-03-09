@@ -28,7 +28,7 @@ public class GuiAdminMenu extends GuiMenu {
 
 			@Override
 			public void run(Player player) {
-				GuiMenuManager.getInstance().GUN_TYPE.open(player);
+
 			}
 		});
 		icons.add(new GuiIcon("Warps", new ItemStack(Material.PORTAL)) {
@@ -38,10 +38,11 @@ public class GuiAdminMenu extends GuiMenu {
 
 			}
 		});
-		icons.add(new GuiIcon("Whitty_Likes_Men", new ItemStack(Material.SKULL)) {
+		icons.add(new GuiIcon("Whitty_Likes_Men", new ItemStack(Material.SKULL_ITEM)) {
 
 			@Override
 			public void run(Player player) {
+				player.sendMessage("Whitty Likes Men Ballzzzzzzzzzzz");
 
 			}
 		});
