@@ -11,7 +11,7 @@ import org.bukkit.inventory.ItemStack;
 public class GuiItemGive extends GuiMenu {
 
 	public GuiItemGive() {
-		super("" + ChatColor.WHITE + "The Hiest " + ChatColor.AQUA + "$" + ChatColor.YELLOW + " [Panel]");
+		super("" + ChatColor.WHITE + "The Hiest " + ChatColor.AQUA + "$" + ChatColor.YELLOW + " [Items]");
 	}
 
 	@Override
