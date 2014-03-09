@@ -12,7 +12,7 @@ import com.censkh.hiest.gun.GunType;
 public class AdminMenu extends GuiMenu {
 
 	public AdminMenu() {
-		super("Admin Menu");
+		super("§f§lThe Hiest §3§l$ §6[ Admin Panel ]");
 	}
 
 	@Override
