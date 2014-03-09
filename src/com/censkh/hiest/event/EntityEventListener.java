@@ -6,7 +6,6 @@ import org.bukkit.Sound;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
-import org.bukkit.entity.Projectile;
 import org.bukkit.entity.WitherSkull;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.CreatureSpawnEvent;
@@ -42,12 +41,6 @@ public class EntityEventListener extends EventListener {
 				}
 			}
 		}
-		if (event.getEntity() instanceof Projectile) {
-			Projectile p = (Projectile) event.getEntity();
-			if (p.getShooter()!=null) {
-				if (p.get)
-			}
-		}
 	}
 
 	@EventHandler
@@ -60,9 +53,6 @@ public class EntityEventListener extends EventListener {
 		if (event.getEntity() instanceof WitherSkull) {
 			event.getEntity().remove();
 			event.getEntity().getWorld().createExplosion(event.getEntity().getLocation(), 4.5f);
-		}
-		if (event.getEntity().hasMetadata("gun")) {
-			event.getEntity().getWorld().playEffect(event.getEntity().getLocation(), Effect.STEP_SOUND,173);
 		}
 	}
 
