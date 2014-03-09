@@ -139,10 +139,10 @@ public class GunManager {
 				setAmmo(Ammo.AMMO_9MM);
 				setRecoil(1f);
 				setZoom(3);
-				setMagazineSize(90);
+				setMagazineSize(120);
 				setRateOfFire(2);
 				setReloadTime(4 * 20);
-				setBurst(1);
+				setBurst(2);
 				setDamage(2d);
 				setAccuracy(0.3f);
 			}

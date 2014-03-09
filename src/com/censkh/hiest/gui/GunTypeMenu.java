@@ -12,7 +12,7 @@ import com.censkh.hiest.gun.GunType;
 public class GunTypeMenu extends GuiMenu {
 
 	public GunTypeMenu() {
-		super(""+ ChatColor.WHITE + ChatColor.BOLD + "The Hiest " + ChatColor.AQUA + ChatColor.BOLD + "$" + ChatColor.YELLOW + " [Guns]");
+		super(""+ ChatColor.WHITE + "The Hiest " + ChatColor.AQUA + "$" + ChatColor.YELLOW + " [Guns]");
 	}
 
 	@Override

@@ -11,7 +11,7 @@ import org.bukkit.inventory.ItemStack;
 public class GuiAdminMenu extends GuiMenu {
 
 	public GuiAdminMenu() {
-		super("" + ChatColor.WHITE + ChatColor.BOLD + "The Hiest " + ChatColor.AQUA + ChatColor.BOLD + "$" + ChatColor.YELLOW + " [Panel]");
+		super("" + ChatColor.WHITE + "The Hiest " + ChatColor.AQUA + "$" + ChatColor.YELLOW + " [Panel]");
 	}
 
 	@Override
@@ -24,7 +24,7 @@ public class GuiAdminMenu extends GuiMenu {
 				GuiMenuManager.getInstance().GUN_TYPE.open(player);
 			}
 		});
-		icons.add(new GuiIcon("Money", new ItemStack(Material.DIAMOND_SPADE)) {
+		icons.add(new GuiIcon("Money", new ItemStack(Material.GOLD_INGOT)) {
 
 			@Override
 			public void run(Player player) {
@@ -32,6 +32,13 @@ public class GuiAdminMenu extends GuiMenu {
 			}
 		});
 		icons.add(new GuiIcon("Warps", new ItemStack(Material.PORTAL)) {
+
+			@Override
+			public void run(Player player) {
+
+			}
+		});
+		icons.add(new GuiIcon("Whitty_Likes_Men", new ItemStack(Material.SKULL)) {
 
 			@Override
 			public void run(Player player) {
