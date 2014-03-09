@@ -7,6 +7,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemHeldEvent;
+import org.bukkit.event.player.PlayerToggleSneakEvent;
 
 import com.censkh.hiest.gun.Gun;
 import com.censkh.hiest.gun.GunManager;
@@ -37,7 +38,18 @@ public class PlayerEventListener extends EventListener  {
 		}
 	}
 
-	
+	@EventHandler
+	public void onPlayerToggleSneakEvent(PlayerToggleSneakEvent event) {
+		if (event.getPlayer().isSneaking()) {
+			if (event.getPlayer().getItemInHand()!=null) {
+				Gun gun = GunManager.getInstance().getGun(event.getPlayer().getItemInHand());
+				if (gun!=null) {
+					GunStack stack = new GunStack(event.getPlayer().getItemInHand());
+					gun.getData().useSecondary(event.getPlayer(), stack);
+				}
+			}
+		}
+	}
 
 	@SuppressWarnings("deprecation")
 	@EventHandler
