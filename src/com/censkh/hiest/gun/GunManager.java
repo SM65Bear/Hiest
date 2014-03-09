@@ -54,6 +54,33 @@ public class GunManager {
 				setDamage(2.5d);
 				setReloadTime(3 * 20);
 				setRateOfFire(4);
+				setZoomModifier(2f);
+			}
+		}));
+		addGun(new Gun("Ak47", new ItemStack(Material.WOOD_SPADE), new GunData() {
+			{
+				setAmmo(Ammo.AMMO_556);
+				setRecoil(1f);
+				setZoom(3);
+				setMagazineSize(28);
+				setAccuracy(0.2f);
+				setBurst(1);
+				setDamage(3d);
+				setReloadTime(2 * 20);
+				setRateOfFire(2);
+			}
+		}));
+		addGun(new Gun("P250", new ItemStack(Material.IRON_HOE), new GunData() {
+			{
+				setAmmo(Ammo.AMMO_556);
+				setRecoil(1f);
+				setZoom(2);
+				setMagazineSize(16);
+				setAccuracy(0.2f);
+				setBurst(1);
+				setDamage(3d);
+				setReloadTime(20);
+				setRateOfFire(3);
 			}
 		}));
 		addGun(new Gun("Intervention", new ItemStack(Material.WOOD_HOE), new GunData() {
@@ -69,7 +96,19 @@ public class GunManager {
 				setReloadTime(2 * 20);
 			}
 		}));
-		addGun(new Gun("RPG", new ItemStack(Material.GOLD_HOE), new GunData() {
+		addGun(new Gun("Golden Magnum Lolly [+]", new ItemStack(Material.GOLD_HOE), new GunData() {
+			{
+				setAmmo(Ammo.AMMO_9MM);
+				setRecoil(1f);
+				setZoom(2);
+				setMagazineSize(6);
+				setAccuracy(0.12f);
+				setDamage(6d);
+				setRateOfFire(20);
+				setReloadTime(3 * 20);
+			}
+		}));
+		addGun(new Gun("RPG", new ItemStack(Material.GOLD_SPADE), new GunData() {
 			{
 				setAmmo(Ammo.AMMO_ROCKET);
 				setRecoil(1f);
