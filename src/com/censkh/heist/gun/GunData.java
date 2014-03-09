@@ -1,5 +1,9 @@
 package com.censkh.heist.gun;
 
+import java.util.Arrays;
+import java.util.List;
+
+import org.bukkit.ChatColor;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
@@ -16,11 +20,23 @@ public class GunData {
 	private int burst = 1;
 	private int reloadTime = 2 * 20;
 	private int rateOfFire = 4;
-	private float zoomModifier = 1.5f;
+	private float zoomModifier = 1f;
 	private Ammo ammo = Ammo.AMMO_556;
 	private ItemType type = ItemType.ASSAULT;
 	private ItemRarity rarity = ItemRarity.BASIC;
-	private SoundData shootSound = new SoundData(Sound.EXPLODE,2f,3f);
+	private SoundData shootSound = new SoundData(Sound.EXPLODE, 2f, 3f);
+
+	public List<String> toLore() {
+		String p = ChatColor.WHITE + "";
+		return Arrays.asList(
+				p + "Damage: " + getDamage(),
+				p + "Aimed In Damage: " + (getZoomModifier()*getDamage()),
+				p + "Zoom Level: " + (getZoom()+1),
+				p + "Mag Size: " + getMagazineSize(),
+				p + "Accuracy: " + (100-(int)(100f*getAccuracy())) + "%",
+				p + "Burst: " + getBurst(),
+				p + "Rate of Fire: " + (20f/(float)getRateOfFire()) + "/s");
+	}
 
 	public float getRecoil() {
 		return recoil;

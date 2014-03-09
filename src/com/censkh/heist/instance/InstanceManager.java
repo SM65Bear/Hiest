@@ -25,4 +25,13 @@ public class InstanceManager {
 		return instances;
 	}
 
+	public Instance getInstanceById(int i) {
+		for (Instance inst : getInstances()) {
+			if (inst.getId()==i) {
+				return inst;
+			}
+		}
+		return null;
+	}
+
 }

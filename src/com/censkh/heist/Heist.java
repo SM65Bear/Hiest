@@ -20,13 +20,17 @@ import com.censkh.heist.gun.Gun;
 import com.censkh.heist.gun.GunManager;
 import com.censkh.heist.gun.GunStack;
 import com.censkh.heist.gun.GunState;
+import com.censkh.heist.instance.Instance;
 import com.censkh.heist.instance.InstanceManager;
 import com.censkh.heist.listener.EventListener;
 import com.censkh.heist.throwable.ThrowableManager;
+import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
+import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 
 public class Heist extends JavaPlugin {
 
 	private final Random random = new Random();
+	public static int ticks = 0;
 
 	@Override
 	public void onEnable() {
@@ -63,6 +67,18 @@ public class Heist extends JavaPlugin {
 							}
 						}
 					}
+					if (ticks%10==0) {
+						player.setScoreboard(Bukkit.getScoreboardManager().getMainScoreboard());
+						for (ProtectedRegion r : WorldGuardPlugin.inst().getRegionManager(player.getWorld()).getApplicableRegions(player.getLocation())) {
+							if (r.getId().startsWith("instance-")) {
+								Instance instance = InstanceManager.getInstance().getInstanceById(Integer.parseInt(r.getId().substring("instance-".length())));
+								if (instance!=null) {
+									player.setScoreboard(instance.getScoreboard());
+								}
+							}
+						}
+					}
+					
 				}
 				GunManager.getInstance().update();
 				ThrowableManager.getInstance().update();
@@ -82,6 +98,7 @@ public class Heist extends JavaPlugin {
 						e.remove();
 					}
 				}
+				ticks++;
 			}
 		}, 1l, 1l);
 	}

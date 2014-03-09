@@ -1,5 +1,6 @@
 package com.censkh.heist.gun;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -32,11 +33,14 @@ public class GunStack {
 		ItemStack stack = gun.getItemType();
 		ItemMeta meta = stack.getItemMeta();
 		meta.setDisplayName(getGun().getData().getRarity().getColor() + gun.getName());
-		meta.setLore(Arrays.asList(new String[] {
+		List<String> lore = new ArrayList<String>();
+		lore.addAll(getGun().getData().toLore());
+		lore.addAll(Arrays.asList(new String[] {
 				ChatColor.GRAY + "Bullets: " + getLoadedBullets() + " / " + gun.getData().getMagazineSize(),
 				ChatColor.GRAY + (getState().name().substring(0, 1) + getState().name().toLowerCase().substring(1) + (getState() == GunState.RELOADING ? " - " + getReloadCountdown() : "")),
 				ChatColor.DARK_GRAY + gun.getName()
 		}));
+		meta.setLore(lore);
 		stack.setItemMeta(meta);
 		stack.setAmount(getAmount());
 		ItemDurability.setDurability(stack, getState() == GunState.RELOADING ? 1f - ((float) getReloadCountdown() / (float) getGun().getData().getReloadTime()) : (float) getLoadedBullets()
@@ -101,7 +105,7 @@ public class GunStack {
 
 	public GunStack reload(Player player) {
 		player.playSound(player.getLocation(), Sound.DOOR_OPEN, 2f, 2f);
-		setReloadCountdown(getGun().getData().getReloadTime() - (int) (getGun().getData().getReloadTime() *0.5f * ((float) getLoadedBullets() / (float) getGun().getData().getMagazineSize())));
+		setReloadCountdown(getGun().getData().getReloadTime() - (int) (getGun().getData().getReloadTime() * 0.5f * ((float) getLoadedBullets() / (float) getGun().getData().getMagazineSize())));
 		setState(GunState.RELOADING);
 		return this;
 	}

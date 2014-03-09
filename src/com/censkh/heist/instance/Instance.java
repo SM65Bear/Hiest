@@ -6,6 +6,9 @@ import java.util.List;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
+import org.bukkit.scoreboard.DisplaySlot;
+import org.bukkit.scoreboard.Objective;
+import org.bukkit.scoreboard.Scoreboard;
 
 import com.censkh.heist.chat.Node;
 import com.censkh.heist.listener.EventListener;
@@ -25,10 +28,12 @@ public class Instance extends EventListener {
 	private final List<Player> players = new ArrayList<Player>();
 	private ProtectedRegion region;
 	private boolean started = false;
+	private final Scoreboard scoreboard;
 
 	public Instance(String name) {
 		super();
 		this.name = name;
+		scoreboard = createScoreboard();
 		World world = null;
 		for (World w : Bukkit.getWorlds()) {
 			if (WorldGuardPlugin.inst().getRegionManager(w).hasRegion(getRegionName())) {
@@ -41,6 +46,15 @@ public class Instance extends EventListener {
 		} else {
 			updateRegion();
 		}
+	}
+
+	private Scoreboard createScoreboard() {
+		Scoreboard scoreboard = Bukkit.getScoreboardManager().getNewScoreboard();
+		Objective objective = scoreboard.registerNewObjective("sidebar", "dummy");
+		objective.setDisplayName(Node.INSTANCE_NAME_COLOUR + getName());
+		objective.setDisplaySlot(DisplaySlot.SIDEBAR);
+		objective.getScore(Bukkit.getOfflinePlayer("Started")).setScore(0);
+		return scoreboard;
 	}
 
 	@Override
@@ -115,6 +129,15 @@ public class Instance extends EventListener {
 	public void setStarted(boolean started) {
 		this.started = started;
 		updateRegion();
+		getObjective().getScore(Bukkit.getOfflinePlayer("Started")).setScore(started ? 1 : 0);
+	}
+
+	public Scoreboard getScoreboard() {
+		return scoreboard;
+	}
+	
+	public Objective getObjective() {
+		return scoreboard.getObjective(DisplaySlot.SIDEBAR);
 	}
 
 }

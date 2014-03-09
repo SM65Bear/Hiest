@@ -58,7 +58,7 @@ public class GuiMenuManager {
 							i++;
 						}
 					}
-					icons.add(new GuiIcon("Back",new ItemStack(Material.ARROW),(9*6)-1) {
+					icons.add(new GuiIcon("Back",new ItemStack(Material.ARROW),getSize()-1) {
 						
 						@Override
 						public void run(Player player) {
