@@ -40,7 +40,7 @@ public class GunManager {
 				setMagazineSize(20);
 				setAccuracy(0.5f);
 				setBurst(5);
-				setDamage(2d);
+				setDamage(3d);
 				setReloadTime(3 * 18);
 				setRateOfFire(8);
 			}
