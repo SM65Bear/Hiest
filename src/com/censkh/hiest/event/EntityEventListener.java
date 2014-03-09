@@ -6,13 +6,14 @@ import org.bukkit.Sound;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Projectile;
 import org.bukkit.entity.WitherSkull;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.CreatureSpawnEvent;
+import org.bukkit.event.entity.CreatureSpawnEvent.SpawnReason;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
-import org.bukkit.event.entity.CreatureSpawnEvent.SpawnReason;
 
 import com.censkh.hiest.gun.Gun;
 import com.censkh.hiest.gun.GunManager;
@@ -35,11 +36,14 @@ public class EntityEventListener extends EventListener {
 				damager.remove();
 				if (event.getEntity() instanceof LivingEntity) {
 					((LivingEntity) event.getEntity()).setNoDamageTicks(0);
-					if (event.getEntity() instanceof Player) {
-						((Player) event.getEntity()).playSound(event.getEntity().getLocation(), Sound.SUCCESSFUL_HIT, 2f, 1f);
-					}
+				}
+				if (damager instanceof Player) {
+					((Player) damager).playSound(event.getEntity().getLocation(), Sound.SUCCESSFUL_HIT, 2f, 1f);
 				}
 			}
+		}
+		if (event.getEntity() instanceof Projectile) {
+			Projectile p = ()
 		}
 	}
 
@@ -47,12 +51,15 @@ public class EntityEventListener extends EventListener {
 	public void onEntityExplodeEvent(EntityExplodeEvent event) {
 		event.blockList().clear();
 	}
-
+	
 	@EventHandler
 	public void onProjectileHitEvent(ProjectileHitEvent event) {
 		if (event.getEntity() instanceof WitherSkull) {
 			event.getEntity().remove();
 			event.getEntity().getWorld().createExplosion(event.getEntity().getLocation(), 4.5f);
+		}
+		if (event.getEntity().hasMetadata("gun")) {
+			event.getEntity().getWorld().playEffect(event.getEntity().getLocation(), Effect.STEP_SOUND,173);
 		}
 	}
 

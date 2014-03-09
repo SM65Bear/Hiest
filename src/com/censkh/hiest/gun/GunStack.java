@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -30,7 +31,7 @@ public class GunStack {
 	public ItemStack write() {
 		ItemStack stack = gun.getItemType();
 		ItemMeta meta = stack.getItemMeta();
-		meta.setDisplayName(ChatColor.YELLOW + gun.getName());
+		meta.setDisplayName(getGun().getData().getRarity().getColor() + gun.getName());
 		meta.setLore(Arrays.asList(new String[] {
 				ChatColor.GRAY + "Bullets: " + getLoadedBullets() + " / " + gun.getData().getMagazineSize(),
 				ChatColor.GRAY + (getState().name().substring(0, 1) + getState().name().toLowerCase().substring(1) + (getState() == GunState.RELOADING ? " - " + getReloadCountdown() : "")),
@@ -98,8 +99,9 @@ public class GunStack {
 		return getLoadedBullets() > 0 && getState() != GunState.RELOADING && GunManager.getInstance().getGunCooldown(player, gun) == 0;
 	}
 
-	public GunStack reload() {
-		setReloadCountdown(getGun().getData().getReloadTime());
+	public GunStack reload(Player player) {
+		player.playSound(player.getLocation(), Sound.DOOR_OPEN, 2f, 2f);
+		setReloadCountdown(getGun().getData().getReloadTime() - (int) (getGun().getData().getReloadTime() *0.5f * ((float) getLoadedBullets() / (float) getGun().getData().getMagazineSize())));
 		setState(GunState.RELOADING);
 		return this;
 	}

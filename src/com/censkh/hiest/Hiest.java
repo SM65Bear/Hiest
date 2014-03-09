@@ -2,6 +2,7 @@ package com.censkh.hiest;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -22,6 +23,8 @@ import com.censkh.hiest.gun.GunState;
 import com.censkh.hiest.throwable.ThrowableManager;
 
 public class Hiest extends JavaPlugin {
+
+	private final Random random = new Random();
 
 	@Override
 	public void onEnable() {
@@ -45,7 +48,7 @@ public class Hiest extends JavaPlugin {
 								if (stack.getState() == GunState.RELOADING) {
 									stack.setReloadCountdown(stack.getReloadCountdown() - 1);
 									if (stack.getReloadCountdown() % 10 == 0)
-										player.playSound(player.getLocation(), Sound.CLICK, 2f, 0.3f);
+										player.playSound(player.getLocation(), random.nextBoolean() ? Sound.DOOR_CLOSE : Sound.DOOR_OPEN, 1f, 2f);
 								}
 								player.setItemInHand(stack.write());
 								if (GunManager.getInstance().isZoomed(player)) {

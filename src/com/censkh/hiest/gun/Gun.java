@@ -43,7 +43,7 @@ public class Gun {
 				projectile.setMetadata("zoomed", new FixedMetadataValue(Hiest.getPlugin(Hiest.class), GunManager.getInstance().isZoomed(player)));
 				Vector velocity = calculateVelocity(player);
 				projectile.setVelocity(velocity);
-				player.getWorld().playSound(player.getLocation(), Sound.EXPLODE, 5f, (float) (0.5f * getData().getDamage()));
+				getData().getShootSound().play(player.getLocation());
 				gunStack.setLoadedBullets(gunStack.getLoadedBullets() - 1);
 			}
 			GunManager.getInstance().setGunCooldown(player, this, getData().getRateOfFire());

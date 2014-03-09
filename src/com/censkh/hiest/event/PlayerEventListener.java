@@ -23,7 +23,7 @@ public class PlayerEventListener extends EventListener {
 		if (gun != null) {
 			GunStack stack = new GunStack(event.getItemDrop().getItemStack());
 			if (!stack.isFull()) {
-				event.getPlayer().setItemInHand(stack.reload().write());
+				event.getPlayer().setItemInHand(stack.reload(event.getPlayer()).write());
 				event.getPlayer().sendMessage(ChatColor.GRAY + "Reloading...");
 				event.getItemDrop().remove();
 			} else {

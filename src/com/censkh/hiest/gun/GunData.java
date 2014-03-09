@@ -1,7 +1,9 @@
 package com.censkh.hiest.gun;
 
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
+import com.censkh.hiest.SoundData;
 import com.censkh.hiest.ammo.Ammo;
 
 public class GunData {
@@ -16,6 +18,8 @@ public class GunData {
 	private int rateOfFire = 4;
 	private float zoomModifier = 1.5f;
 	private Ammo ammo = Ammo.AMMO_556;
+	private ItemRarity rarity = ItemRarity.BASIC;
+	private SoundData shootSound = new SoundData(Sound.EXPLODE,2f,3f);
 
 	public float getRecoil() {
 		return recoil;
@@ -99,6 +103,22 @@ public class GunData {
 
 	public void setAmmo(Ammo ammo) {
 		this.ammo = ammo;
+	}
+
+	public ItemRarity getRarity() {
+		return rarity;
+	}
+
+	public void setRarity(ItemRarity rarity) {
+		this.rarity = rarity;
+	}
+
+	public SoundData getShootSound() {
+		return shootSound;
+	}
+
+	public void setShootSound(SoundData shootSound) {
+		this.shootSound = shootSound;
 	}
 
 }
