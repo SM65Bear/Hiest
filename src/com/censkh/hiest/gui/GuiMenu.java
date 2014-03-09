@@ -59,15 +59,19 @@ public abstract class GuiMenu extends EventListener {
 
 	@EventHandler
 	public void onInventoryClick(InventoryClickEvent event) {
-		Inventory inventory = event.getClickedInventory();
-		if (event.getCurrentItem() != null) {
-			if (event.getCurrentItem().getType() != Material.AIR) {
-				if (isInventory(inventory)) {
-					event.setCancelled(true);
-					event.setResult(Result.DENY);
-					GuiIcon icon = getIcon(event.getRawSlot());
-					if (icon != null) {
-						icon.run((Player) event.getWhoClicked());
+		Inventory inventory = event.getView().getTopInventory();
+		if (isInventory(event.getInventory())) {
+			event.setResult(Result.DENY);
+			if (event.getRawSlot() < inventory.getSize()) {
+
+				if (event.getCurrentItem() != null) {
+					if (event.getCurrentItem().getType() != Material.AIR) {
+						if (isInventory(inventory)) {
+							GuiIcon icon = getIcon(event.getRawSlot());
+							if (icon != null) {
+								icon.run((Player) event.getWhoClicked());
+							}
+						}
 					}
 				}
 			}
