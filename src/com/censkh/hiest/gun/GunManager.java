@@ -30,7 +30,7 @@ public class GunManager {
 				setDamage(4d);
 				setAccuracy(0.15f);
 				setRateOfFire(4);
-				setType(GunType.ASSAULT);
+				setType(ItemType.ASSAULT);
 			}
 		}));
 		addGun(new Gun("M3", new ItemStack(Material.WOOD_PICKAXE), new GunData() {
@@ -44,7 +44,7 @@ public class GunManager {
 				setDamage(3d);
 				setReloadTime(3 * 18);
 				setRateOfFire(8);
-				setType(GunType.SHOTGUNS);
+				setType(ItemType.SHOTGUNS);
 			}
 		}));
 		addGun(new Gun("Scar-H", new ItemStack(Material.GOLD_AXE), new GunData() {
@@ -61,7 +61,7 @@ public class GunManager {
 				setReloadTime(3 * 20);
 				setRateOfFire(4);
 				setZoomModifier(2f);
-				setType(GunType.ASSAULT);
+				setType(ItemType.ASSAULT);
 			}
 		}));
 		addGun(new Gun("Ak47", new ItemStack(Material.WOOD_SPADE), new GunData() {
@@ -77,7 +77,7 @@ public class GunManager {
 				setDamage(3d);
 				setReloadTime(2 * 20);
 				setRateOfFire(2);
-				setType(GunType.ASSAULT);
+				setType(ItemType.ASSAULT);
 			}
 		}));
 		addGun(new Gun("P250", new ItemStack(Material.IRON_HOE), new GunData() {
@@ -92,7 +92,7 @@ public class GunManager {
 				setDamage(3d);
 				setReloadTime(20);
 				setRateOfFire(3);
-				setType(GunType.HANDGUN);
+				setType(ItemType.HANDGUN);
 			}
 		}));
 		addGun(new Gun("Intervention", new ItemStack(Material.WOOD_HOE), new GunData() {
@@ -108,7 +108,7 @@ public class GunManager {
 				setRateOfFire(25);
 				setZoomModifier(6f);
 				setReloadTime(2 * 20);
-				setType(GunType.SNIPER);
+				setType(ItemType.SNIPER);
 			}
 		}));
 		addGun(new Gun("Golden Magnum", new ItemStack(Material.GOLD_HOE), new GunData() {
@@ -122,7 +122,7 @@ public class GunManager {
 				setDamage(6d);
 				setRateOfFire(20);
 				setReloadTime(3 * 20);
-				setType(GunType.HANDGUN);
+				setType(ItemType.HANDGUN);
 			}
 		}));
 		addGun(new Gun("RPG", new ItemStack(Material.GOLD_SPADE), new GunData() {
@@ -136,7 +136,7 @@ public class GunManager {
 				setReloadTime(6 * 20);
 				setDamage(25d);
 				setAccuracy(0.01f);
-				setType(GunType.HEAVY);
+				setType(ItemType.HEAVY);
 			}
 		}));
 		addGun(new Gun("Uzi", new ItemStack(Material.STONE_SPADE), new GunData() {
@@ -151,7 +151,7 @@ public class GunManager {
 				setBurst(2);
 				setDamage(2d);
 				setAccuracy(0.3f);
-				setType(GunType.LIGHT);
+				setType(ItemType.LIGHT);
 			}
 
 			@Override

@@ -18,7 +18,7 @@ public class GunData {
 	private int rateOfFire = 4;
 	private float zoomModifier = 1.5f;
 	private Ammo ammo = Ammo.AMMO_556;
-	private GunType type = GunType.ASSAULT;
+	private ItemType type = ItemType.ASSAULT;
 	private ItemRarity rarity = ItemRarity.BASIC;
 	private SoundData shootSound = new SoundData(Sound.EXPLODE,2f,3f);
 
@@ -122,11 +122,11 @@ public class GunData {
 		this.shootSound = shootSound;
 	}
 
-	public GunType getType() {
+	public ItemType getType() {
 		return type;
 	}
 
-	public void setType(GunType type) {
+	public void setType(ItemType type) {
 		this.type = type;
 	}
 

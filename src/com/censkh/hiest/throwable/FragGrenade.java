@@ -4,6 +4,8 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
+import com.censkh.hiest.gun.ItemType;
+
 public class FragGrenade extends Throwable {
 
 	@Override
@@ -29,6 +31,11 @@ public class FragGrenade extends Throwable {
 	@Override
 	public float getSpeedMultiplier() {
 		return 3f;
+	}
+
+	@Override
+	public ItemType getType() {
+		return ItemType.EXPLOSIVES;
 	}
 
 }

@@ -7,7 +7,9 @@ import org.bukkit.entity.Player;
 
 import com.censkh.hiest.gun.Gun;
 import com.censkh.hiest.gun.GunManager;
-import com.censkh.hiest.gun.GunType;
+import com.censkh.hiest.gun.ItemType;
+import com.censkh.hiest.throwable.Throwable;
+import com.censkh.hiest.throwable.ThrowableManager;
 
 public class GuiMenuManager {
 
@@ -19,8 +21,8 @@ public class GuiMenuManager {
 
 	public GuiMenuManager() {
 		instance = this;
-		for (GunType t : GunType.values()) {
-			final GunType type = t;
+		for (ItemType t : ItemType.values()) {
+			final ItemType type = t;
 			addMenu(new GuiMenu(type.getName()) {
 
 				@Override
@@ -35,6 +37,19 @@ public class GuiMenuManager {
 								@Override
 								public void run(Player player) {
 									player.getInventory().addItem(gun.getStack());
+								}
+							});
+						}
+						i++;
+					}
+					for (Throwable t : ThrowableManager.getInstance().getThrowables()) {
+						final Throwable throwable = t;
+						if (throwable.getType() == type) {
+							icons.add(new GuiIcon(throwable.getName(), throwable.getStack(), i) {
+
+								@Override
+								public void run(Player player) {
+									player.getInventory().addItem(throwable.getStack());
 								}
 							});
 						}

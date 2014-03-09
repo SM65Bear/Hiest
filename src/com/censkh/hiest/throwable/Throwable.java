@@ -11,6 +11,8 @@ import org.bukkit.entity.Snowball;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import com.censkh.hiest.gun.ItemType;
+
 public abstract class Throwable {
 
 	private final ItemStack stack;
@@ -36,6 +38,8 @@ public abstract class Throwable {
 	public abstract String getName();
 
 	public abstract float getSpeedMultiplier();
+	
+	public abstract ItemType getType();
 
 	public void shoot(LivingEntity entity) {
 		Projectile p = entity.launchProjectile(Snowball.class);
