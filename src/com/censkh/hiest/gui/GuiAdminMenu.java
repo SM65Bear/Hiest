@@ -17,28 +17,28 @@ public class GuiAdminMenu extends GuiMenu {
 	@Override
 	public List<GuiIcon> initIcons() {
 		List<GuiIcon> icons = new ArrayList<GuiIcon>();
-		icons.add(new GuiIcon("Gun Menu", new ItemStack(Material.DIAMOND_SPADE)) {
+		icons.add(new GuiIcon("Gun Menu", new ItemStack(Material.DIAMOND_SPADE),2) {
 
 			@Override
 			public void run(Player player) {
 				GuiMenuManager.getInstance().GUN_TYPE.open(player);
 			}
 		});
-		icons.add(new GuiIcon("Money", new ItemStack(Material.GOLD_INGOT)) {
+		icons.add(new GuiIcon("Money", new ItemStack(Material.GOLD_INGOT),3) {
 
 			@Override
 			public void run(Player player) {
 
 			}
 		});
-		icons.add(new GuiIcon("Warps", new ItemStack(Material.PORTAL)) {
+		icons.add(new GuiIcon("Warps", new ItemStack(Material.PORTAL),4) {
 
 			@Override
 			public void run(Player player) {
 
 			}
 		});
-		icons.add(new GuiIcon("Whitty_Likes_Men", new ItemStack(Material.SKULL_ITEM)) {
+		icons.add(new GuiIcon("Whitty_Likes_Men", new ItemStack(Material.SKULL_ITEM),5) {
 
 			@Override
 			public void run(Player player) {

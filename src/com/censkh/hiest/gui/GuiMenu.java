@@ -36,7 +36,7 @@ public abstract class GuiMenu extends EventListener {
 		if (inventory == null) {
 			inventory = Bukkit.createInventory(null, getSize(), getName());
 			for (GuiIcon icon : getIcons()) {
-				inventory.addItem(icon.getStack());
+				inventory.setItem(icon.getSlot(),icon.getStack());
 			}
 		}
 		return inventory;

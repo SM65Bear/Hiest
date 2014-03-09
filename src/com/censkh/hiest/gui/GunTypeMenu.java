@@ -18,10 +18,11 @@ public class GunTypeMenu extends GuiMenu {
 	@Override
 	public List<GuiIcon> initIcons() {
 		List<GuiIcon> icons = new ArrayList<GuiIcon>();
+		int i = 0;
 		for (GunType t: GunType.values()){
 			final GunType type = t;
 			
-			icons.add(new GuiIcon(type.getName(), new ItemStack(type.getType())) {
+			icons.add(new GuiIcon(type.getName(), new ItemStack(type.getType()),i) {
 				
 				@Override
 				public void run(Player player) {
@@ -29,7 +30,7 @@ public class GunTypeMenu extends GuiMenu {
 					
 				}
 			});
-			
+			i++;
 		}
 		return icons;
 	}

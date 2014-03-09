@@ -20,24 +20,25 @@ public class GuiMenuManager {
 	public GuiMenuManager() {
 		instance = this;
 		for (GunType t : GunType.values()) {
-			final GunType type = t; 
+			final GunType type = t;
 			addMenu(new GuiMenu(type.getName()) {
-				
+
 				@Override
 				public List<GuiIcon> initIcons() {
 					List<GuiIcon> icons = new ArrayList<GuiIcon>();
+					int i = 0;
 					for (Gun g : GunManager.getInstance().getGuns()) {
 						final Gun gun = g;
 						if (gun.getData().getType() == type) {
-							icons.add(new GuiIcon(gun.getName(), gun.getStack()) {
+							icons.add(new GuiIcon(gun.getName(), gun.getStack(), i) {
 
 								@Override
 								public void run(Player player) {
-									player.getInventory().addItem(
-											gun.getStack());
+									player.getInventory().addItem(gun.getStack());
 								}
 							});
 						}
+						i++;
 					}
 					return icons;
 				}

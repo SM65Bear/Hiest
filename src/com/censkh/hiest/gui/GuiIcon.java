@@ -9,10 +9,12 @@ public abstract class GuiIcon {
 
 	private final ItemStack stack;
 	private final String name;
+	private final int slot;
 
-	public GuiIcon(String name, ItemStack stack) {
+	public GuiIcon(String name, ItemStack stack,int slot) {
 		this.name = name;
 		this.stack = bake(stack);
+		this.slot = slot;
 	}
 
 	private ItemStack bake(ItemStack stack) {
@@ -30,6 +32,10 @@ public abstract class GuiIcon {
 
 	public String getName() {
 		return name;
+	}
+
+	public int getSlot() {
+		return slot;
 	}
 
 }
