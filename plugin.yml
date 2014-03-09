@@ -3,8 +3,8 @@ version: 0.0.1
 main: com.censkh.hiest.Hiest
 
 commands:
- nvps:
-      description: .
+ admin:
+      description: Admin commands.
       usage: /<command>
-      permission: nvps
+      permission: hiest.admin
       permission-message: You don't have that permission.

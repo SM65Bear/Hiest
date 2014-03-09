@@ -7,16 +7,18 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.World;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.censkh.hiest.event.EventListener;
+import com.censkh.hiest.gui.GuiMenuManager;
 import com.censkh.hiest.gun.Gun;
 import com.censkh.hiest.gun.GunManager;
 import com.censkh.hiest.gun.GunStack;
 import com.censkh.hiest.gun.GunState;
-import com.censkh.hiest.throwable.Throwable;
 import com.censkh.hiest.throwable.ThrowableManager;
 
 public class Hiest extends JavaPlugin {
@@ -25,6 +27,7 @@ public class Hiest extends JavaPlugin {
 	public void onEnable() {
 		new ThrowableManager();
 		new GunManager();
+		new GuiMenuManager();
 		EventListener.createListeners();
 		getServer().getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
 			@Override
@@ -74,17 +77,19 @@ public class Hiest extends JavaPlugin {
 				}
 			}
 		}, 1l, 1l);
-		for (Player player : Bukkit.getOnlinePlayers()) {
-			for (Gun gun : GunManager.getInstance().getGuns())
-				player.getInventory().addItem(gun.getStack());
-			for (Throwable throwable : ThrowableManager.getInstance().getThrowables())
-				player.getInventory().addItem(throwable.getStack(20));
-		}
 	}
 
 	@Override
 	public void onDisable() {
+	}
 
+	@Override
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+		if (sender instanceof Player && cmd.getName().equalsIgnoreCase("admin")) {
+			GuiMenuManager.getInstance().GUN.open((Player) sender);
+			return true;
+		}
+		return false;
 	}
 
 }
