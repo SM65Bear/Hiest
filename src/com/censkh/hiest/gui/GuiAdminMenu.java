@@ -46,7 +46,7 @@ public class GuiAdminMenu extends GuiMenu {
 
 			}
 		});
-		icons.add(new GuiIcon("Spawn Battle Items", new ItemStack(Material.GOLDEN_APPLE),5) {
+		icons.add(new GuiIcon("Spawn Battle Items", new ItemStack(Material.GOLDEN_APPLE),6) {
 
 			@Override
 			public void run(Player player) {
