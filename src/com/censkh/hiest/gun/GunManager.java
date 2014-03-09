@@ -74,6 +74,7 @@ public class GunManager {
 				setDamage(3d);
 				setReloadTime(2 * 20);
 				setRateOfFire(2);
+				setType(GunType.ASSULT);
 			}
 		}));
 		addGun(new Gun("P250", new ItemStack(Material.IRON_HOE), new GunData() {
@@ -87,6 +88,7 @@ public class GunManager {
 				setDamage(3d);
 				setReloadTime(20);
 				setRateOfFire(3);
+				setType(GunType.HANDGUN);
 			}
 		}));
 		addGun(new Gun("Intervention", new ItemStack(Material.WOOD_HOE), new GunData() {
@@ -101,9 +103,10 @@ public class GunManager {
 				setRateOfFire(25);
 				setZoomModifier(6f);
 				setReloadTime(2 * 20);
+				setType(GunType.SNIPER);
 			}
 		}));
-		addGun(new Gun("Golden Magnum Lolly", new ItemStack(Material.GOLD_HOE), new GunData() {
+		addGun(new Gun("Golden Magnum", new ItemStack(Material.GOLD_HOE), new GunData() {
 			{
 				setRarity(ItemRarity.ELITE);
 				setAmmo(Ammo.AMMO_9MM);
@@ -127,6 +130,7 @@ public class GunManager {
 				setReloadTime(6 * 20);
 				setDamage(25d);
 				setAccuracy(0.01f);
+				setType(GunType.HEAVY);
 			}
 		}));
 		addGun(new Gun("Uzi", new ItemStack(Material.STONE_SPADE), new GunData() {
