@@ -78,8 +78,13 @@ public abstract class GuiMenu extends EventListener {
 		}
 	}
 
-	public GuiIcon getIcon(int i) {
-		return getIcons().get(i);
+	public GuiIcon getIcon(int slot) {
+		for (GuiIcon icon : getIcons()) {
+			if (icon.getSlot()==slot) {
+				return icon;
+			}
+		}
+		return null;
 	}
 
 }
