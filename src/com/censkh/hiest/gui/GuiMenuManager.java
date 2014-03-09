@@ -19,6 +19,7 @@ public class GuiMenuManager {
 	private final List<GuiMenu> menus = new ArrayList<GuiMenu>();
 
 	public final GunTypeMenu GUN_TYPE = (GunTypeMenu) addMenu(new GunTypeMenu());
+	public final GuiItemGive ITEMS = (GuiItemGive) addMenu(new GuiItemGive());
 	public final GuiAdminMenu ADMIN = (GuiAdminMenu) addMenu(new GuiAdminMenu());
 
 	public GuiMenuManager() {

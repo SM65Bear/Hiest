@@ -46,6 +46,14 @@ public class GuiAdminMenu extends GuiMenu {
 
 			}
 		});
+		icons.add(new GuiIcon("Spawn Battle Items", new ItemStack(Material.SKULL_ITEM),5) {
+
+			@Override
+			public void run(Player player) {
+				GuiMenuManager.getInstance().ITEMS.open(player);
+
+			}
+		});
 		return icons;
 	}
 
