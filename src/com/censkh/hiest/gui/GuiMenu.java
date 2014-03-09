@@ -11,7 +11,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 
-import com.censkh.hiest.event.EventListener;
+import com.censkh.hiest.listener.EventListener;
 
 public abstract class GuiMenu extends EventListener {
 

@@ -1,4 +1,4 @@
-package com.censkh.hiest.event;
+package com.censkh.hiest.listener;
 
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;

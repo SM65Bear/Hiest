@@ -1,4 +1,4 @@
-package com.censkh.hiest.event;
+package com.censkh.hiest.listener;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;

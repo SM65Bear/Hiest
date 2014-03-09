@@ -1,6 +1,7 @@
 name: Hiest
 version: 0.0.1
 main: com.censkh.hiest.Hiest
+depend: [WorldGuard]
 
 commands:
  admin:

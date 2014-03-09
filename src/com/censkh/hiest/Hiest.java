@@ -14,12 +14,14 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.censkh.hiest.event.EventListener;
+import com.censkh.hiest.event.EventBlockManager;
 import com.censkh.hiest.gui.GuiMenuManager;
 import com.censkh.hiest.gun.Gun;
 import com.censkh.hiest.gun.GunManager;
 import com.censkh.hiest.gun.GunStack;
 import com.censkh.hiest.gun.GunState;
+import com.censkh.hiest.instance.InstanceManager;
+import com.censkh.hiest.listener.EventListener;
 import com.censkh.hiest.throwable.ThrowableManager;
 
 public class Hiest extends JavaPlugin {
@@ -28,6 +30,8 @@ public class Hiest extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
+		new InstanceManager();
+		new EventBlockManager();
 		new ThrowableManager();
 		new GunManager();
 		new GuiMenuManager();

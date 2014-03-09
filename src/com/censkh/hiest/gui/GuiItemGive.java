@@ -3,7 +3,6 @@ package com.censkh.hiest.gui;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -11,15 +10,12 @@ import org.bukkit.inventory.ItemStack;
 public class GuiItemGive extends GuiMenu {
 
 	public GuiItemGive() {
-		super("" + ChatColor.WHITE + "The Hiest " + ChatColor.AQUA + "$" + ChatColor.YELLOW + " [Items]");
+		super("Items");
 	}
 
 	@Override
 	public List<GuiIcon> initIcons() {
 		List<GuiIcon> icons = new ArrayList<GuiIcon>();
-		
-		
-		
 		icons.add(new GuiIcon("Gapple", new ItemStack(Material.GOLDEN_APPLE),2) {
 
 			@Override

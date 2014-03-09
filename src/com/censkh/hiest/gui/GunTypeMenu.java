@@ -3,7 +3,6 @@ package com.censkh.hiest.gui;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -12,7 +11,7 @@ import com.censkh.hiest.gun.ItemType;
 public class GunTypeMenu extends GuiMenu {
 
 	public GunTypeMenu() {
-		super(""+ ChatColor.WHITE + "The Hiest " + ChatColor.AQUA + "$" + ChatColor.YELLOW + " [Guns]");
+		super("Guns");
 	}
 
 	@Override

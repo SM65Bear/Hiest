@@ -106,7 +106,7 @@ public class GunManager {
 				setAccuracy(0.3f);
 				setDamage(6d);
 				setRateOfFire(25);
-				setZoomModifier(6f);
+				setZoomModifier(4f);
 				setReloadTime(2 * 20);
 				setType(ItemType.SNIPER);
 			}

@@ -1,12 +1,9 @@
-package com.censkh.hiest.event;
+package com.censkh.hiest.listener;
 
 import org.bukkit.Effect;
 import org.bukkit.Material;
-import org.bukkit.Sound;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
-import org.bukkit.entity.Projectile;
 import org.bukkit.entity.WitherSkull;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.CreatureSpawnEvent;
@@ -36,10 +33,6 @@ public class EntityEventListener extends EventListener {
 				damager.remove();
 				if (event.getEntity() instanceof LivingEntity) {
 					((LivingEntity) event.getEntity()).setNoDamageTicks(0);
-				}
-				Projectile p = (Projectile) damager;
-				if (p.getShooter()!=null) {
-					((Player) p.getShooter()).playSound(event.getEntity().getLocation(), Sound.SUCCESSFUL_HIT, 2f, 1f);
 				}
 			}
 		}
