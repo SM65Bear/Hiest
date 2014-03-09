@@ -14,9 +14,8 @@ public class GuiMenuManager {
 	private static GuiMenuManager instance;
 	private final List<GuiMenu> menus = new ArrayList<GuiMenu>();
 
-	public final GuiGunMenu GUN = (GuiGunMenu) addMenu(new GuiGunMenu());
-	public final GunTypeMenu ADMIN = (GunTypeMenu) addMenu(new GunTypeMenu());
-	public final GuiAdminMenu PANEL = (GuiAdminMenu) addMenu(new GuiAdminMenu());
+	public final GunTypeMenu GUN_TYPE = (GunTypeMenu) addMenu(new GunTypeMenu());
+	public final GuiAdminMenu ADMIN = (GuiAdminMenu) addMenu(new GuiAdminMenu());
 
 	public GuiMenuManager() {
 		instance = this;
