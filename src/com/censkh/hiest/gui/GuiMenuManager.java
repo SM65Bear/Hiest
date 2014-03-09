@@ -3,7 +3,9 @@ package com.censkh.hiest.gui;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 import com.censkh.hiest.gun.Gun;
 import com.censkh.hiest.gun.GunManager;
@@ -39,8 +41,8 @@ public class GuiMenuManager {
 									player.getInventory().addItem(gun.getStack());
 								}
 							});
+							i++;
 						}
-						i++;
 					}
 					for (Throwable t : ThrowableManager.getInstance().getThrowables()) {
 						final Throwable throwable = t;
@@ -52,9 +54,16 @@ public class GuiMenuManager {
 									player.getInventory().addItem(throwable.getStack());
 								}
 							});
+							i++;
 						}
-						i++;
 					}
+					icons.add(new GuiIcon("Back",new ItemStack(Material.ARROW),(9*6)-1) {
+						
+						@Override
+						public void run(Player player) {
+							GuiMenuManager.getInstance().GUN_TYPE.open(player);
+						}
+					});
 					return icons;
 				}
 
