@@ -18,7 +18,7 @@ public class GunData {
 	private int rateOfFire = 4;
 	private float zoomModifier = 1.5f;
 	private Ammo ammo = Ammo.AMMO_556;
-	private GunType type = GunType.ASSULT;
+	private GunType type = GunType.ASSAULT;
 	private ItemRarity rarity = ItemRarity.BASIC;
 	private SoundData shootSound = new SoundData(Sound.EXPLODE,2f,3f);
 
