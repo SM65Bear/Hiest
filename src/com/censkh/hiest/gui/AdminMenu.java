@@ -7,8 +7,6 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import com.censkh.hiest.gun.Gun;
-import com.censkh.hiest.gun.GunManager;
 import com.censkh.hiest.gun.GunType;
 
 public class AdminMenu extends GuiMenu {
