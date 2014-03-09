@@ -43,7 +43,10 @@ public class EntityEventListener extends EventListener {
 			}
 		}
 		if (event.getEntity() instanceof Projectile) {
-			Projectile p = ()
+			Projectile p = (Projectile) event.getEntity();
+			if (p.getShooter()!=null) {
+				if (p.get)
+			}
 		}
 	}
 
