@@ -3,7 +3,7 @@ package com.censkh.hiest.gun;
 import org.bukkit.Material;
 
 public enum GunType {
-	HEAVY("Heavy Machine Gun",Material.WOOD_PICKAXE), LIGHT("Light Machine Gun", Material.STONE_SPADE), ASSAULT("Assault",Material.WOOD_SPADE), SNIPER("Sniper",Material.WOOD_HOE), HANDGUN("Handgun",Material.IRON_HOE), SHOTGUNS("Shotguns", Material.WOOD_PICKAXE), EXPLOSIVES("Explosives", Material.NETHER_BRICK_ITEM);
+	HEAVY("Heavy Machine Gun",Material.GOLD_SPADE), LIGHT("Light Machine Gun", Material.STONE_SPADE), ASSAULT("Assault",Material.WOOD_SPADE), SNIPER("Sniper",Material.WOOD_HOE), HANDGUN("Handgun",Material.IRON_HOE), SHOTGUNS("Shotguns", Material.WOOD_PICKAXE), EXPLOSIVES("Explosives", Material.NETHER_BRICK_ITEM);
 	
 	private final String name;
 	private final Material type;
