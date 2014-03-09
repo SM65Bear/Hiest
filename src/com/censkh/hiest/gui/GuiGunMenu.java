@@ -8,9 +8,9 @@ import org.bukkit.entity.Player;
 import com.censkh.hiest.gun.Gun;
 import com.censkh.hiest.gun.GunManager;
 
-public class GunMenu extends GuiMenu {
+public class GuiGunMenu extends GuiMenu {
 
-	public GunMenu() {
+	public GuiGunMenu() {
 		super("Guns");
 	}
 
