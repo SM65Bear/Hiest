@@ -49,7 +49,7 @@ public class GunManager {
 		}));
 		addGun(new Gun("Scar-H", new ItemStack(Material.GOLD_AXE), new GunData() {
 			{
-				setShootSound(new SoundData(Sound.ITEM_BREAK, 2f, 1.5f));
+				setShootSound(new SoundData(Sound.EXPLODE, 2f, 1.5f));
 				setRarity(ItemRarity.ELITE);
 				setAmmo(Ammo.AMMO_9MM);
 				setRecoil(1f);
@@ -66,7 +66,7 @@ public class GunManager {
 		}));
 		addGun(new Gun("Ak47", new ItemStack(Material.WOOD_SPADE), new GunData() {
 			{
-				setShootSound(new SoundData(Sound.ITEM_BREAK, 2f, 2f));
+				setShootSound(new SoundData(Sound.EXPLODE, 2f, 2f));
 				setRarity(ItemRarity.RARE);
 				setAmmo(Ammo.AMMO_556);
 				setRecoil(1f);
@@ -82,6 +82,7 @@ public class GunManager {
 		}));
 		addGun(new Gun("P250", new ItemStack(Material.IRON_HOE), new GunData() {
 			{
+				setShootSound(new SoundData(Sound.ITEM_BREAK, 2f, 2f));
 				setAmmo(Ammo.AMMO_556);
 				setRecoil(1f);
 				setZoom(2);
@@ -96,6 +97,7 @@ public class GunManager {
 		}));
 		addGun(new Gun("Intervention", new ItemStack(Material.WOOD_HOE), new GunData() {
 			{
+				setShootSound(new SoundData(Sound.BLAZE_DEATH, 2f, 1.5f));
 				setRarity(ItemRarity.ELITE);
 				setAmmo(Ammo.AMMO_M2100);
 				setRecoil(1f);
@@ -139,7 +141,7 @@ public class GunManager {
 		}));
 		addGun(new Gun("Uzi", new ItemStack(Material.STONE_SPADE), new GunData() {
 			{
-				setShootSound(new SoundData(Sound.BLAZE_HIT, 2f, 1.5f));
+				setShootSound(new SoundData(Sound.CLICK, 2f, 1.5f));
 				setAmmo(Ammo.AMMO_9MM);
 				setRecoil(1f);
 				setZoom(3);
