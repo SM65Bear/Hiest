@@ -89,7 +89,7 @@ public class Hiest extends JavaPlugin {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (sender instanceof Player && cmd.getName().equalsIgnoreCase("admin")) {
-			GuiMenuManager.getInstance().GUN.open((Player) sender);
+			GuiMenuManager.getInstance().ADMIN.open((Player) sender);
 			return true;
 		}
 		return false;

@@ -21,11 +21,11 @@ public class AdminMenu extends GuiMenu {
 		for (GunType t: GunType.values()){
 			final GunType type = t;
 			
-			icons.add(new GuiIcon(type.name(), new ItemStack(Material.GOLD_AXE)) {
+			icons.add(new GuiIcon(type.getName(), new ItemStack(Material.GOLD_AXE)) {
 				
 				@Override
 				public void run(Player player) {
-					GuiMenuManager.getInstance().getMenu(type.name()).open(player);
+					GuiMenuManager.getInstance().getMenu(type.getName()).open(player);
 					
 				}
 			});

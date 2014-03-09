@@ -15,12 +15,13 @@ public class GuiMenuManager {
 	private final List<GuiMenu> menus = new ArrayList<GuiMenu>();
 
 	public final GunMenu GUN = (GunMenu) addMenu(new GunMenu());
+	public final AdminMenu ADMIN = (AdminMenu) addMenu(new AdminMenu());
 
 	public GuiMenuManager() {
 		instance = this;
 		for (GunType t : GunType.values()) {
 			final GunType type = t; 
-			addMenu(new GuiMenu(type.name()) {
+			addMenu(new GuiMenu(type.getName()) {
 				
 				@Override
 				public List<GuiIcon> initIcons() {
