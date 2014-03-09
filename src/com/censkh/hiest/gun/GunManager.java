@@ -43,6 +43,19 @@ public class GunManager {
 				setRateOfFire(8);
 			}
 		}));
+		addGun(new Gun("Scar-H", new ItemStack(Material.GOLD_AXE), new GunData() {
+			{
+				setAmmo(Ammo.AMMO_9MM);
+				setRecoil(1f);
+				setZoom(2);
+				setMagazineSize(30);
+				setAccuracy(0.15f);
+				setBurst(1);
+				setDamage(2.5d);
+				setReloadTime(3 * 20);
+				setRateOfFire(4);
+			}
+		}));
 		addGun(new Gun("Intervention", new ItemStack(Material.WOOD_HOE), new GunData() {
 			{
 				setAmmo(Ammo.AMMO_M2100);
