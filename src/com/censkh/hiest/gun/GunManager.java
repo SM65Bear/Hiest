@@ -74,7 +74,7 @@ public class GunManager {
 				setDamage(3d);
 				setReloadTime(2 * 20);
 				setRateOfFire(2);
-				setType(GunType.ASSULT);
+				setType(GunType.ASSAULT);
 			}
 		}));
 		addGun(new Gun("P250", new ItemStack(Material.IRON_HOE), new GunData() {

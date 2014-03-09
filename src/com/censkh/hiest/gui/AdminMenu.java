@@ -3,7 +3,6 @@ package com.censkh.hiest.gui;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -21,7 +20,7 @@ public class AdminMenu extends GuiMenu {
 		for (GunType t: GunType.values()){
 			final GunType type = t;
 			
-			icons.add(new GuiIcon(type.getName(), new ItemStack(Material.GOLD_AXE)) {
+			icons.add(new GuiIcon(type.getName(), new ItemStack(type.getType())) {
 				
 				@Override
 				public void run(Player player) {
