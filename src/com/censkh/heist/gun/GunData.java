@@ -34,6 +34,7 @@ public class GunData {
 				p + "Zoom Level: " + (getZoom()+1),
 				p + "Mag Size: " + getMagazineSize(),
 				p + "Accuracy: " + (100-(int)(100f*getAccuracy())) + "%",
+				p + "Aimed In Accuracy: " + (100-(int)(100f*(getAccuracy()/getZoomModifier()))) + "%",
 				p + "Burst: " + getBurst(),
 				p + "Rate of Fire: " + (20f/(float)getRateOfFire()) + "/s");
 	}
