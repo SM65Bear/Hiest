@@ -30,6 +30,7 @@ public class GunManager {
 				setDamage(4d);
 				setAccuracy(0.15f);
 				setRateOfFire(4);
+				setType(GunType.ASSAULT);
 			}
 		}));
 		addGun(new Gun("M3", new ItemStack(Material.WOOD_PICKAXE), new GunData() {
@@ -43,6 +44,7 @@ public class GunManager {
 				setDamage(3d);
 				setReloadTime(3 * 18);
 				setRateOfFire(8);
+				setType(GunType.SHOTGUNS);
 			}
 		}));
 		addGun(new Gun("Scar-H", new ItemStack(Material.GOLD_AXE), new GunData() {
@@ -59,6 +61,7 @@ public class GunManager {
 				setReloadTime(3 * 20);
 				setRateOfFire(4);
 				setZoomModifier(2f);
+				setType(GunType.ASSAULT);
 			}
 		}));
 		addGun(new Gun("Ak47", new ItemStack(Material.WOOD_SPADE), new GunData() {
@@ -117,6 +120,7 @@ public class GunManager {
 				setDamage(6d);
 				setRateOfFire(20);
 				setReloadTime(3 * 20);
+				setType(GunType.HANDGUN);
 			}
 		}));
 		addGun(new Gun("RPG", new ItemStack(Material.GOLD_SPADE), new GunData() {
@@ -145,6 +149,7 @@ public class GunManager {
 				setBurst(2);
 				setDamage(2d);
 				setAccuracy(0.3f);
+				setType(GunType.LIGHT);
 			}
 
 			@Override
