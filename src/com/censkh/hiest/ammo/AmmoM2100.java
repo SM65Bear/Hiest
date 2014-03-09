@@ -21,11 +21,10 @@ public class AmmoM2100 extends Ammo {
 	public double getTravelSpeed() {
 		return 6d;
 	}
-	
+
 	@Override
 	public int getLifetime() {
 		return 60;
 	}
-	
 
 }

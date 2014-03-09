@@ -26,6 +26,5 @@ public class Ammo9MM extends Ammo {
 	public int getLifetime() {
 		return 5;
 	}
-	
 
 }

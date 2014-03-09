@@ -12,13 +12,13 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 public abstract class Throwable {
-	
+
 	private final ItemStack stack;
-	
+
 	public Throwable() {
 		this.stack = bake(createStack());
 	}
-	
+
 	private ItemStack bake(ItemStack stack) {
 		ItemMeta meta = stack.getItemMeta();
 		meta.setDisplayName(ChatColor.GREEN + getName());
@@ -28,11 +28,15 @@ public abstract class Throwable {
 	}
 
 	public abstract int getLifetime();
+
 	public abstract void onRemoved(Location location);
+
 	public abstract ItemStack createStack();
+
 	public abstract String getName();
+
 	public abstract float getSpeedMultiplier();
-	
+
 	public void shoot(LivingEntity entity) {
 		Projectile p = entity.launchProjectile(Snowball.class);
 		Item item = entity.getWorld().dropItem(entity.getLocation(), getStack(64));
@@ -41,7 +45,7 @@ public abstract class Throwable {
 		p.remove();
 		ThrowableManager.getInstance().add(item);
 	}
-	
+
 	public boolean isStack(ItemStack item) {
 		ItemMeta meta = item.getItemMeta();
 		if (meta.hasLore()) {
@@ -61,5 +65,5 @@ public abstract class Throwable {
 		clone.setAmount(i);
 		return clone;
 	}
-	
+
 }

@@ -15,8 +15,8 @@ import com.censkh.hiest.gun.GunStack;
 import com.censkh.hiest.throwable.Throwable;
 import com.censkh.hiest.throwable.ThrowableManager;
 
-public class PlayerEventListener extends EventListener  {
-	
+public class PlayerEventListener extends EventListener {
+
 	@EventHandler
 	public void onPlayerDropItemEvent(PlayerDropItemEvent event) {
 		Gun gun = GunManager.getInstance().getGun(event.getItemDrop().getItemStack());
@@ -41,9 +41,9 @@ public class PlayerEventListener extends EventListener  {
 	@EventHandler
 	public void onPlayerToggleSneakEvent(PlayerToggleSneakEvent event) {
 		if (event.getPlayer().isSneaking()) {
-			if (event.getPlayer().getItemInHand()!=null) {
+			if (event.getPlayer().getItemInHand() != null) {
 				Gun gun = GunManager.getInstance().getGun(event.getPlayer().getItemInHand());
-				if (gun!=null) {
+				if (gun != null) {
 					GunStack stack = new GunStack(event.getPlayer().getItemInHand());
 					gun.getData().useSecondary(event.getPlayer(), stack);
 				}
@@ -78,5 +78,5 @@ public class PlayerEventListener extends EventListener  {
 			}
 		}
 	}
-	
+
 }

@@ -8,7 +8,7 @@ public class FragGrenade extends Throwable {
 
 	@Override
 	public int getLifetime() {
-		return 20*4;
+		return 20 * 4;
 	}
 
 	@Override
@@ -30,7 +30,5 @@ public class FragGrenade extends Throwable {
 	public float getSpeedMultiplier() {
 		return 3f;
 	}
-	
-	
-	
+
 }

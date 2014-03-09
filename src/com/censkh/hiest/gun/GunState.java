@@ -1,7 +1,7 @@
 package com.censkh.hiest.gun;
 
 public enum GunState {
-	LOADED,EMPTY,RELOADING;
+	LOADED, EMPTY, RELOADING;
 
 	public static GunState getState(String string) {
 		for (GunState state : values()) {

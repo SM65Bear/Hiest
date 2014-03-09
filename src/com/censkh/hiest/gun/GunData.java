@@ -4,7 +4,6 @@ import org.bukkit.entity.Player;
 
 import com.censkh.hiest.ammo.Ammo;
 
-
 public class GunData {
 
 	private float recoil = 1f;
@@ -13,7 +12,7 @@ public class GunData {
 	private double damage = 3.5;
 	private float accuracy = 0.1f;
 	private int burst = 1;
-	private int reloadTime = 2*20;
+	private int reloadTime = 2 * 20;
 	private int rateOfFire = 4;
 	private float zoomModifier = 1.5f;
 	private Ammo ammo = Ammo.AMMO_556;
@@ -89,9 +88,9 @@ public class GunData {
 	public void setZoomModifier(float zoomModifier) {
 		this.zoomModifier = zoomModifier;
 	}
-	
+
 	public void useSecondary(Player player, GunStack stack) {
-		
+
 	}
 
 	public Ammo getAmmo() {
@@ -101,5 +100,5 @@ public class GunData {
 	public void setAmmo(Ammo ammo) {
 		this.ammo = ammo;
 	}
-	
+
 }

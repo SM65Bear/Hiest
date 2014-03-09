@@ -1,5 +1,10 @@
 package com.censkh.hiest.throwable;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.bukkit.entity.Item;
+import org.bukkit.inventory.ItemStack;
 
 public class ThrowableManager {
 
@@ -61,7 +66,7 @@ public class ThrowableManager {
 		List<Item> removeList = new ArrayList<Item>();
 		for (Item item : getItems()) {
 			item.setPickupDelay(5);
-			if (item.getTicksLived()>=getThrowable(item.getItemStack()).getLifetime()) {
+			if (item.getTicksLived() >= getThrowable(item.getItemStack()).getLifetime()) {
 				removeList.add(item);
 			}
 		}

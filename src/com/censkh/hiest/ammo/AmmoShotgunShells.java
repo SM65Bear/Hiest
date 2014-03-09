@@ -21,11 +21,10 @@ public class AmmoShotgunShells extends Ammo {
 	public double getTravelSpeed() {
 		return 4;
 	}
-	
+
 	@Override
 	public int getLifetime() {
 		return 10;
 	}
-	
 
 }

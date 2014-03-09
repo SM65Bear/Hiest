@@ -16,16 +16,15 @@ public class AmmoRocket extends Ammo {
 	public Class<? extends Projectile> getType() {
 		return WitherSkull.class;
 	}
-	
+
 	@Override
 	public double getTravelSpeed() {
 		return 5d;
 	}
-	
+
 	@Override
 	public int getLifetime() {
 		return 60;
 	}
-	
 
 }

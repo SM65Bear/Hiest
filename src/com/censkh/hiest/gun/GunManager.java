@@ -80,6 +80,7 @@ public class GunManager {
 				setDamage(2d);
 				setAccuracy(0.3f);
 			}
+
 			@Override
 			public void useSecondary(Player player, GunStack stack) {
 				player.sendMessage("hello world");

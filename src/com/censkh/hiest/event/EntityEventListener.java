@@ -18,7 +18,7 @@ import com.censkh.hiest.gun.Gun;
 import com.censkh.hiest.gun.GunManager;
 
 public class EntityEventListener extends EventListener {
-	
+
 	@SuppressWarnings("deprecation")
 	@EventHandler
 	public void onEntityDamageByEntityEvent(EntityDamageByEntityEvent event) {
@@ -42,12 +42,12 @@ public class EntityEventListener extends EventListener {
 			}
 		}
 	}
-	
+
 	@EventHandler
 	public void onEntityExplodeEvent(EntityExplodeEvent event) {
 		event.blockList().clear();
 	}
-	
+
 	@EventHandler
 	public void onProjectileHitEvent(ProjectileHitEvent event) {
 		if (event.getEntity() instanceof WitherSkull) {
@@ -62,5 +62,5 @@ public class EntityEventListener extends EventListener {
 			event.setCancelled(true);
 		}
 	}
-	
+
 }

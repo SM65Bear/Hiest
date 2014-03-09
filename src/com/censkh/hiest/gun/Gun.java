@@ -74,7 +74,7 @@ public class Gun {
 	public Vector calculateVelocity(Player player) {
 		float accuracy = player.isSneaking() ? 0f : getData().getAccuracy() / 3f;
 		if (GunManager.getInstance().isZoomed(player)) {
-			accuracy/=getData().getZoomModifier();
+			accuracy /= getData().getZoomModifier();
 		}
 		if (accuracy <= 0f) {
 			accuracy = 0.01f;

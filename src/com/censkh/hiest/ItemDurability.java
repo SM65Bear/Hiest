@@ -45,7 +45,7 @@ public class ItemDurability {
 	public static ItemStack setDurability(ItemStack stack, float d) {
 		int maxDur = getMaxDurability(stack.getType());
 		short dur = (short) (Math.floor(maxDur * d));
-		stack.setDurability((short) (maxDur-dur));
+		stack.setDurability((short) (maxDur - dur));
 		return stack;
 	}
 
