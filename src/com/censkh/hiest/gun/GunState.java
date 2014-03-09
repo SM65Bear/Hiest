@@ -1,4 +1,4 @@
-package com.censkh.hiest;
+package com.censkh.hiest.gun;
 
 public enum GunState {
 	LOADED,EMPTY,RELOADING;

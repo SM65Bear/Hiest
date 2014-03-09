@@ -1,4 +1,8 @@
-package com.censkh.hiest;
+package com.censkh.hiest.gun;
+
+import org.bukkit.entity.Player;
+
+import com.censkh.hiest.ammo.Ammo;
 
 
 public class GunData {
@@ -12,6 +16,7 @@ public class GunData {
 	private int reloadTime = 2*20;
 	private int rateOfFire = 4;
 	private float zoomModifier = 1.5f;
+	private Ammo ammo = Ammo.AMMO_556;
 
 	public float getRecoil() {
 		return recoil;
@@ -83,6 +88,18 @@ public class GunData {
 
 	public void setZoomModifier(float zoomModifier) {
 		this.zoomModifier = zoomModifier;
+	}
+	
+	public void useSecondary(Player player, GunStack stack) {
+		
+	}
+
+	public Ammo getAmmo() {
+		return ammo;
+	}
+
+	public void setAmmo(Ammo ammo) {
+		this.ammo = ammo;
 	}
 	
 }

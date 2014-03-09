@@ -1,4 +1,4 @@
-package com.censkh.hiest;
+package com.censkh.hiest.ammo;
 
 import org.bukkit.entity.Projectile;
 import org.bukkit.inventory.ItemStack;

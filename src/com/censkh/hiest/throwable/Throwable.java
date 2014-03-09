@@ -1,4 +1,4 @@
-package com.censkh.hiest;
+package com.censkh.hiest.throwable;
 
 import java.util.Arrays;
 

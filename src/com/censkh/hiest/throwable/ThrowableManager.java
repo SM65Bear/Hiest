@@ -1,10 +1,5 @@
-package com.censkh.hiest;
+package com.censkh.hiest.throwable;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.bukkit.entity.Item;
-import org.bukkit.inventory.ItemStack;
 
 public class ThrowableManager {
 

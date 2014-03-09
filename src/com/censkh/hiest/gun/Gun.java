@@ -1,12 +1,12 @@
-package com.censkh.hiest;
+package com.censkh.hiest.gun;
 
 import java.util.Random;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Sound;
-import org.bukkit.entity.Player;
 import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -15,18 +15,18 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.util.Vector;
 
+import com.censkh.hiest.Hiest;
+
 public class Gun {
 
 	private final ItemStack stack;
-	private final Ammo ammo;
 	private final GunData data;
 	private final String name;
 	public final Random random = new Random();
 
-	public Gun(String name, ItemStack stack, Ammo ammo, GunData data) {
+	public Gun(String name, ItemStack stack, GunData data) {
 		this.name = name;
 		this.stack = stack;
-		this.ammo = ammo;
 		this.data = data;
 	}
 
@@ -38,7 +38,7 @@ public class Gun {
 		GunStack gunStack = new GunStack(stack);
 		if (gunStack.canFire(player)) {
 			for (int i = 0; i < getData().getBurst(); i++) {
-				Projectile projectile = player.launchProjectile(getAmmo().getType());
+				Projectile projectile = player.launchProjectile(getData().getAmmo().getType());
 				projectile.setMetadata("gun", new FixedMetadataValue(Hiest.getPlugin(Hiest.class), getName()));
 				projectile.setMetadata("zoomed", new FixedMetadataValue(Hiest.getPlugin(Hiest.class), GunManager.getInstance().isZoomed(player)));
 				Vector velocity = calculateVelocity(player);
@@ -71,10 +71,6 @@ public class Gun {
 		return stack.write();
 	}
 
-	public Ammo getAmmo() {
-		return ammo;
-	}
-
 	public Vector calculateVelocity(Player player) {
 		float accuracy = player.isSneaking() ? 0f : getData().getAccuracy() / 3f;
 		if (GunManager.getInstance().isZoomed(player)) {
@@ -95,7 +91,7 @@ public class Gun {
 		double yd = Math.sin(Math.toRadians(pitch)) + ywep;
 		double zd = -Math.sin(Math.toRadians(dir)) * Math.cos(Math.toRadians(pitch)) + zwep;
 		Vector vec = new Vector(xd, yd, zd);
-		return vec.multiply(getAmmo().getTravelSpeed());
+		return vec.multiply(getData().getAmmo().getTravelSpeed());
 	}
 
 	public GunData getData() {

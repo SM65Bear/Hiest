@@ -1,4 +1,4 @@
-package com.censkh.hiest;
+package com.censkh.hiest.gun;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,6 +7,8 @@ import java.util.List;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+
+import com.censkh.hiest.ammo.Ammo;
 
 public class GunManager {
 
@@ -17,8 +19,9 @@ public class GunManager {
 
 	public GunManager() {
 		instance = this;
-		addGun(new Gun("M4", new ItemStack(Material.DIAMOND_SPADE), Ammo.AMMO_556, new GunData() {
+		addGun(new Gun("M4", new ItemStack(Material.DIAMOND_SPADE), new GunData() {
 			{
+				setAmmo(Ammo.AMMO_556);
 				setRecoil(1f);
 				setZoom(2);
 				setMagazineSize(60);
@@ -27,8 +30,9 @@ public class GunManager {
 				setRateOfFire(4);
 			}
 		}));
-		addGun(new Gun("M3", new ItemStack(Material.WOOD_PICKAXE), Ammo.AMMO_SHOTGUN_SHELLS, new GunData() {
+		addGun(new Gun("M3", new ItemStack(Material.WOOD_PICKAXE), new GunData() {
 			{
+				setAmmo(Ammo.AMMO_SHOTGUN_SHELLS);
 				setRecoil(1f);
 				setZoom(0);
 				setMagazineSize(20);
@@ -39,8 +43,9 @@ public class GunManager {
 				setRateOfFire(8);
 			}
 		}));
-		addGun(new Gun("Intervention", new ItemStack(Material.WOOD_HOE), Ammo.AMMO_M2100, new GunData() {
+		addGun(new Gun("Intervention", new ItemStack(Material.WOOD_HOE), new GunData() {
 			{
+				setAmmo(Ammo.AMMO_M2100);
 				setRecoil(1f);
 				setZoom(7);
 				setMagazineSize(6);
@@ -48,11 +53,12 @@ public class GunManager {
 				setDamage(6d);
 				setRateOfFire(25);
 				setZoomModifier(6f);
-				setReloadTime(2*20);
+				setReloadTime(2 * 20);
 			}
 		}));
-		addGun(new Gun("RPG", new ItemStack(Material.GOLD_HOE), Ammo.AMMO_ROCKET, new GunData() {
+		addGun(new Gun("RPG", new ItemStack(Material.GOLD_HOE), new GunData() {
 			{
+				setAmmo(Ammo.AMMO_ROCKET);
 				setRecoil(1f);
 				setZoom(3);
 				setMagazineSize(2);
@@ -62,16 +68,21 @@ public class GunManager {
 				setAccuracy(0.01f);
 			}
 		}));
-		addGun(new Gun("Uzi", new ItemStack(Material.STONE_SPADE), Ammo.AMMO_9MM, new GunData() {
+		addGun(new Gun("Uzi", new ItemStack(Material.STONE_SPADE), new GunData() {
 			{
+				setAmmo(Ammo.AMMO_9MM);
 				setRecoil(1f);
 				setZoom(3);
 				setMagazineSize(90);
 				setRateOfFire(2);
-				setReloadTime(4*20);
+				setReloadTime(4 * 20);
 				setBurst(1);
 				setDamage(2d);
 				setAccuracy(0.3f);
+			}
+			@Override
+			public void useSecondary(Player player, GunStack stack) {
+				player.sendMessage("hello world");
 			}
 		}));
 	}

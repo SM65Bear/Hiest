@@ -1,4 +1,4 @@
-package com.censkh.hiest;
+package com.censkh.hiest.gun;
 
 import java.util.Arrays;
 import java.util.List;
@@ -7,6 +7,8 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+
+import com.censkh.hiest.ItemDurability;
 
 public class GunStack {
 
