@@ -24,7 +24,7 @@ import com.censkh.heist.instance.InstanceManager;
 import com.censkh.heist.listener.EventListener;
 import com.censkh.heist.throwable.ThrowableManager;
 
-public class Hiest extends JavaPlugin {
+public class Heist extends JavaPlugin {
 
 	private final Random random = new Random();
 

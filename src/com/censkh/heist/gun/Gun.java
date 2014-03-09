@@ -15,7 +15,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.util.Vector;
 
-import com.censkh.heist.Hiest;
+import com.censkh.heist.Heist;
 
 public class Gun {
 
@@ -39,8 +39,8 @@ public class Gun {
 		if (gunStack.canFire(player)) {
 			for (int i = 0; i < getData().getBurst(); i++) {
 				Projectile projectile = player.launchProjectile(getData().getAmmo().getType());
-				projectile.setMetadata("gun", new FixedMetadataValue(Hiest.getPlugin(Hiest.class), getName()));
-				projectile.setMetadata("zoomed", new FixedMetadataValue(Hiest.getPlugin(Hiest.class), GunManager.getInstance().isZoomed(player)));
+				projectile.setMetadata("gun", new FixedMetadataValue(Heist.getPlugin(Heist.class), getName()));
+				projectile.setMetadata("zoomed", new FixedMetadataValue(Heist.getPlugin(Heist.class), GunManager.getInstance().isZoomed(player)));
 				Vector velocity = calculateVelocity(player);
 				projectile.setVelocity(velocity);
 				getData().getShootSound().play(player.getLocation());

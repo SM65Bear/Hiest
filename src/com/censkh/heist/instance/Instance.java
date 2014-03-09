@@ -81,7 +81,8 @@ public class Instance extends EventListener {
 			return;
 		}
 		// ProtectedRegion region =getRegion();
-		setFlag(DefaultFlag.GREET_MESSAGE, Node.INSTANCE_MESSAGE_COLOUR + "You have entered " + Node.INSTANCE_NAME_COLOUR + getName() + Node.INSTANCE_MESSAGE_COLOUR + ".");
+		setFlag(DefaultFlag.GREET_MESSAGE, Node.INSTANCE_MESSAGE_COLOUR + "You have entered " + Node.INSTANCE_NAME_COLOUR + getName() + Node.INSTANCE_MESSAGE_COLOUR + ", there is "
+				+ (isStarted() ? "a mission occuring" : "no mission going on") + ".");
 		setFlag(DefaultFlag.FAREWELL_MESSAGE, Node.INSTANCE_MESSAGE_COLOUR + "You have left " + Node.INSTANCE_NAME_COLOUR + getName() + Node.INSTANCE_MESSAGE_COLOUR + ".");
 	}
 

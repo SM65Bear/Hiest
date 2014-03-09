@@ -3,7 +3,7 @@ package com.censkh.heist.listener;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 
-import com.censkh.heist.Hiest;
+import com.censkh.heist.Heist;
 
 public abstract class EventListener implements Listener {
 
@@ -13,7 +13,7 @@ public abstract class EventListener implements Listener {
 	}
 
 	public EventListener() {
-		Bukkit.getPluginManager().registerEvents(this, Hiest.getPlugin(Hiest.class));
+		Bukkit.getPluginManager().registerEvents(this, Heist.getPlugin(Heist.class));
 	}
 
 }

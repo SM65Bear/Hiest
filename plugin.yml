@@ -1,6 +1,6 @@
-name: Hiest
+name: Heist
 version: 0.0.1
-main: com.censkh.hiest.Hiest
+main: com.censkh.heist.Heist
 depend: [WorldGuard]
 
 commands:
