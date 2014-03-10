@@ -112,7 +112,7 @@ public class GunStack {
 			setReloadCountdown(getGun().getData().getReloadTime() - (int) (getGun().getData().getReloadTime() * 0.5f * ((float) getLoadedBullets() / (float) getGun().getData().getMagazineSize())));
 			setState(GunState.RELOADING);
 		} else {
-			player.sendMessage(ChatColor.GRAY + "No mags found.");
+			player.sendMessage(ChatColor.GRAY + "No "+getGun().getData().getAmmo().getName()+" mags found.");
 		}
 		return this;
 	}
