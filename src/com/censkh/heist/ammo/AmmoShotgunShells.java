@@ -26,5 +26,10 @@ public class AmmoShotgunShells extends Ammo {
 	public int getLifetime() {
 		return 10;
 	}
+	
+	@Override
+	public String getName() {
+		return "Ammo Shotgun";
+	}
 
 }

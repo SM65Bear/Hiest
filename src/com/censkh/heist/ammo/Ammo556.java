@@ -27,4 +27,9 @@ public class Ammo556 extends Ammo {
 		return 15;
 	}
 
+	@Override
+	public String getName() {
+		return "Ammo 556";
+	}
+
 }

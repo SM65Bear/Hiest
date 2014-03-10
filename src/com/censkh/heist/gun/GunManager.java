@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import com.censkh.heist.SoundData;
-import com.censkh.heist.ammo.Ammo;
+import com.censkh.heist.ammo.AmmoManager;
 
 public class GunManager {
 
@@ -27,7 +27,7 @@ public class GunManager {
 		addGun(new Gun("M4", new ItemStack(Material.DIAMOND_SPADE), new GunData() {
 			{
 				setRarity(ItemRarity.BASIC);
-				setAmmo(Ammo.AMMO_556);
+				setAmmo(AmmoManager.getInstance().AMMO_556);
 				setRecoil(1f);
 				setZoom(2);
 				setMagazineSize(60);
@@ -41,7 +41,7 @@ public class GunManager {
 		addGun(new Gun("ACR", new ItemStack(Material.IRON_SPADE), new GunData() {
 			{
 				setRarity(ItemRarity.PERFECT);
-				setAmmo(Ammo.AMMO_556);
+				setAmmo(AmmoManager.getInstance().AMMO_556);
 				setRecoil(1f);
 				setZoom(2);
 				setMagazineSize(60);
@@ -56,7 +56,7 @@ public class GunManager {
 			{
 				setShootSound(new SoundData(Sound.EXPLODE, 2f, 2f));
 				setRarity(ItemRarity.RARE);
-				setAmmo(Ammo.AMMO_556);
+				setAmmo(AmmoManager.getInstance().AMMO_556);
 				setRecoil(1f);
 				setZoom(3);
 				setMagazineSize(28);
@@ -73,7 +73,7 @@ public class GunManager {
 			{
 				setShootSound(new SoundData(Sound.EXPLODE, 2f, 1.5f));
 				setRarity(ItemRarity.ELITE);
-				setAmmo(Ammo.AMMO_9MM);
+				setAmmo(AmmoManager.getInstance().AMMO_9MM);
 				setRecoil(1f);
 				setZoom(2);
 				setMagazineSize(30);
@@ -92,7 +92,7 @@ public class GunManager {
 		addGun(new Gun("M3", new ItemStack(Material.WOOD_PICKAXE), new GunData() {
 			{
 				setRarity(ItemRarity.RARE);
-				setAmmo(Ammo.AMMO_SHOTGUN_SHELLS);
+				setAmmo(AmmoManager.getInstance().AMMO_SHOTGUN_SHELLS);
 				setRecoil(1f);
 				setZoom(0);
 				setMagazineSize(20);
@@ -108,7 +108,7 @@ public class GunManager {
 		addGun(new Gun("M1014", new ItemStack(Material.SHEARS), new GunData() {
 			{
 				setRarity(ItemRarity.BASIC);
-				setAmmo(Ammo.AMMO_SHOTGUN_SHELLS);
+				setAmmo(AmmoManager.getInstance().AMMO_SHOTGUN_SHELLS);
 				setRecoil(1f);
 				setZoom(0);
 				setMagazineSize(20);
@@ -124,7 +124,7 @@ public class GunManager {
 		addGun(new Gun("Model 1887", new ItemStack(Material.DIAMOND_AXE), new GunData() {
 			{
 				setRarity(ItemRarity.BASIC);
-				setAmmo(Ammo.AMMO_SHOTGUN_SHELLS);
+				setAmmo(AmmoManager.getInstance().AMMO_SHOTGUN_SHELLS);
 				setRecoil(1f);
 				setZoom(0);
 				setMagazineSize(20);
@@ -140,7 +140,7 @@ public class GunManager {
 		addGun(new Gun("AA-12", new ItemStack(Material.DIAMOND_PICKAXE), new GunData() {
 			{
 				setRarity(ItemRarity.RARE);
-				setAmmo(Ammo.AMMO_SHOTGUN_SHELLS);
+				setAmmo(AmmoManager.getInstance().AMMO_SHOTGUN_SHELLS);
 				setRecoil(1f);
 				setZoom(0);
 				setMagazineSize(10);
@@ -158,7 +158,7 @@ public class GunManager {
 		addGun(new Gun("RPG", new ItemStack(Material.GOLD_SPADE), new GunData() {
 			{
 				setRarity(ItemRarity.RARE);
-				setAmmo(Ammo.AMMO_ROCKET);
+				setAmmo(AmmoManager.getInstance().AMMO_ROCKET);
 				setRecoil(1f);
 				setZoom(3);
 				setMagazineSize(2);
@@ -176,7 +176,7 @@ public class GunManager {
 			{
 				setShootSound(new SoundData(Sound.ITEM_BREAK, 2f, 2f));
 				setRarity(ItemRarity.RARE);
-				setAmmo(Ammo.AMMO_556);
+				setAmmo(AmmoManager.getInstance().AMMO_556);
 				setRecoil(1f);
 				setZoom(2);
 				setMagazineSize(16);
@@ -193,7 +193,7 @@ public class GunManager {
 			{
 				setShootSound(new SoundData(Sound.ITEM_BREAK, 2f, 2f));
 				setRarity(ItemRarity.BASIC);
-				setAmmo(Ammo.AMMO_556);
+				setAmmo(AmmoManager.getInstance().AMMO_556);
 				setRecoil(1f);
 				setZoom(2);
 				setMagazineSize(16);
@@ -210,7 +210,7 @@ public class GunManager {
 			{
 				setShootSound(new SoundData(Sound.ITEM_BREAK, 2f, 2f));
 				setRarity(ItemRarity.BASIC);
-				setAmmo(Ammo.AMMO_556);
+				setAmmo(AmmoManager.getInstance().AMMO_556);
 				setRecoil(1f);
 				setZoom(2);
 				setMagazineSize(16);
@@ -226,7 +226,7 @@ public class GunManager {
 		addGun(new Gun("Golden Magnum", new ItemStack(Material.GOLD_HOE), new GunData() {
 			{
 				setRarity(ItemRarity.ELITE);
-				setAmmo(Ammo.AMMO_9MM);
+				setAmmo(AmmoManager.getInstance().AMMO_9MM);
 				setRecoil(1f);
 				setZoom(2);
 				setMagazineSize(6);
@@ -243,7 +243,7 @@ public class GunManager {
 			{
 				setShootSound(new SoundData(Sound.EXPLODE, 2f, 1.5f));
 				setRarity(ItemRarity.ELITE);
-				setAmmo(Ammo.AMMO_M2100);
+				setAmmo(AmmoManager.getInstance().AMMO_M2100);
 				setRecoil(1f);
 				setZoom(7);
 				setMagazineSize(6);
@@ -260,7 +260,7 @@ public class GunManager {
 			{
 				setShootSound(new SoundData(Sound.EXPLODE, 2f, 1.5f));
 				setRarity(ItemRarity.BASIC);
-				setAmmo(Ammo.AMMO_M2100);
+				setAmmo(AmmoManager.getInstance().AMMO_M2100);
 				setRecoil(1f);
 				setZoom(7);
 				setMagazineSize(6);
@@ -273,11 +273,11 @@ public class GunManager {
 			}
 		}));
 
-		addGun(new Gun("M40A3", new ItemStack(Material.IRON_AXE), new GunData() {
+		addGun(new Gun("M40A3", new ItemStack(Material.STONE_PICKAXE), new GunData() {
 			{
 				setShootSound(new SoundData(Sound.EXPLODE, 2f, 1.5f));
 				setRarity(ItemRarity.PERFECT);
-				setAmmo(Ammo.AMMO_M2100);
+				setAmmo(AmmoManager.getInstance().AMMO_M2100);
 				setRecoil(1f);
 				setZoom(7);
 				setMagazineSize(6);
@@ -290,11 +290,11 @@ public class GunManager {
 			}
 		}));
 
-		addGun(new Gun("KALASHNIKOV", new ItemStack(Material.STONE_PICKAXE), new GunData() {
+		addGun(new Gun("KALASHNIKOV", new ItemStack(Material.IRON_AXE), new GunData() {
 			{
 				setShootSound(new SoundData(Sound.EXPLODE, 2f, 1.5f));
 				setRarity(ItemRarity.RARE);
-				setAmmo(Ammo.AMMO_M2100);
+				setAmmo(AmmoManager.getInstance().AMMO_M2100);
 				setRecoil(1f);
 				setZoom(7);
 				setMagazineSize(6);
@@ -309,11 +309,11 @@ public class GunManager {
 
 		// -= Light Machineguns =- \\
 
-		addGun(new Gun("P90", new ItemStack(Material.DIAMOND_HOE), new GunData() {
+		addGun(new Gun("P250", new ItemStack(Material.DIAMOND_HOE), new GunData() {
 			{
 				setRarity(ItemRarity.RARE);
 				setShootSound(new SoundData(Sound.CLICK, 2f, 1.5f));
-				setAmmo(Ammo.AMMO_9MM);
+				setAmmo(AmmoManager.getInstance().AMMO_9MM);
 				setRecoil(1f);
 				setZoom(2);
 				setMagazineSize(60);
@@ -330,7 +330,7 @@ public class GunManager {
 			{
 				setShootSound(new SoundData(Sound.CLICK, 2f, 1.5f));
 				setRarity(ItemRarity.RARE);
-				setAmmo(Ammo.AMMO_9MM);
+				setAmmo(AmmoManager.getInstance().AMMO_9MM);
 				setRecoil(1f);
 				setZoom(2);
 				setMagazineSize(60);
@@ -347,7 +347,7 @@ public class GunManager {
 			{
 				setRarity(ItemRarity.BASIC);
 				setShootSound(new SoundData(Sound.CLICK, 2f, 1.5f));
-				setAmmo(Ammo.AMMO_9MM);
+				setAmmo(AmmoManager.getInstance().AMMO_9MM);
 				setRecoil(1f);
 				setZoom(2);
 				setMagazineSize(60);
@@ -364,7 +364,7 @@ public class GunManager {
 			{
 				setRarity(ItemRarity.BASIC);
 				setShootSound(new SoundData(Sound.CLICK, 2f, 1.5f));
-				setAmmo(Ammo.AMMO_9MM);
+				setAmmo(AmmoManager.getInstance().AMMO_9MM);
 				setRecoil(1f);
 				setZoom(3);
 				setMagazineSize(120);

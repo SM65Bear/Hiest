@@ -9,7 +9,7 @@ public class AmmoRocket extends Ammo {
 
 	@Override
 	public ItemStack createStack() {
-		return new ItemStack(Material.SNOW_BALL);
+		return new ItemStack(Material.FIREBALL);
 	}
 
 	@Override
@@ -25,6 +25,11 @@ public class AmmoRocket extends Ammo {
 	@Override
 	public int getLifetime() {
 		return 60;
+	}
+	
+	@Override
+	public String getName() {
+		return "Ammo Rocket";
 	}
 
 }

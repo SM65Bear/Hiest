@@ -26,5 +26,10 @@ public class Ammo9MM extends Ammo {
 	public int getLifetime() {
 		return 5;
 	}
+	
+	@Override
+	public String getName() {
+		return "Ammo 9MM";
+	}
 
 }

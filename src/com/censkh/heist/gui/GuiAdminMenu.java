@@ -37,11 +37,11 @@ public class GuiAdminMenu extends GuiMenu {
 
 			}
 		});
-		icons.add(new GuiIcon("Whitty_Likes_Men", new ItemStack(Material.SKULL_ITEM),5) {
+		icons.add(new GuiIcon("Ammo", new ItemStack(Material.EGG),5) {
 
 			@Override
 			public void run(Player player) {
-				player.sendMessage("Whitty Likes Men Ballzzzzzzzzzzz");
+				GuiMenuManager.getInstance().AMMO_TYPE.open(player);
 
 			}
 		});

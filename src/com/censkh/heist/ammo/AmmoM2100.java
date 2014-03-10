@@ -26,5 +26,10 @@ public class AmmoM2100 extends Ammo {
 	public int getLifetime() {
 		return 60;
 	}
+	
+	@Override
+	public String getName() {
+		return "Ammo M2100";
+	}
 
 }

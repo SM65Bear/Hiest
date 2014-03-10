@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 
 import com.censkh.heist.SoundData;
 import com.censkh.heist.ammo.Ammo;
+import com.censkh.heist.ammo.AmmoManager;
 
 public class GunData {
 
@@ -21,14 +22,14 @@ public class GunData {
 	private int reloadTime = 2 * 20;
 	private int rateOfFire = 4;
 	private float zoomModifier = 1f;
-	private Ammo ammo = Ammo.AMMO_556;
+	private Ammo ammo = AmmoManager.getInstance().AMMO_556;
 	private ItemType type = ItemType.ASSAULT;
 	private ItemRarity rarity = ItemRarity.BASIC;
 	private SoundData shootSound = new SoundData(Sound.EXPLODE, 2f, 3f);
 
 	public List<String> toLore() {
 		String p = ChatColor.GRAY + "";
-		return Arrays.asList(p + "Damage: " + getDamage(), p + "Aimed In Damage: " + (getZoomModifier() * getDamage()), p + "Accuracy: " + (100 - (int) (100f * getAccuracy())) + "%", p
+		return Arrays.asList(p + "Uses " + getAmmo().getName(),p + "Damage: " + getDamage(), p + "Aimed In Damage: " + (getZoomModifier() * getDamage()), p + "Accuracy: " + (100 - (int) (100f * getAccuracy())) + "%", p
 				+ "Aimed In Accuracy: " + (100 - (int) (100f * (getAccuracy() / getZoomModifier()))) + "%", p + getRarity().getColor() + getRarity().getName() + " (Tier " + (getRarity().getTier()+1) + ")");
 	}
 

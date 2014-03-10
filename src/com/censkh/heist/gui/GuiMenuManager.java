@@ -18,10 +18,11 @@ public class GuiMenuManager {
 	private static GuiMenuManager instance;
 	private final List<GuiMenu> menus = new ArrayList<GuiMenu>();
 
-	public final GunTypeMenu GUN_TYPE = (GunTypeMenu) addMenu(new GunTypeMenu());
+	public final GuiGunTypeMenu GUN_TYPE = (GuiGunTypeMenu) addMenu(new GuiGunTypeMenu());
 	public final GuiItemGive ITEMS = (GuiItemGive) addMenu(new GuiItemGive());
 	public final GuiAdminMenu ADMIN = (GuiAdminMenu) addMenu(new GuiAdminMenu());
 	public final GuiBlackMarketGuns BLACK_MARKET_GUNS = (GuiBlackMarketGuns) addMenu(new GuiBlackMarketGuns());
+	public final GuiAmmoTypeMenu AMMO_TYPE = (GuiAmmoTypeMenu) addMenu(new GuiAmmoTypeMenu());
 
 	public GuiMenuManager() {
 		instance = this;
