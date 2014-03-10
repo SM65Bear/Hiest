@@ -290,7 +290,7 @@ public class GunManager {
 			}
 		}));
 
-		addGun(new Gun("KALASHNIKOV", new ItemStack(Material.IRON_AXE), new GunData() {
+		addGun(new Gun("KALASHNIKOV", new ItemStack(Material.STONE_PICKAXE), new GunData() {
 			{
 				setShootSound(new SoundData(Sound.EXPLODE, 2f, 1.5f));
 				setRarity(ItemRarity.RARE);
@@ -309,7 +309,7 @@ public class GunManager {
 
 		// -= Light Machineguns =- \\
 
-		addGun(new Gun("Vector", new ItemStack(Material.DIAMOND_HOE), new GunData() {
+		addGun(new Gun("P90", new ItemStack(Material.DIAMOND_HOE), new GunData() {
 			{
 				setRarity(ItemRarity.RARE);
 				setShootSound(new SoundData(Sound.CLICK, 2f, 1.5f));
