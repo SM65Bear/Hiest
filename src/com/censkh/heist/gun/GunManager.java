@@ -21,10 +21,9 @@ public class GunManager {
 
 	public GunManager() {
 		instance = this;
-		
-		
+
 		// -= Assult Rifles =- \\
-		
+
 		addGun(new Gun("M4", new ItemStack(Material.DIAMOND_SPADE), new GunData() {
 			{
 				setRarity(ItemRarity.BASIC);
@@ -38,7 +37,7 @@ public class GunManager {
 				setType(ItemType.ASSAULT);
 			}
 		}));
-		
+
 		addGun(new Gun("ACR", new ItemStack(Material.IRON_SPADE), new GunData() {
 			{
 				setRarity(ItemRarity.PERFECT);
@@ -52,7 +51,7 @@ public class GunManager {
 				setType(ItemType.ASSAULT);
 			}
 		}));
-		
+
 		addGun(new Gun("Ak47", new ItemStack(Material.WOOD_SPADE), new GunData() {
 			{
 				setShootSound(new SoundData(Sound.EXPLODE, 2f, 2f));
@@ -69,7 +68,7 @@ public class GunManager {
 				setType(ItemType.ASSAULT);
 			}
 		}));
-		
+
 		addGun(new Gun("Scar-H", new ItemStack(Material.GOLD_AXE), new GunData() {
 			{
 				setShootSound(new SoundData(Sound.EXPLODE, 2f, 1.5f));
@@ -87,9 +86,9 @@ public class GunManager {
 				setType(ItemType.ASSAULT);
 			}
 		}));
-		
+
 		// -= ShotGuns =- \\
-		
+
 		addGun(new Gun("M3", new ItemStack(Material.WOOD_PICKAXE), new GunData() {
 			{
 				setRarity(ItemRarity.RARE);
@@ -105,7 +104,7 @@ public class GunManager {
 				setType(ItemType.SHOTGUNS);
 			}
 		}));
-		
+
 		addGun(new Gun("M1014", new ItemStack(Material.SHEARS), new GunData() {
 			{
 				setRarity(ItemRarity.BASIC);
@@ -121,7 +120,7 @@ public class GunManager {
 				setType(ItemType.SHOTGUNS);
 			}
 		}));
-		
+
 		addGun(new Gun("Model 1887", new ItemStack(Material.DIAMOND_AXE), new GunData() {
 			{
 				setRarity(ItemRarity.BASIC);
@@ -137,8 +136,7 @@ public class GunManager {
 				setType(ItemType.SHOTGUNS);
 			}
 		}));
-		
-		
+
 		addGun(new Gun("AA-12", new ItemStack(Material.DIAMOND_PICKAXE), new GunData() {
 			{
 				setRarity(ItemRarity.RARE);
@@ -154,9 +152,9 @@ public class GunManager {
 				setType(ItemType.SHOTGUNS);
 			}
 		}));
-		
+
 		// -= Heavy Machineguns =- \\
-		
+
 		addGun(new Gun("RPG", new ItemStack(Material.GOLD_SPADE), new GunData() {
 			{
 				setRarity(ItemRarity.RARE);
@@ -172,9 +170,8 @@ public class GunManager {
 			}
 		}));
 
-		
 		// -= Hand Guns =- \\
-		
+
 		addGun(new Gun("Desert Eagle", new ItemStack(Material.STONE_HOE), new GunData() {
 			{
 				setShootSound(new SoundData(Sound.ITEM_BREAK, 2f, 2f));
@@ -208,7 +205,7 @@ public class GunManager {
 				setType(ItemType.HANDGUN);
 			}
 		}));
-		
+
 		addGun(new Gun("M9", new ItemStack(Material.IRON_PICKAXE), new GunData() {
 			{
 				setShootSound(new SoundData(Sound.ITEM_BREAK, 2f, 2f));
@@ -218,14 +215,14 @@ public class GunManager {
 				setZoom(2);
 				setMagazineSize(16);
 				setAccuracy(0.2f);
-				setBurst(2);
+				setBurst(1);
 				setDamage(2.5d);
 				setReloadTime(20);
 				setRateOfFire(3);
 				setType(ItemType.HANDGUN);
 			}
 		}));
-		
+
 		addGun(new Gun("Golden Magnum", new ItemStack(Material.GOLD_HOE), new GunData() {
 			{
 				setRarity(ItemRarity.ELITE);
@@ -241,7 +238,7 @@ public class GunManager {
 			}
 		}));
 		// -= Sniper Rifles =- \\
-		
+
 		addGun(new Gun("Intervention", new ItemStack(Material.WOOD_HOE), new GunData() {
 			{
 				setShootSound(new SoundData(Sound.EXPLODE, 2f, 1.5f));
@@ -258,7 +255,7 @@ public class GunManager {
 				setType(ItemType.SNIPER);
 			}
 		}));
-		
+
 		addGun(new Gun("Barret .50cal", new ItemStack(Material.STONE_AXE), new GunData() {
 			{
 				setShootSound(new SoundData(Sound.EXPLODE, 2f, 1.5f));
@@ -275,7 +272,7 @@ public class GunManager {
 				setType(ItemType.SNIPER);
 			}
 		}));
-		
+
 		addGun(new Gun("M40A3", new ItemStack(Material.IRON_AXE), new GunData() {
 			{
 				setShootSound(new SoundData(Sound.EXPLODE, 2f, 1.5f));
@@ -292,7 +289,7 @@ public class GunManager {
 				setType(ItemType.SNIPER);
 			}
 		}));
-		
+
 		addGun(new Gun("KALASHNIKOV", new ItemStack(Material.IRON_AXE), new GunData() {
 			{
 				setShootSound(new SoundData(Sound.EXPLODE, 2f, 1.5f));
@@ -310,9 +307,8 @@ public class GunManager {
 			}
 		}));
 
-		
 		// -= Light Machineguns =- \\
-		
+
 		addGun(new Gun("Vector", new ItemStack(Material.DIAMOND_HOE), new GunData() {
 			{
 				setRarity(ItemRarity.RARE);
@@ -329,7 +325,7 @@ public class GunManager {
 				setType(ItemType.LIGHT);
 			}
 		}));
-		
+
 		addGun(new Gun("Ump45", new ItemStack(Material.GOLD_PICKAXE), new GunData() {
 			{
 				setShootSound(new SoundData(Sound.CLICK, 2f, 1.5f));
@@ -346,7 +342,7 @@ public class GunManager {
 				setType(ItemType.LIGHT);
 			}
 		}));
-		
+
 		addGun(new Gun("MP5", new ItemStack(Material.WOOD_AXE), new GunData() {
 			{
 				setRarity(ItemRarity.BASIC);
@@ -364,7 +360,6 @@ public class GunManager {
 			}
 		}));
 
-
 		addGun(new Gun("Uzi", new ItemStack(Material.STONE_SPADE), new GunData() {
 			{
 				setRarity(ItemRarity.BASIC);
@@ -379,11 +374,6 @@ public class GunManager {
 				setDamage(2d);
 				setAccuracy(0.3f);
 				setType(ItemType.LIGHT);
-			}
-
-			@Override
-			public void useSecondary(Player player, GunStack stack) {
-				player.sendMessage("hello world");
 			}
 		}));
 	}

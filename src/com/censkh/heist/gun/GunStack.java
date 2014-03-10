@@ -36,8 +36,8 @@ public class GunStack {
 		List<String> lore = new ArrayList<String>();
 		lore.addAll(getGun().getData().toLore());
 		lore.addAll(Arrays.asList(new String[] {
-				ChatColor.GRAY + "Bullets: " + getLoadedBullets() + " / " + gun.getData().getMagazineSize(),
-				ChatColor.GRAY + (getState().name().substring(0, 1) + getState().name().toLowerCase().substring(1) + (getState() == GunState.RELOADING ? " - " + getReloadCountdown() : "")),
+				ChatColor.RESET + "Bullets: " + getLoadedBullets() + " / " + gun.getData().getMagazineSize(),
+				ChatColor.RESET + (getState().name().substring(0, 1) + getState().name().toLowerCase().substring(1) + (getState() == GunState.RELOADING ? " - " + getReloadCountdown() : "")),
 				ChatColor.DARK_GRAY + gun.getName()
 		}));
 		meta.setLore(lore);

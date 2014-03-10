@@ -27,16 +27,9 @@ public class GunData {
 	private SoundData shootSound = new SoundData(Sound.EXPLODE, 2f, 3f);
 
 	public List<String> toLore() {
-		String p = ChatColor.WHITE + "";
-		return Arrays.asList(
-				p + "Damage: " + getDamage(),
-				p + "Aimed In Damage: " + (getZoomModifier()*getDamage()),
-				p + "Zoom Level: " + (getZoom()+1),
-				p + "Mag Size: " + getMagazineSize(),
-				p + "Accuracy: " + (100-(int)(100f*getAccuracy())) + "%",
-				p + "Aimed In Accuracy: " + (100-(int)(100f*(getAccuracy()/getZoomModifier()))) + "%",
-				p + "Burst: " + getBurst(),
-				p + "Rate of Fire: " + (20f/(float)getRateOfFire()) + "/s");
+		String p = ChatColor.GRAY + "";
+		return Arrays.asList(p + "Damage: " + getDamage(), p + "Aimed In Damage: " + (getZoomModifier() * getDamage()), p + "Accuracy: " + (100 - (int) (100f * getAccuracy())) + "%", p
+				+ "Aimed In Accuracy: " + (100 - (int) (100f * (getAccuracy() / getZoomModifier()))) + "%", p + getRarity().getColor() + getRarity().getName() + " (Tier " + (getRarity().getTier()+1) + ")");
 	}
 
 	public float getRecoil() {

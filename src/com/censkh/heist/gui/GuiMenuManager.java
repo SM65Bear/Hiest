@@ -21,6 +21,7 @@ public class GuiMenuManager {
 	public final GunTypeMenu GUN_TYPE = (GunTypeMenu) addMenu(new GunTypeMenu());
 	public final GuiItemGive ITEMS = (GuiItemGive) addMenu(new GuiItemGive());
 	public final GuiAdminMenu ADMIN = (GuiAdminMenu) addMenu(new GuiAdminMenu());
+	public final GuiBlackMarketGuns BLACK_MARKET_GUNS = (GuiBlackMarketGuns) addMenu(new GuiBlackMarketGuns());
 
 	public GuiMenuManager() {
 		instance = this;
@@ -58,8 +59,8 @@ public class GuiMenuManager {
 							i++;
 						}
 					}
-					icons.add(new GuiIcon("Back",new ItemStack(Material.ARROW),getSize()-1) {
-						
+					icons.add(new GuiIcon("Back", new ItemStack(Material.ARROW), getSize() - 1) {
+
 						@Override
 						public void run(Player player) {
 							GuiMenuManager.getInstance().GUN_TYPE.open(player);

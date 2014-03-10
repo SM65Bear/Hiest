@@ -40,6 +40,8 @@ public class ItemDurability {
 		durabilityValues.put(Material.GOLD_SPADE, md);
 		durabilityValues.put(Material.GOLD_PICKAXE, md);
 		durabilityValues.put(Material.GOLD_HOE, md);
+		durabilityValues.put(Material.SHEARS, 239);
+		durabilityValues.put(Material.CARROT_STICK, 26);
 	}
 
 	public static ItemStack setDurability(ItemStack stack, float d) {

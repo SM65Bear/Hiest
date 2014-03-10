@@ -44,6 +44,7 @@ public class Gun {
 				Vector velocity = calculateVelocity(player);
 				projectile.setVelocity(velocity);
 				getData().getShootSound().play(player.getLocation());
+				player.playSound(player.getLocation(), Sound.EXPLODE, 0.3f, 2f);
 				gunStack.setLoadedBullets(gunStack.getLoadedBullets() - 1);
 			}
 			GunManager.getInstance().setGunCooldown(player, this, getData().getRateOfFire());

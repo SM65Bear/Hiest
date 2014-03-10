@@ -9,3 +9,8 @@ commands:
       usage: /<command>
       permission: hiest.admin
       permission-message: You don't have that permission.
+ statue:
+      description: Status.
+      usage: /<command> <mob> <name...>
+      permission: hiest.admin
+      permission-message: You don't have that permission.
