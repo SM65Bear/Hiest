@@ -42,7 +42,7 @@ public class EntityEventListener extends EventListener {
 	public void onEntityExplodeEvent(EntityExplodeEvent event) {
 		event.blockList().clear();
 	}
-	
+
 	@EventHandler
 	public void onProjectileHitEvent(ProjectileHitEvent event) {
 		if (event.getEntity() instanceof WitherSkull) {

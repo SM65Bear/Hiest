@@ -8,6 +8,10 @@ import com.censkh.heist.gun.ItemType;
 
 public class FragGrenade extends Throwable {
 
+	public FragGrenade() {
+		super(500);
+	}
+
 	@Override
 	public int getLifetime() {
 		return 20 * 4;

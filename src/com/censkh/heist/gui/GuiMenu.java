@@ -52,7 +52,7 @@ public abstract class GuiMenu extends EventListener {
 	}
 
 	public boolean isInventory(Inventory inventory) {
-		if (inventory.getName().equals(Node.INVENTORY_NAME_PREFIX+getName())) {
+		if (inventory.getName().equals(Node.INVENTORY_NAME_PREFIX + getName())) {
 			return true;
 		}
 		return false;

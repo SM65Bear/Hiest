@@ -11,7 +11,7 @@ public abstract class GuiIcon {
 	private final String name;
 	private final int slot;
 
-	public GuiIcon(String name, ItemStack stack,int slot) {
+	public GuiIcon(String name, ItemStack stack, int slot) {
 		this.name = name;
 		this.stack = bake(stack);
 		this.slot = slot;

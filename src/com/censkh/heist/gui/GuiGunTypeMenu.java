@@ -19,20 +19,20 @@ public class GuiGunTypeMenu extends GuiMenu {
 	public List<GuiIcon> initIcons() {
 		List<GuiIcon> icons = new ArrayList<GuiIcon>();
 		int i = 0;
-		for (ItemType t: ItemType.values()){
+		for (ItemType t : ItemType.values()) {
 			final ItemType type = t;
-			
-			icons.add(new GuiIcon(type.getName(), new ItemStack(type.getType()),i) {
-				
+
+			icons.add(new GuiIcon(type.getName(), new ItemStack(type.getType()), i) {
+
 				@Override
 				public void run(Player player) {
 					GuiMenuManager.getInstance().getMenu(type.getName()).open(player);
-					
+
 				}
 			});
 			i++;
-			icons.add(new GuiIcon("Back",new ItemStack(Material.ARROW),getSize()-1) {
-				
+			icons.add(new GuiIcon("Back", new ItemStack(Material.ARROW), getSize() - 1) {
+
 				@Override
 				public void run(Player player) {
 					GuiMenuManager.getInstance().ADMIN.open(player);
@@ -44,7 +44,7 @@ public class GuiGunTypeMenu extends GuiMenu {
 
 	@Override
 	public int getSize() {
-		return 9*6;
+		return 9 * 6;
 	}
 
 }

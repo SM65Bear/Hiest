@@ -16,13 +16,13 @@ public class GuiItemGive extends GuiMenu {
 	@Override
 	public List<GuiIcon> initIcons() {
 		List<GuiIcon> icons = new ArrayList<GuiIcon>();
-		icons.add(new GuiIcon("Gapple", new ItemStack(Material.GOLDEN_APPLE),2) {
+		icons.add(new GuiIcon("Gapple", new ItemStack(Material.GOLDEN_APPLE), 2) {
 
 			@Override
 			public void run(Player player) {
 				player.getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE));
 				player.sendMessage("You Gave Yourself a Golden Apple!");
-				
+
 			}
 		});
 		return icons;

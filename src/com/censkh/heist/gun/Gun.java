@@ -2,32 +2,29 @@ package com.censkh.heist.gun;
 
 import java.util.Random;
 
-import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.util.Vector;
 
 import com.censkh.heist.Heist;
+import com.censkh.heist.item.UniqueItem;
 
-public class Gun {
+public class Gun extends UniqueItem {
 	
-	private static int iid = 0;
-	
-	private final int id = iid++;
 	private final ItemStack stack;
 	private final GunData data;
 	private final String name;
 	public final Random random = new Random();
 
-	public Gun(String name, ItemStack stack, GunData data) {
+	public Gun(int id,String name, ItemStack stack, GunData data) {
+		super(id);
 		this.name = name;
 		this.stack = stack;
 		this.data = data;
@@ -52,7 +49,8 @@ public class Gun {
 			}
 			GunManager.getInstance().setGunCooldown(player, this, getData().getRateOfFire());
 		} else {
-			if (gunStack.getState()==GunState.EMPTY)player.playSound(player.getLocation(), Sound.CLICK, 2f, 2f);
+			if (gunStack.getState() == GunState.EMPTY)
+				player.playSound(player.getLocation(), Sound.CLICK, 2f, 2f);
 		}
 		return gunStack.write(stack);
 	}
@@ -64,15 +62,8 @@ public class Gun {
 	public ItemStack getItemType() {
 		return stack.clone();
 	}
-
-	public ItemStack getStack() {
-		return getStack(1);
-	}
 	
-	public String getIdent() {
-		return "Gun #"+id;
-	}
-
+	@Override
 	public ItemStack getStack(int i) {
 		GunStack stack = new GunStack(this);
 		stack.setAmount(i);
@@ -99,7 +90,7 @@ public class Gun {
 		double yd = Math.sin(Math.toRadians(pitch)) + ywep;
 		double zd = -Math.sin(Math.toRadians(dir)) * Math.cos(Math.toRadians(pitch)) + zwep;
 		Vector vec = new Vector(xd, yd, zd);
-		return vec.multiply(getData().getAmmo().getTravelSpeed());
+		return vec.multiply(getData().getBulletTravelSpeed());
 	}
 
 	public GunData getData() {
@@ -110,22 +101,8 @@ public class Gun {
 		return name;
 	}
 
-	public boolean isStack(ItemStack item) {
-		ItemMeta meta = item.getItemMeta();
-		if (meta.hasLore()) {
-			if (ChatColor.stripColor(meta.getLore().get(meta.getLore().size() - 1)).equals(getIdent())) {
-				return true;
-			}
-		}
-		return false;
-	}
-
 	public boolean equals(Gun gun) {
 		return gun.getName().equals(getName());
-	}
-
-	public int getId() {
-		return id;
 	}
 
 }

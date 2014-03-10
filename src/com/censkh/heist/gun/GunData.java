@@ -1,6 +1,6 @@
 package com.censkh.heist.gun;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.ChatColor;
@@ -26,11 +26,31 @@ public class GunData {
 	private ItemType type = ItemType.ASSAULT;
 	private ItemRarity rarity = ItemRarity.BASIC;
 	private SoundData shootSound = new SoundData(Sound.EXPLODE, 2f, 3f);
+	private double bulletTravelSpeed = 4.5d;
 
 	public List<String> toLore() {
 		String p = ChatColor.GRAY + "";
-		return Arrays.asList(p + "Uses " + getAmmo().getName(),p + "Damage: " + getDamage(), p + "Aimed In Damage: " + (getZoomModifier() * getDamage()), p + "Accuracy: " + (100 - (int) (100f * getAccuracy())) + "%", p
-				+ "Aimed In Accuracy: " + (100 - (int) (100f * (getAccuracy() / getZoomModifier()))) + "%", p + getRarity().getColor() + getRarity().getName() + " (Tier " + (getRarity().getTier()+1) + ")");
+		List<String> lore = new ArrayList<String>();
+		lore.add(p + "Damage: " + getDamage());
+		if (getDamage() != getAimedInDamage())
+			lore.add(p + "Aimed In Damage: " + getAimedInDamage());
+		lore.add(p + "Accuracy: " + getAccuracyPercent());
+		if (!getAimedInAccuracyPercent().equals(getAccuracyPercent()))
+			lore.add(p + "Aimed In Accuracy: " + getAimedInAccuracyPercent());
+		lore.add(p + getRarity().getColor() + getRarity().getName() + " (Tier " + (getRarity().getTier() + 1) + ")");
+		return lore;
+	}
+
+	public double getAimedInDamage() {
+		return getZoomModifier() * getDamage();
+	}
+
+	public String getAccuracyPercent() {
+		return (100 - (int) (100f * getAccuracy())) + "%";
+	}
+
+	public String getAimedInAccuracyPercent() {
+		return (100 - (int) (100f * (getAccuracy() / getZoomModifier()))) + "%";
 	}
 
 	public float getRecoil() {
@@ -139,6 +159,14 @@ public class GunData {
 
 	public void setType(ItemType type) {
 		this.type = type;
+	}
+
+	public double getBulletTravelSpeed() {
+		return bulletTravelSpeed;
+	}
+
+	public void setBulletTravelSpeed(double bulletTravelSpeed) {
+		this.bulletTravelSpeed = bulletTravelSpeed;
 	}
 
 }

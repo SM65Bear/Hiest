@@ -7,19 +7,18 @@ import org.bukkit.inventory.ItemStack;
 
 public class Ammo556 extends Ammo {
 
+	public Ammo556() {
+		super(400);
+	}
+
 	@Override
 	public ItemStack createStack() {
-		return new ItemStack(Material.INK_SACK,1,(short)0);
+		return new ItemStack(Material.INK_SACK, 1, (short) 0);
 	}
 
 	@Override
 	public Class<? extends Projectile> getType() {
 		return Snowball.class;
-	}
-
-	@Override
-	public double getTravelSpeed() {
-		return 3.5d;
 	}
 
 	@Override

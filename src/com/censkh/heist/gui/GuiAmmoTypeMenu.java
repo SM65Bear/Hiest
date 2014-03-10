@@ -20,19 +20,19 @@ public class GuiAmmoTypeMenu extends GuiMenu {
 	public List<GuiIcon> initIcons() {
 		List<GuiIcon> icons = new ArrayList<GuiIcon>();
 		int i = 0;
-		for (Ammo a: AmmoManager.getInstance().getAmmo()){
+		for (Ammo a : AmmoManager.getInstance().getAmmo()) {
 			final Ammo ammo = a;
-			
-			icons.add(new GuiIcon(a.getName(), new ItemStack(a.getStack()),i) {
-				
+
+			icons.add(new GuiIcon(a.getName(), new ItemStack(a.getStack()), i) {
+
 				@Override
 				public void run(Player player) {
 					player.getInventory().addItem(ammo.getStack());
 				}
 			});
 			i++;
-			icons.add(new GuiIcon("Back",new ItemStack(Material.ARROW),getSize()-1) {
-				
+			icons.add(new GuiIcon("Back", new ItemStack(Material.ARROW), getSize() - 1) {
+
 				@Override
 				public void run(Player player) {
 					GuiMenuManager.getInstance().ADMIN.open(player);
@@ -44,7 +44,7 @@ public class GuiAmmoTypeMenu extends GuiMenu {
 
 	@Override
 	public int getSize() {
-		return 9*6;
+		return 9 * 6;
 	}
 
 }

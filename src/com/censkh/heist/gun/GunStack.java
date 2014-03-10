@@ -43,13 +43,14 @@ public class GunStack {
 		List<String> lore = new ArrayList<String>();
 		lore.addAll(getGun().getData().toLore());
 		lore.addAll(Arrays.asList(new String[] {
+				ChatColor.RESET + "Uses " + getGun().getData().getAmmo().getName(),
 				ChatColor.RESET + "Bullets: " + getLoadedBullets() + " / " + gun.getData().getMagazineSize(),
 				ChatColor.RESET + (getState().name().substring(0, 1) + getState().name().toLowerCase().substring(1) + (getState() == GunState.RELOADING ? " - " + getReloadCountdown() : "")),
 				ChatColor.DARK_GRAY + gun.getIdent()
 		}));
 		meta.setLore(lore);
 		stack.setItemMeta(meta);
-		stack.setAmount(oldStack!=null ? oldStack.getAmount() : getAmount());
+		stack.setAmount(oldStack != null ? oldStack.getAmount() : getAmount());
 		ItemUtil.setDurability(stack, getState() == GunState.RELOADING ? 1f - ((float) getReloadCountdown() / (float) getGun().getData().getReloadTime()) : (float) getLoadedBullets()
 				/ (float) getGun().getData().getMagazineSize());
 		return stack;
@@ -61,7 +62,7 @@ public class GunStack {
 		if (meta.hasLore()) {
 			List<String> lore = meta.getLore();
 			String gunIdent = ChatColor.stripColor(lore.get(lore.size() - 1));
-			int gunId = Integer.parseInt(gunIdent.replaceAll("Gun #", ""));
+			int gunId = Integer.parseInt(gunIdent.replaceAll("Item #", ""));
 			gun = GunManager.getInstance().getGun(gunId);
 			String bullets = lore.get(lore.size() - 3);
 			bullets = ChatColor.stripColor(bullets).substring("Bullets: ".length(), bullets.indexOf('/') - 3);

@@ -69,18 +69,18 @@ public class Heist extends JavaPlugin {
 							}
 						}
 					}
-					if (ticks%10==0) {
+					if (ticks % 10 == 0) {
 						player.setScoreboard(Bukkit.getScoreboardManager().getMainScoreboard());
 						for (ProtectedRegion r : WorldGuardPlugin.inst().getRegionManager(player.getWorld()).getApplicableRegions(player.getLocation())) {
 							if (r.getId().startsWith("instance-")) {
 								Instance instance = InstanceManager.getInstance().getInstanceById(Integer.parseInt(r.getId().substring("instance-".length())));
-								if (instance!=null) {
+								if (instance != null) {
 									player.setScoreboard(instance.getScoreboard());
 								}
 							}
 						}
 					}
-					
+
 				}
 				GunManager.getInstance().update();
 				ThrowableManager.getInstance().update();

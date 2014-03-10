@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AmmoManager {
-	
+
 	private static AmmoManager instance;
 	private final List<Ammo> ammo = new ArrayList<Ammo>();
-	
+
 	public final Ammo556 AMMO_556 = (Ammo556) createAmmo(Ammo556.class);
 	public final AmmoRocket AMMO_ROCKET = (AmmoRocket) createAmmo(AmmoRocket.class);
 	public final AmmoM2100 AMMO_M2100 = (AmmoM2100) createAmmo(AmmoM2100.class);
 	public final AmmoShotgunShells AMMO_SHOTGUN_SHELLS = (AmmoShotgunShells) createAmmo(AmmoShotgunShells.class);
 	public final Ammo9MM AMMO_9MM = (Ammo9MM) createAmmo(Ammo9MM.class);
-	
+
 	public AmmoManager() {
 		instance = this;
 	}
@@ -36,5 +36,5 @@ public class AmmoManager {
 	public List<Ammo> getAmmo() {
 		return ammo;
 	}
-	
+
 }

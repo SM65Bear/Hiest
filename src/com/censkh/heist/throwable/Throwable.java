@@ -12,19 +12,21 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import com.censkh.heist.gun.ItemType;
+import com.censkh.heist.item.UniqueItem;
 
-public abstract class Throwable {
+public abstract class Throwable extends UniqueItem {
 
 	private final ItemStack stack;
 
-	public Throwable() {
+	public Throwable(int id) {
+		super(id);
 		this.stack = bake(createStack());
 	}
 
 	private ItemStack bake(ItemStack stack) {
 		ItemMeta meta = stack.getItemMeta();
 		meta.setDisplayName(ChatColor.GREEN + getName());
-		meta.setLore(Arrays.asList(ChatColor.DARK_GRAY + getName()));
+		meta.setLore(Arrays.asList(ChatColor.DARK_GRAY + getIdent()));
 		stack.setItemMeta(meta);
 		return stack;
 	}
@@ -38,7 +40,7 @@ public abstract class Throwable {
 	public abstract String getName();
 
 	public abstract float getSpeedMultiplier();
-	
+
 	public abstract ItemType getType();
 
 	public void shoot(LivingEntity entity) {
@@ -50,20 +52,7 @@ public abstract class Throwable {
 		ThrowableManager.getInstance().add(item);
 	}
 
-	public boolean isStack(ItemStack item) {
-		ItemMeta meta = item.getItemMeta();
-		if (meta.hasLore()) {
-			if (ChatColor.stripColor(meta.getLore().get(meta.getLore().size() - 1)).equals(getName())) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	public ItemStack getStack() {
-		return getStack(1);
-	}
-
+	@Override
 	public ItemStack getStack(int i) {
 		ItemStack clone = stack.clone();
 		clone.setAmount(i);

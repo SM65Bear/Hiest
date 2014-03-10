@@ -36,7 +36,7 @@ public abstract class GuiStore extends GuiMenu {
 			if (this.store == null) {
 				this.store = new HashMap<Integer, GuiShopIcon>();
 			}
-			GuiIcon icon = new GuiIcon("Buy " + ChatColor.stripColor(name) + " ($"+price+")", stack, i) {
+			GuiIcon icon = new GuiIcon("Buy " + ChatColor.stripColor(name) + " ($" + price + ")", stack, i) {
 
 				@Override
 				public void run(Player player) {

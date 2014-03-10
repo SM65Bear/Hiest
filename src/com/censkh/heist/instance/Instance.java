@@ -135,7 +135,7 @@ public class Instance extends EventListener {
 	public Scoreboard getScoreboard() {
 		return scoreboard;
 	}
-	
+
 	public Objective getObjective() {
 		return scoreboard.getObjective(DisplaySlot.SIDEBAR);
 	}

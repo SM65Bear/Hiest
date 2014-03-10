@@ -7,15 +7,18 @@ import org.bukkit.entity.Projectile;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public abstract class Ammo {
+import com.censkh.heist.item.UniqueItem;
 
+public abstract class Ammo extends UniqueItem {
+	
 	private final ItemStack stack;
 
-	public Ammo() {
+	public Ammo(int id) {
+		super(id);
 		stack = createStack();
 		ItemMeta meta = stack.getItemMeta();
 		meta.setDisplayName(ChatColor.GREEN + getName() + " Magazine");
-		meta.setLore(Arrays.asList(ChatColor.DARK_GRAY + getName()));
+		meta.setLore(Arrays.asList(ChatColor.DARK_GRAY + getIdent()));
 		stack.setItemMeta(meta);
 	}
 
@@ -23,16 +26,11 @@ public abstract class Ammo {
 
 	public abstract Class<? extends Projectile> getType();
 
-	public abstract double getTravelSpeed();
-
 	public abstract int getLifetime();
 
 	public abstract String getName();
-
-	public ItemStack getStack() {
-		return getStack(1);
-	}
-
+	
+	@Override
 	public ItemStack getStack(int i) {
 		ItemStack clone = stack.clone();
 		clone.setAmount(i);

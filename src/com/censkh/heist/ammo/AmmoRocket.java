@@ -7,9 +7,13 @@ import org.bukkit.inventory.ItemStack;
 
 public class AmmoRocket extends Ammo {
 
+	public AmmoRocket() {
+		super(403);
+	}
+
 	@Override
 	public ItemStack createStack() {
-		return new ItemStack(Material.INK_SACK,1,(short)3);
+		return new ItemStack(Material.INK_SACK, 1, (short) 3);
 	}
 
 	@Override
@@ -18,15 +22,10 @@ public class AmmoRocket extends Ammo {
 	}
 
 	@Override
-	public double getTravelSpeed() {
-		return 5d;
-	}
-
-	@Override
 	public int getLifetime() {
 		return 60;
 	}
-	
+
 	@Override
 	public String getName() {
 		return "Ammo Rocket";
