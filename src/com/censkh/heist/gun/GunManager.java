@@ -21,8 +21,13 @@ public class GunManager {
 
 	public GunManager() {
 		instance = this;
+		
+		
+		// -= Assult Rifles =- \\
+		
 		addGun(new Gun("M4", new ItemStack(Material.DIAMOND_SPADE), new GunData() {
 			{
+				setRarity(ItemRarity.BASIC);
 				setAmmo(Ammo.AMMO_556);
 				setRecoil(1f);
 				setZoom(2);
@@ -33,20 +38,38 @@ public class GunManager {
 				setType(ItemType.ASSAULT);
 			}
 		}));
-		addGun(new Gun("M3", new ItemStack(Material.WOOD_PICKAXE), new GunData() {
+		
+		addGun(new Gun("ACR", new ItemStack(Material.IRON_SPADE), new GunData() {
 			{
-				setAmmo(Ammo.AMMO_SHOTGUN_SHELLS);
+				setRarity(ItemRarity.PERFECT);
+				setAmmo(Ammo.AMMO_556);
 				setRecoil(1f);
-				setZoom(0);
-				setMagazineSize(20);
-				setAccuracy(0.5f);
-				setBurst(5);
-				setDamage(3d);
-				setReloadTime(3 * 18);
-				setRateOfFire(8);
-				setType(ItemType.SHOTGUNS);
+				setZoom(2);
+				setMagazineSize(60);
+				setDamage(3.5d);
+				setAccuracy(0.1f);
+				setRateOfFire(3);
+				setType(ItemType.ASSAULT);
 			}
 		}));
+		
+		addGun(new Gun("Ak47", new ItemStack(Material.WOOD_SPADE), new GunData() {
+			{
+				setShootSound(new SoundData(Sound.EXPLODE, 2f, 2f));
+				setRarity(ItemRarity.RARE);
+				setAmmo(Ammo.AMMO_556);
+				setRecoil(1f);
+				setZoom(3);
+				setMagazineSize(28);
+				setAccuracy(0.2f);
+				setBurst(1);
+				setDamage(3d);
+				setReloadTime(2 * 20);
+				setRateOfFire(2);
+				setType(ItemType.ASSAULT);
+			}
+		}));
+		
 		addGun(new Gun("Scar-H", new ItemStack(Material.GOLD_AXE), new GunData() {
 			{
 				setShootSound(new SoundData(Sound.EXPLODE, 2f, 1.5f));
@@ -64,53 +87,145 @@ public class GunManager {
 				setType(ItemType.ASSAULT);
 			}
 		}));
-		addGun(new Gun("Ak47", new ItemStack(Material.WOOD_SPADE), new GunData() {
+		
+		// -= ShotGuns =- \\
+		
+		addGun(new Gun("M3", new ItemStack(Material.WOOD_PICKAXE), new GunData() {
 			{
-				setShootSound(new SoundData(Sound.EXPLODE, 2f, 2f));
 				setRarity(ItemRarity.RARE);
-				setAmmo(Ammo.AMMO_556);
+				setAmmo(Ammo.AMMO_SHOTGUN_SHELLS);
 				setRecoil(1f);
-				setZoom(3);
-				setMagazineSize(28);
-				setAccuracy(0.2f);
-				setBurst(1);
+				setZoom(0);
+				setMagazineSize(20);
+				setAccuracy(0.5f);
+				setBurst(5);
 				setDamage(3d);
-				setReloadTime(2 * 20);
-				setRateOfFire(2);
-				setType(ItemType.ASSAULT);
+				setReloadTime(3 * 18);
+				setRateOfFire(8);
+				setType(ItemType.SHOTGUNS);
 			}
 		}));
-		addGun(new Gun("P250", new ItemStack(Material.IRON_HOE), new GunData() {
+		
+		addGun(new Gun("M1014", new ItemStack(Material.SHEARS), new GunData() {
+			{
+				setRarity(ItemRarity.BASIC);
+				setAmmo(Ammo.AMMO_SHOTGUN_SHELLS);
+				setRecoil(1f);
+				setZoom(0);
+				setMagazineSize(20);
+				setAccuracy(0.5f);
+				setBurst(5);
+				setDamage(3d);
+				setReloadTime(3 * 18);
+				setRateOfFire(8);
+				setType(ItemType.SHOTGUNS);
+			}
+		}));
+		
+		addGun(new Gun("Model 1887", new ItemStack(Material.DIAMOND_AXE), new GunData() {
+			{
+				setRarity(ItemRarity.BASIC);
+				setAmmo(Ammo.AMMO_SHOTGUN_SHELLS);
+				setRecoil(1f);
+				setZoom(0);
+				setMagazineSize(20);
+				setAccuracy(0.5f);
+				setBurst(3);
+				setDamage(4d);
+				setReloadTime(3 * 18);
+				setRateOfFire(15);
+				setType(ItemType.SHOTGUNS);
+			}
+		}));
+		
+		
+		addGun(new Gun("AA-12", new ItemStack(Material.DIAMOND_PICKAXE), new GunData() {
+			{
+				setRarity(ItemRarity.RARE);
+				setAmmo(Ammo.AMMO_SHOTGUN_SHELLS);
+				setRecoil(1f);
+				setZoom(0);
+				setMagazineSize(10);
+				setAccuracy(0.5f);
+				setBurst(2);
+				setDamage(4d);
+				setReloadTime(3 * 18);
+				setRateOfFire(1);
+				setType(ItemType.SHOTGUNS);
+			}
+		}));
+		
+		// -= Heavy Machineguns =- \\
+		
+		addGun(new Gun("RPG", new ItemStack(Material.GOLD_SPADE), new GunData() {
+			{
+				setRarity(ItemRarity.RARE);
+				setAmmo(Ammo.AMMO_ROCKET);
+				setRecoil(1f);
+				setZoom(3);
+				setMagazineSize(2);
+				setRateOfFire(40);
+				setReloadTime(6 * 20);
+				setDamage(25d);
+				setAccuracy(0.01f);
+				setType(ItemType.SPECIAL);
+			}
+		}));
+
+		
+		// -= Hand Guns =- \\
+		
+		addGun(new Gun("Desert Eagle", new ItemStack(Material.STONE_HOE), new GunData() {
 			{
 				setShootSound(new SoundData(Sound.ITEM_BREAK, 2f, 2f));
+				setRarity(ItemRarity.RARE);
 				setAmmo(Ammo.AMMO_556);
 				setRecoil(1f);
 				setZoom(2);
 				setMagazineSize(16);
 				setAccuracy(0.2f);
 				setBurst(1);
-				setDamage(3d);
+				setDamage(2.5d);
 				setReloadTime(20);
 				setRateOfFire(3);
 				setType(ItemType.HANDGUN);
 			}
 		}));
-		addGun(new Gun("Intervention", new ItemStack(Material.WOOD_HOE), new GunData() {
+
+		addGun(new Gun("P250", new ItemStack(Material.IRON_HOE), new GunData() {
 			{
-				setShootSound(new SoundData(Sound.BLAZE_DEATH, 2f, 1.5f));
-				setRarity(ItemRarity.ELITE);
-				setAmmo(Ammo.AMMO_M2100);
+				setShootSound(new SoundData(Sound.ITEM_BREAK, 2f, 2f));
+				setRarity(ItemRarity.BASIC);
+				setAmmo(Ammo.AMMO_556);
 				setRecoil(1f);
-				setZoom(7);
-				setMagazineSize(6);
-				setAccuracy(0.3f);
-				setDamage(6d);
-				setRateOfFire(25);
-				setZoomModifier(4f);
-				setReloadTime(2 * 20);
-				setType(ItemType.SNIPER);
+				setZoom(2);
+				setMagazineSize(16);
+				setAccuracy(0.2f);
+				setBurst(1);
+				setDamage(2.5d);
+				setReloadTime(20);
+				setRateOfFire(3);
+				setType(ItemType.HANDGUN);
 			}
 		}));
+		
+		addGun(new Gun("M9", new ItemStack(Material.IRON_PICKAXE), new GunData() {
+			{
+				setShootSound(new SoundData(Sound.ITEM_BREAK, 2f, 2f));
+				setRarity(ItemRarity.BASIC);
+				setAmmo(Ammo.AMMO_556);
+				setRecoil(1f);
+				setZoom(2);
+				setMagazineSize(16);
+				setAccuracy(0.2f);
+				setBurst(2);
+				setDamage(2.5d);
+				setReloadTime(20);
+				setRateOfFire(3);
+				setType(ItemType.HANDGUN);
+			}
+		}));
+		
 		addGun(new Gun("Golden Magnum", new ItemStack(Material.GOLD_HOE), new GunData() {
 			{
 				setRarity(ItemRarity.ELITE);
@@ -125,22 +240,134 @@ public class GunManager {
 				setType(ItemType.HANDGUN);
 			}
 		}));
-		addGun(new Gun("RPG", new ItemStack(Material.GOLD_SPADE), new GunData() {
+		// -= Sniper Rifles =- \\
+		
+		addGun(new Gun("Intervention", new ItemStack(Material.WOOD_HOE), new GunData() {
 			{
-				setRarity(ItemRarity.RARE);
-				setAmmo(Ammo.AMMO_ROCKET);
+				setShootSound(new SoundData(Sound.EXPLODE, 2f, 1.5f));
+				setRarity(ItemRarity.ELITE);
+				setAmmo(Ammo.AMMO_M2100);
 				setRecoil(1f);
-				setZoom(3);
-				setMagazineSize(2);
-				setRateOfFire(40);
-				setReloadTime(6 * 20);
-				setDamage(25d);
-				setAccuracy(0.01f);
-				setType(ItemType.HEAVY);
+				setZoom(7);
+				setMagazineSize(6);
+				setAccuracy(0.3f);
+				setDamage(6d);
+				setRateOfFire(25);
+				setZoomModifier(4f);
+				setReloadTime(2 * 20);
+				setType(ItemType.SNIPER);
 			}
 		}));
+		
+		addGun(new Gun("Barret .50cal", new ItemStack(Material.STONE_AXE), new GunData() {
+			{
+				setShootSound(new SoundData(Sound.EXPLODE, 2f, 1.5f));
+				setRarity(ItemRarity.BASIC);
+				setAmmo(Ammo.AMMO_M2100);
+				setRecoil(1f);
+				setZoom(7);
+				setMagazineSize(6);
+				setAccuracy(0.35f);
+				setDamage(9d);
+				setRateOfFire(12);
+				setZoomModifier(2f);
+				setReloadTime(2 * 20);
+				setType(ItemType.SNIPER);
+			}
+		}));
+		
+		addGun(new Gun("M40A3", new ItemStack(Material.IRON_AXE), new GunData() {
+			{
+				setShootSound(new SoundData(Sound.EXPLODE, 2f, 1.5f));
+				setRarity(ItemRarity.PERFECT);
+				setAmmo(Ammo.AMMO_M2100);
+				setRecoil(1f);
+				setZoom(7);
+				setMagazineSize(6);
+				setAccuracy(0.3f);
+				setDamage(4.2d);
+				setRateOfFire(20);
+				setZoomModifier(4f);
+				setReloadTime(2 * 20);
+				setType(ItemType.SNIPER);
+			}
+		}));
+		
+		addGun(new Gun("KALASHNIKOV", new ItemStack(Material.IRON_AXE), new GunData() {
+			{
+				setShootSound(new SoundData(Sound.EXPLODE, 2f, 1.5f));
+				setRarity(ItemRarity.RARE);
+				setAmmo(Ammo.AMMO_M2100);
+				setRecoil(1f);
+				setZoom(7);
+				setMagazineSize(6);
+				setAccuracy(0.2f);
+				setDamage(6d);
+				setRateOfFire(15);
+				setZoomModifier(4f);
+				setReloadTime(2 * 20);
+				setType(ItemType.SNIPER);
+			}
+		}));
+
+		
+		// -= Light Machineguns =- \\
+		
+		addGun(new Gun("Vector", new ItemStack(Material.DIAMOND_HOE), new GunData() {
+			{
+				setRarity(ItemRarity.RARE);
+				setShootSound(new SoundData(Sound.CLICK, 2f, 1.5f));
+				setAmmo(Ammo.AMMO_9MM);
+				setRecoil(1f);
+				setZoom(2);
+				setMagazineSize(60);
+				setRateOfFire(1);
+				setReloadTime(4 * 20);
+				setBurst(1);
+				setDamage(2.5d);
+				setAccuracy(0.1f);
+				setType(ItemType.LIGHT);
+			}
+		}));
+		
+		addGun(new Gun("Ump45", new ItemStack(Material.GOLD_PICKAXE), new GunData() {
+			{
+				setShootSound(new SoundData(Sound.CLICK, 2f, 1.5f));
+				setRarity(ItemRarity.RARE);
+				setAmmo(Ammo.AMMO_9MM);
+				setRecoil(1f);
+				setZoom(2);
+				setMagazineSize(60);
+				setRateOfFire(1);
+				setReloadTime(4 * 20);
+				setBurst(1);
+				setDamage(3.2d);
+				setAccuracy(0.12f);
+				setType(ItemType.LIGHT);
+			}
+		}));
+		
+		addGun(new Gun("MP5", new ItemStack(Material.WOOD_AXE), new GunData() {
+			{
+				setRarity(ItemRarity.BASIC);
+				setShootSound(new SoundData(Sound.CLICK, 2f, 1.5f));
+				setAmmo(Ammo.AMMO_9MM);
+				setRecoil(1f);
+				setZoom(2);
+				setMagazineSize(60);
+				setRateOfFire(1);
+				setReloadTime(4 * 20);
+				setBurst(1);
+				setDamage(2.5d);
+				setAccuracy(0.15f);
+				setType(ItemType.LIGHT);
+			}
+		}));
+
+
 		addGun(new Gun("Uzi", new ItemStack(Material.STONE_SPADE), new GunData() {
 			{
+				setRarity(ItemRarity.BASIC);
 				setShootSound(new SoundData(Sound.CLICK, 2f, 1.5f));
 				setAmmo(Ammo.AMMO_9MM);
 				setRecoil(1f);
