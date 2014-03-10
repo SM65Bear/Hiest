@@ -27,7 +27,7 @@ public class PlayerEventListener extends EventListener {
 		if (gun != null) {
 			GunStack stack = new GunStack(event.getItemDrop().getItemStack());
 			if (!stack.isFull()) {
-				event.getPlayer().setItemInHand(stack.reload(event.getPlayer()).write());
+				event.getPlayer().setItemInHand(stack.reload(event.getPlayer()).write(event.getItemDrop().getItemStack()));
 				event.getItemDrop().remove();
 			} else {
 			}
@@ -53,13 +53,13 @@ public class PlayerEventListener extends EventListener {
 			}
 		}
 	}
-	
+
 	@EventHandler
 	public void onPlayerInteractEntityEvent(PlayerInteractEntityEvent event) {
 		Entity entity = event.getRightClicked();
 		if (entity instanceof LivingEntity) {
 			LivingEntity e = (LivingEntity) entity;
-			if (e.getCustomName()!=null) {
+			if (e.getCustomName() != null) {
 				String name = ChatColor.stripColor(e.getCustomName());
 				if (name.equalsIgnoreCase("Blackmarket Gun Dealer")) {
 					GuiMenuManager.getInstance().BLACK_MARKET_GUNS.open(event.getPlayer());

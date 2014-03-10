@@ -22,7 +22,7 @@ public class EntityEventListener extends EventListener {
 	public void onEntityDamageByEntityEvent(EntityDamageByEntityEvent event) {
 		Entity damager = event.getDamager();
 		if (damager.hasMetadata("gun")) {
-			Gun gun = GunManager.getInstance().getGun(damager.getMetadata("gun").get(0).asString());
+			Gun gun = GunManager.getInstance().getGun(damager.getMetadata("gun").get(0).asInt());
 			if (gun != null) {
 				event.getEntity().getWorld().playEffect(event.getEntity().getLocation().add(0, 1, 0), Effect.STEP_SOUND, Material.REDSTONE_BLOCK.getId());
 				double damage = gun.getData().getDamage();

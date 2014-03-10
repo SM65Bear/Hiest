@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import com.censkh.heist.ItemDurability;
+import com.censkh.heist.ItemUtil;
 
 public class GunStack {
 
@@ -31,20 +31,26 @@ public class GunStack {
 	}
 
 	public ItemStack write() {
-		ItemStack stack = gun.getItemType();
+		return write(null);
+	}
+
+	@SuppressWarnings("deprecation")
+	public ItemStack write(ItemStack oldStack) {
+		ItemStack stack = oldStack != null ? new ItemStack(oldStack.getType(), 1, oldStack.getData().getData()) : gun.getItemType();
 		ItemMeta meta = stack.getItemMeta();
-		meta.setDisplayName(getGun().getData().getRarity().getColor() + gun.getName());
+		String name = getGun().getData().getRarity().getColor() + gun.getName();
+		meta.setDisplayName(oldStack != null ? (oldStack.getItemMeta().hasDisplayName() ? oldStack.getItemMeta().getDisplayName() : name) : name);
 		List<String> lore = new ArrayList<String>();
 		lore.addAll(getGun().getData().toLore());
 		lore.addAll(Arrays.asList(new String[] {
 				ChatColor.RESET + "Bullets: " + getLoadedBullets() + " / " + gun.getData().getMagazineSize(),
 				ChatColor.RESET + (getState().name().substring(0, 1) + getState().name().toLowerCase().substring(1) + (getState() == GunState.RELOADING ? " - " + getReloadCountdown() : "")),
-				ChatColor.DARK_GRAY + gun.getName()
+				ChatColor.DARK_GRAY + gun.getIdent()
 		}));
 		meta.setLore(lore);
 		stack.setItemMeta(meta);
-		stack.setAmount(getAmount());
-		ItemDurability.setDurability(stack, getState() == GunState.RELOADING ? 1f - ((float) getReloadCountdown() / (float) getGun().getData().getReloadTime()) : (float) getLoadedBullets()
+		stack.setAmount(oldStack!=null ? oldStack.getAmount() : getAmount());
+		ItemUtil.setDurability(stack, getState() == GunState.RELOADING ? 1f - ((float) getReloadCountdown() / (float) getGun().getData().getReloadTime()) : (float) getLoadedBullets()
 				/ (float) getGun().getData().getMagazineSize());
 		return stack;
 	}
@@ -54,8 +60,9 @@ public class GunStack {
 		Gun gun = null;
 		if (meta.hasLore()) {
 			List<String> lore = meta.getLore();
-			String gunName = ChatColor.stripColor(lore.get(lore.size() - 1));
-			gun = GunManager.getInstance().getGun(gunName);
+			String gunIdent = ChatColor.stripColor(lore.get(lore.size() - 1));
+			int gunId = Integer.parseInt(gunIdent.replaceAll("Gun #", ""));
+			gun = GunManager.getInstance().getGun(gunId);
 			String bullets = lore.get(lore.size() - 3);
 			bullets = ChatColor.stripColor(bullets).substring("Bullets: ".length(), bullets.indexOf('/') - 3);
 			loadedBullets = Integer.parseInt(bullets);
@@ -105,14 +112,14 @@ public class GunStack {
 	}
 
 	public GunStack reload(Player player) {
-		if (player.getInventory().containsAtLeast(getGun().getData().getAmmo().getStack(), 1) || player.getGameMode()==GameMode.CREATIVE) {
+		if (player.getInventory().containsAtLeast(getGun().getData().getAmmo().getStack(), 1) || player.getGameMode() == GameMode.CREATIVE) {
 			player.getInventory().removeItem(getGun().getData().getAmmo().getStack());
-			player.sendMessage(ChatColor.GRAY + "Reloading...");
+			player.sendMessage(ChatColor.GRAY + "Reloading, " + (ItemUtil.getItemCount(player.getInventory(), getGun().getData().getAmmo().getStack())) + " mags left.");
 			player.playSound(player.getLocation(), Sound.DOOR_OPEN, 2f, 2f);
 			setReloadCountdown(getGun().getData().getReloadTime() - (int) (getGun().getData().getReloadTime() * 0.5f * ((float) getLoadedBullets() / (float) getGun().getData().getMagazineSize())));
 			setState(GunState.RELOADING);
 		} else {
-			player.sendMessage(ChatColor.GRAY + "No "+getGun().getData().getAmmo().getName()+" mags found.");
+			player.sendMessage(ChatColor.GRAY + "No " + getGun().getData().getAmmo().getName() + " mags found.");
 		}
 		return this;
 	}

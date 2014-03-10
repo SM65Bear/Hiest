@@ -9,7 +9,7 @@ public class AmmoShotgunShells extends Ammo {
 
 	@Override
 	public ItemStack createStack() {
-		return new ItemStack(Material.EGG);
+		return new ItemStack(Material.INK_SACK,1,(short)4);
 	}
 
 	@Override

@@ -9,7 +9,7 @@ public class AmmoM2100 extends Ammo {
 
 	@Override
 	public ItemStack createStack() {
-		return new ItemStack(Material.SNOW_BALL);
+		return new ItemStack(Material.INK_SACK,1,(short)2);
 	}
 
 	@Override

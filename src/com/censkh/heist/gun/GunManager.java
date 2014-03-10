@@ -387,9 +387,9 @@ public class GunManager {
 		return null;
 	}
 
-	public Gun getGun(String name) {
+	public Gun getGun(int id) {
 		for (Gun gun : guns) {
-			if (gun.getName().equals(name)) {
+			if (gun.getId()==id) {
 				return gun;
 			}
 		}

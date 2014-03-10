@@ -15,7 +15,7 @@ public class GuiBlackMarketGuns extends GuiStore {
 	@Override
 	public HashMap<ItemStack, Integer> initStore() {
 		HashMap<ItemStack,Integer> store = new HashMap<ItemStack,Integer>();
-		store.put(GunManager.getInstance().getGun("M4").getStack(), 300);
+		store.put(GunManager.getInstance().getGun(0).getStack(), 300);
 		return store;
 	}
 

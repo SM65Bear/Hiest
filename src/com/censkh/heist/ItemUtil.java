@@ -3,9 +3,10 @@ package com.censkh.heist;
 import java.util.HashMap;
 
 import org.bukkit.Material;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-public class ItemDurability {
+public class ItemUtil {
 
 	private static final HashMap<Material, Integer> durabilityValues = new HashMap<Material, Integer>();
 
@@ -40,6 +41,7 @@ public class ItemDurability {
 		durabilityValues.put(Material.GOLD_SPADE, md);
 		durabilityValues.put(Material.GOLD_PICKAXE, md);
 		durabilityValues.put(Material.GOLD_HOE, md);
+		md = -1;
 		durabilityValues.put(Material.SHEARS, 239);
 		durabilityValues.put(Material.CARROT_STICK, 26);
 	}
@@ -62,4 +64,29 @@ public class ItemDurability {
 		return durabilityValues;
 	}
 
+	public static boolean isSimilar(ItemStack stack, ItemStack other) {
+		if (stack.getItemMeta().hasLore() || other.getItemMeta().hasLore()) {
+			if (stack.getItemMeta().hasLore() && other.getItemMeta().hasLore()) {
+				return stack.getItemMeta().getLore().get(stack.getItemMeta().getLore().size() - 1).equals(other.getItemMeta().getLore().get(other.getItemMeta().getLore().size() - 1));
+			}
+			return false;
+		}
+		if (stack.getItemMeta().hasDisplayName() || other.getItemMeta().hasDisplayName()) {
+			if (stack.getItemMeta().hasDisplayName() && other.getItemMeta().hasDisplayName()) {
+				return stack.getItemMeta().getDisplayName().equals(other.getItemMeta().getDisplayName());
+			}
+			return false;
+		}
+		return stack.getType() == other.getType();
+	}
+
+	public static int getItemCount(Inventory inventory, ItemStack stack) {
+		int i = 0;
+		for (ItemStack s : inventory.all(stack.getType()).values()) {
+			if (isSimilar(stack, s)) {
+				i += s.getAmount();
+			}
+		}
+		return i;
+	}
 }

@@ -18,7 +18,10 @@ import org.bukkit.util.Vector;
 import com.censkh.heist.Heist;
 
 public class Gun {
-
+	
+	private static int iid = 0;
+	
+	private final int id = iid++;
 	private final ItemStack stack;
 	private final GunData data;
 	private final String name;
@@ -39,7 +42,7 @@ public class Gun {
 		if (gunStack.canFire(player)) {
 			for (int i = 0; i < getData().getBurst(); i++) {
 				Projectile projectile = player.launchProjectile(getData().getAmmo().getType());
-				projectile.setMetadata("gun", new FixedMetadataValue(Heist.getPlugin(Heist.class), getName()));
+				projectile.setMetadata("gun", new FixedMetadataValue(Heist.getPlugin(Heist.class), getId()));
 				projectile.setMetadata("zoomed", new FixedMetadataValue(Heist.getPlugin(Heist.class), GunManager.getInstance().isZoomed(player)));
 				Vector velocity = calculateVelocity(player);
 				projectile.setVelocity(velocity);
@@ -49,9 +52,9 @@ public class Gun {
 			}
 			GunManager.getInstance().setGunCooldown(player, this, getData().getRateOfFire());
 		} else {
-			player.playSound(player.getLocation(), Sound.CLICK, 2f, 2f);
+			if (gunStack.getState()==GunState.EMPTY)player.playSound(player.getLocation(), Sound.CLICK, 2f, 2f);
 		}
-		return gunStack.write();
+		return gunStack.write(stack);
 	}
 
 	public void zoom(LivingEntity entity) {
@@ -64,6 +67,10 @@ public class Gun {
 
 	public ItemStack getStack() {
 		return getStack(1);
+	}
+	
+	public String getIdent() {
+		return "Gun #"+id;
 	}
 
 	public ItemStack getStack(int i) {
@@ -106,7 +113,7 @@ public class Gun {
 	public boolean isStack(ItemStack item) {
 		ItemMeta meta = item.getItemMeta();
 		if (meta.hasLore()) {
-			if (ChatColor.stripColor(meta.getLore().get(meta.getLore().size() - 1)).equals(getName())) {
+			if (ChatColor.stripColor(meta.getLore().get(meta.getLore().size() - 1)).equals(getIdent())) {
 				return true;
 			}
 		}
@@ -115,6 +122,10 @@ public class Gun {
 
 	public boolean equals(Gun gun) {
 		return gun.getName().equals(getName());
+	}
+
+	public int getId() {
+		return id;
 	}
 
 }

@@ -9,7 +9,7 @@ public class AmmoRocket extends Ammo {
 
 	@Override
 	public ItemStack createStack() {
-		return new ItemStack(Material.FIREBALL);
+		return new ItemStack(Material.INK_SACK,1,(short)3);
 	}
 
 	@Override

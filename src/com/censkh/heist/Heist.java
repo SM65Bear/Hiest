@@ -60,7 +60,7 @@ public class Heist extends JavaPlugin {
 									if (stack.getReloadCountdown() % 10 == 0)
 										player.playSound(player.getLocation(), random.nextBoolean() ? Sound.DOOR_CLOSE : Sound.DOOR_OPEN, 1f, 2f);
 								}
-								player.setItemInHand(stack.write());
+								player.setItemInHand(stack.write(player.getItemInHand()));
 								if (GunManager.getInstance().isZoomed(player)) {
 									gun.zoom(player);
 								}
@@ -88,7 +88,7 @@ public class Heist extends JavaPlugin {
 					List<Entity> re = new ArrayList<Entity>();
 					for (Entity e : world.getEntities()) {
 						if (e.hasMetadata("gun")) {
-							Gun gun = GunManager.getInstance().getGun(e.getMetadata("gun").get(0).asString());
+							Gun gun = GunManager.getInstance().getGun(e.getMetadata("gun").get(0).asInt());
 							if (gun != null) {
 								if (e.getTicksLived() >= gun.getData().getAmmo().getLifetime()) {
 									re.add(e);
