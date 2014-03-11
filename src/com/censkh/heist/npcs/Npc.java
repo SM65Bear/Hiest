@@ -7,11 +7,12 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 
 import com.censkh.heist.gui.GuiMenuManager;
+import com.censkh.heist.listener.EventListener;
 
-public class Npc {
+public class Npc extends EventListener {
 	
 	@EventHandler
-	public void GunDealer(PlayerInteractEntityEvent event) {
+	public void gunDealer(PlayerInteractEntityEvent event) {
 		Entity entity = event.getRightClicked();
 		if (entity instanceof LivingEntity) {
 			LivingEntity e = (LivingEntity) entity;
@@ -26,7 +27,7 @@ public class Npc {
 	}
 	
 	@EventHandler
-	public void ArmourDealer(PlayerInteractEntityEvent event) {
+	public void armourDealer(PlayerInteractEntityEvent event) {
 		Entity entity = event.getRightClicked();
 		if (entity instanceof LivingEntity) {
 			LivingEntity e = (LivingEntity) entity;
@@ -41,7 +42,7 @@ public class Npc {
 	}
 	
 	@EventHandler
-	public void DrugsDealer(PlayerInteractEntityEvent event) {
+	public void drugsDealer(PlayerInteractEntityEvent event) {
 		Entity entity = event.getRightClicked();
 		if (entity instanceof LivingEntity) {
 			LivingEntity e = (LivingEntity) entity;
@@ -55,7 +56,7 @@ public class Npc {
 		}
 	}
 	@EventHandler
-	public void MaskDealer(PlayerInteractEntityEvent event) {
+	public void maskDealer(PlayerInteractEntityEvent event) {
 		Entity entity = event.getRightClicked();
 		if (entity instanceof LivingEntity) {
 			LivingEntity e = (LivingEntity) entity;
