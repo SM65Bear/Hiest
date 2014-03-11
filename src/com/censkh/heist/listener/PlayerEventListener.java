@@ -1,20 +1,16 @@
 package com.censkh.heist.listener;
 
-import org.bukkit.ChatColor;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.LivingEntity;
+
 import org.bukkit.event.Event.Result;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerDropItemEvent;
-import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.event.player.PlayerToggleSneakEvent;
 
 import com.censkh.heist.drug.Drug;
 import com.censkh.heist.drug.DrugManager;
-import com.censkh.heist.gui.GuiMenuManager;
 import com.censkh.heist.gun.Gun;
 import com.censkh.heist.gun.GunManager;
 import com.censkh.heist.gun.GunStack;
@@ -52,21 +48,6 @@ public class PlayerEventListener extends EventListener {
 					GunStack stack = new GunStack(event.getPlayer().getItemInHand());
 					gun.getData().useSecondary(event.getPlayer(), stack);
 				}
-			}
-		}
-	}
-
-	@EventHandler
-	public void onPlayerInteractEntityEvent(PlayerInteractEntityEvent event) {
-		Entity entity = event.getRightClicked();
-		if (entity instanceof LivingEntity) {
-			LivingEntity e = (LivingEntity) entity;
-			if (e.getCustomName() != null) {
-				String name = ChatColor.stripColor(e.getCustomName());
-				if (name.equalsIgnoreCase("Blackmarket Gun Dealer")) {
-					GuiMenuManager.getInstance().BLACK_MARKET_GUNS.open(event.getPlayer());
-				}
-				event.setCancelled(true);
 			}
 		}
 	}
