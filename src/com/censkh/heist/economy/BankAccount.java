@@ -7,8 +7,8 @@ public class BankAccount extends RootAccount {
 	}
 
 	@Override
-	public String getName() {
-		return "bank_"+super.name;
+	public String getNamePrefix() {
+		return "bank_";
 	}
 
 }

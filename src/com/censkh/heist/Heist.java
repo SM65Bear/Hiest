@@ -16,6 +16,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import com.censkh.heist.ammo.AmmoManager;
 import com.censkh.heist.drug.DrugManager;
+import com.censkh.heist.economy.EconomyManager;
 import com.censkh.heist.event.EventBlockManager;
 import com.censkh.heist.gui.GuiMenuManager;
 import com.censkh.heist.gun.Gun;
@@ -36,12 +37,14 @@ public class Heist extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
+		new SQLManager();
 		new InstanceManager();
 		new EventBlockManager();
 		new ThrowableManager();
 		new AmmoManager();
 		new DrugManager();
 		new GunManager();
+		new EconomyManager();
 		new GuiMenuManager();
 		EventListener.createListeners();
 		getServer().getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
@@ -115,6 +118,11 @@ public class Heist extends JavaPlugin {
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (sender instanceof Player && cmd.getName().equalsIgnoreCase("admin")) {
 			GuiMenuManager.getInstance().ADMIN.open((Player) sender);
+			return true;
+		}
+		if (sender instanceof Player && cmd.getName().equalsIgnoreCase("economy")) {
+			Player player = ((Player)sender);
+			EconomyManager.getInstance().getPlayerAccount(player).setBalance(1000);
 			return true;
 		}
 		return false;

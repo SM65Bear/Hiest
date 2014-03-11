@@ -7,8 +7,8 @@ public class PlayerAccount extends RootAccount {
 	}
 
 	@Override
-	public String getName() {
-		return "player_"+super.name;
+	public String getNamePrefix() {
+		return "player_";
 	}
 
 }
