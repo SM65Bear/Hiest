@@ -12,6 +12,8 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.event.player.PlayerToggleSneakEvent;
 
+import com.censkh.heist.drug.Drug;
+import com.censkh.heist.drug.DrugManager;
 import com.censkh.heist.gui.GuiMenuManager;
 import com.censkh.heist.gun.Gun;
 import com.censkh.heist.gun.GunManager;
@@ -92,6 +94,15 @@ public class PlayerEventListener extends EventListener {
 					event.setUseItemInHand(Result.DENY);
 					throwable.shoot(event.getPlayer());
 					event.getPlayer().getInventory().removeItem(throwable.getStack());
+				} else {
+					Drug drug = DrugManager.getInstance().getDrug(event.getItem());
+					if (drug != null) {
+						event.setCancelled(true);
+						event.setUseInteractedBlock(Result.DENY);
+						event.setUseItemInHand(Result.DENY);
+						drug.apply(event.getPlayer());
+						event.getPlayer().getInventory().removeItem(drug.getStack());
+					}
 				}
 			}
 		}

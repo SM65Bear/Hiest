@@ -57,4 +57,22 @@ public class DrugManager {
 		return drugs;
 	}
 
+	public Drug getDrug(ItemStack stack) {
+		for (Drug drug : getDrugs()) {
+			if (drug.isStack(stack)) {
+				return drug;
+			}
+		}
+		return null;
+	}
+
+	public Drug getDrug(String name) {
+		for (Drug drug : getDrugs()) {
+			if (drug.getName().equals(name)) {
+				return drug;
+			}
+		}
+		return null;
+	}
+
 }

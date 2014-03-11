@@ -5,9 +5,11 @@ import java.util.List;
 import java.util.Random;
 
 import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import com.censkh.heist.BuffData;
 import com.censkh.heist.item.UniqueItem;
 
 public class Drug extends UniqueItem {
@@ -48,6 +50,13 @@ public class Drug extends UniqueItem {
 
 	public String getName() {
 		return name;
+	}
+
+	public void apply(Player player) {
+		player.sendMessage(ChatColor.GRAY + "Oh yeah that's the stuff.");
+		for (BuffData data : getData().getBuffs()) {
+			player.addPotionEffect(data.toPotionEffect());
+		}
 	}
 
 }

@@ -16,7 +16,7 @@ public class GuiAdminMenu extends GuiMenu {
 	@Override
 	public List<GuiIcon> initIcons() {
 		List<GuiIcon> icons = new ArrayList<GuiIcon>();
-		icons.add(new GuiIcon("Gun Menu", new ItemStack(Material.DIAMOND_SPADE), 2) {
+		icons.add(new GuiIcon("Guns", new ItemStack(Material.DIAMOND_SPADE), 2) {
 
 			@Override
 			public void run(Player player) {
