@@ -45,6 +45,14 @@ public class GuiAdminMenu extends GuiMenu {
 
 			}
 		});
+		icons.add(new GuiIcon("Armour", new ItemStack(Material.LEATHER_HELMET), 5) {
+
+			@Override
+			public void run(Player player) {
+				GuiMenuManager.getInstance().AMMO_TYPE.open(player);
+
+			}
+		});
 		icons.add(new GuiIcon("Drugs", new ItemStack(Material.SUGAR), 6) {
 
 			@Override

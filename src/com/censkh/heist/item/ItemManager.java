@@ -3,9 +3,13 @@ package com.censkh.heist.item;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bukkit.ChatColor;
+import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.potion.PotionEffectType;
 
 import com.censkh.heist.ammo.Ammo556;
@@ -26,39 +30,44 @@ public class ItemManager {
 
 	private static ItemManager instance;
 	private final List<UniqueItem> items = new ArrayList<UniqueItem>();
-	
+
 	{
 		instance = this;
 	}
-	
+
 	public final Ammo556 AMMO_556 = new Ammo556();
 	public final AmmoRocket AMMO_ROCKET = new AmmoRocket();
 	public final AmmoM2100 AMMO_M2100 = new AmmoM2100();
 	public final AmmoShotgunShells AMMO_SHOTGUN_SHELLS = new AmmoShotgunShells();
 	public final Ammo9MM AMMO_9MM = new Ammo9MM();
 
-	public final Drug DRUG_COCANE = new Drug(600, "Cocane", new ItemStack(Material.SUGAR), new DrugData() {
+	public final Drug DRUG_COCANE = new Drug(600, "Cocane", new ItemStack(
+			Material.SUGAR), new DrugData() {
 		{
 			addBuff(new BuffData(PotionEffectType.SPEED, 20 * 3, 0));
 		}
 	});
-	public final Drug DRUG_CRACK = new Drug(601, "Crack", new ItemStack(Material.SUGAR), new DrugData() {
+	public final Drug DRUG_CRACK = new Drug(601, "Crack", new ItemStack(
+			Material.SUGAR), new DrugData() {
 		{
 			addBuff(new BuffData(PotionEffectType.SPEED, 20 * 3, 0));
 		}
 	});
-	public final Drug DRUG_CANABIS = new Drug(602, "Canabis", new ItemStack(Material.SUGAR), new DrugData() {
+	public final Drug DRUG_CANABIS = new Drug(602, "Canabis", new ItemStack(
+			Material.SUGAR), new DrugData() {
 		{
 			addBuff(new BuffData(PotionEffectType.SPEED, 20 * 3, 0));
 		}
 	});
-	public final Drug DRUG_HEROINE = new Drug(603, "Heroine", new ItemStack(Material.SUGAR), new DrugData() {
+	public final Drug DRUG_HEROINE = new Drug(603, "Heroine", new ItemStack(
+			Material.SUGAR), new DrugData() {
 		{
 			addBuff(new BuffData(PotionEffectType.SPEED, 20 * 3, 0));
 		}
 	});
-	
-	public final Gun GUN_M4 = new Gun(301,"M4", new ItemStack(Material.DIAMOND_SPADE), new GunData() {
+
+	public final Gun GUN_M4 = new Gun(301, "M4", new ItemStack(
+			Material.DIAMOND_SPADE), new GunData() {
 		{
 			setRarity(ItemRarity.BASIC);
 			setAmmo(AMMO_556);
@@ -72,7 +81,8 @@ public class ItemManager {
 		}
 	});
 
-	public final Gun GUN_ACR = new Gun(302,"ACR", new ItemStack(Material.IRON_SPADE), new GunData() {
+	public final Gun GUN_ACR = new Gun(302, "ACR", new ItemStack(
+			Material.IRON_SPADE), new GunData() {
 		{
 			setRarity(ItemRarity.PERFECT);
 			setAmmo(AMMO_556);
@@ -86,7 +96,8 @@ public class ItemManager {
 		}
 	});
 
-	public final Gun GUN_AK47 = new Gun(303,"Ak47", new ItemStack(Material.WOOD_SPADE), new GunData() {
+	public final Gun GUN_AK47 = new Gun(303, "Ak47", new ItemStack(
+			Material.WOOD_SPADE), new GunData() {
 		{
 			setShootSound(new SoundData(Sound.EXPLODE, 2f, 2f));
 			setRarity(ItemRarity.RARE);
@@ -103,7 +114,8 @@ public class ItemManager {
 		}
 	});
 
-	public final Gun GUN_SCAR_H = new Gun(304,"Scar-H", new ItemStack(Material.GOLD_AXE), new GunData() {
+	public final Gun GUN_SCAR_H = new Gun(304, "Scar-H", new ItemStack(
+			Material.GOLD_AXE), new GunData() {
 		{
 			setShootSound(new SoundData(Sound.EXPLODE, 2f, 1.5f));
 			setRarity(ItemRarity.ELITE);
@@ -123,7 +135,8 @@ public class ItemManager {
 
 	// -= ShotGuns =- \\
 
-	public final Gun GUN_M3 = new Gun(310,"M3", new ItemStack(Material.WOOD_PICKAXE), new GunData() {
+	public final Gun GUN_M3 = new Gun(310, "M3", new ItemStack(
+			Material.WOOD_PICKAXE), new GunData() {
 		{
 			setRarity(ItemRarity.RARE);
 			setAmmo(AMMO_SHOTGUN_SHELLS);
@@ -139,7 +152,8 @@ public class ItemManager {
 		}
 	});
 
-	public final Gun GUN_M1014 = new Gun(311,"M1014", new ItemStack(Material.SHEARS), new GunData() {
+	public final Gun GUN_M1014 = new Gun(311, "M1014", new ItemStack(
+			Material.SHEARS), new GunData() {
 		{
 			setRarity(ItemRarity.BASIC);
 			setAmmo(AMMO_SHOTGUN_SHELLS);
@@ -155,7 +169,8 @@ public class ItemManager {
 		}
 	});
 
-	public final Gun GUN_MODEL_1887 = new Gun(312,"Model 1887", new ItemStack(Material.DIAMOND_AXE), new GunData() {
+	public final Gun GUN_MODEL_1887 = new Gun(312, "Model 1887", new ItemStack(
+			Material.DIAMOND_AXE), new GunData() {
 		{
 			setRarity(ItemRarity.BASIC);
 			setAmmo(AMMO_SHOTGUN_SHELLS);
@@ -171,7 +186,8 @@ public class ItemManager {
 		}
 	});
 
-	public final Gun GUN_AA_12 = new Gun(313,"AA-12", new ItemStack(Material.DIAMOND_PICKAXE), new GunData() {
+	public final Gun GUN_AA_12 = new Gun(313, "AA-12", new ItemStack(
+			Material.DIAMOND_PICKAXE), new GunData() {
 		{
 			setRarity(ItemRarity.RARE);
 			setAmmo(AMMO_SHOTGUN_SHELLS);
@@ -189,7 +205,8 @@ public class ItemManager {
 
 	// -= Heavy Machineguns =- \\
 
-	public final Gun GUN_RPG = new Gun(320,"RPG", new ItemStack(Material.GOLD_SPADE), new GunData() {
+	public final Gun GUN_RPG = new Gun(320, "RPG", new ItemStack(
+			Material.GOLD_SPADE), new GunData() {
 		{
 			setRarity(ItemRarity.RARE);
 			setAmmo(AMMO_ROCKET);
@@ -206,41 +223,26 @@ public class ItemManager {
 
 	// -= Hand Guns =- \\
 
-	public final Gun GUN_DESERT_EAGLE = new Gun(330,"Desert Eagle", new ItemStack(Material.STONE_HOE), new GunData() {
-		{
-			setShootSound(new SoundData(Sound.ITEM_BREAK, 2f, 2f));
-			setRarity(ItemRarity.RARE);
-			setAmmo(AMMO_556);
-			setRecoil(1f);
-			setZoom(2);
-			setMagazineSize(16);
-			setAccuracy(0.2f);
-			setBurst(1);
-			setDamage(2.5d);
-			setReloadTime(20);
-			setRateOfFire(3);
-			setType(WeaponType.HANDGUN);
-		}
-	});
+	public final Gun GUN_DESERT_EAGLE = new Gun(330, "Desert Eagle",
+			new ItemStack(Material.STONE_HOE), new GunData() {
+				{
+					setShootSound(new SoundData(Sound.ITEM_BREAK, 2f, 2f));
+					setRarity(ItemRarity.RARE);
+					setAmmo(AMMO_556);
+					setRecoil(1f);
+					setZoom(2);
+					setMagazineSize(16);
+					setAccuracy(0.2f);
+					setBurst(1);
+					setDamage(2.5d);
+					setReloadTime(20);
+					setRateOfFire(3);
+					setType(WeaponType.HANDGUN);
+				}
+			});
 
-	public final Gun GUN_P250 = new Gun(331,"P250", new ItemStack(Material.IRON_HOE), new GunData() {
-		{
-			setShootSound(new SoundData(Sound.ITEM_BREAK, 2f, 2f));
-			setRarity(ItemRarity.BASIC);
-			setAmmo(AMMO_556);
-			setRecoil(1f);
-			setZoom(2);
-			setMagazineSize(16);
-			setAccuracy(0.2f);
-			setBurst(1);
-			setDamage(2.5d);
-			setReloadTime(20);
-			setRateOfFire(3);
-			setType(WeaponType.HANDGUN);
-		}
-	});
-
-	public final Gun GUN_M9 = new Gun(332,"M9", new ItemStack(Material.IRON_PICKAXE), new GunData() {
+	public final Gun GUN_P250 = new Gun(331, "P250", new ItemStack(
+			Material.IRON_HOE), new GunData() {
 		{
 			setShootSound(new SoundData(Sound.ITEM_BREAK, 2f, 2f));
 			setRarity(ItemRarity.BASIC);
@@ -257,57 +259,79 @@ public class ItemManager {
 		}
 	});
 
-	public final Gun GUN_GOLDEN_MAGNUM = new Gun(333,"Golden Magnum", new ItemStack(Material.GOLD_HOE), new GunData() {
+	public final Gun GUN_M9 = new Gun(332, "M9", new ItemStack(
+			Material.IRON_PICKAXE), new GunData() {
 		{
-			setRarity(ItemRarity.ELITE);
-			setAmmo(AMMO_9MM);
+			setShootSound(new SoundData(Sound.ITEM_BREAK, 2f, 2f));
+			setRarity(ItemRarity.BASIC);
+			setAmmo(AMMO_556);
 			setRecoil(1f);
 			setZoom(2);
-			setMagazineSize(6);
-			setAccuracy(0.12f);
-			setDamage(6d);
-			setRateOfFire(20);
-			setReloadTime(3 * 20);
+			setMagazineSize(16);
+			setAccuracy(0.2f);
+			setBurst(1);
+			setDamage(2.5d);
+			setReloadTime(20);
+			setRateOfFire(3);
 			setType(WeaponType.HANDGUN);
 		}
 	});
+
+	public final Gun GUN_GOLDEN_MAGNUM = new Gun(333, "Golden Magnum",
+			new ItemStack(Material.GOLD_HOE), new GunData() {
+				{
+					setRarity(ItemRarity.ELITE);
+					setAmmo(AMMO_9MM);
+					setRecoil(1f);
+					setZoom(2);
+					setMagazineSize(6);
+					setAccuracy(0.12f);
+					setDamage(6d);
+					setRateOfFire(20);
+					setReloadTime(3 * 20);
+					setType(WeaponType.HANDGUN);
+				}
+			});
 	// -= Sniper Rifles =- \\
 
-	public final Gun GUN_INTERVENTION = new Gun(340,"Intervention", new ItemStack(Material.WOOD_HOE), new GunData() {
-		{
-			setShootSound(new SoundData(Sound.EXPLODE, 2f, 1.5f));
-			setRarity(ItemRarity.ELITE);
-			setAmmo(AMMO_M2100);
-			setRecoil(1f);
-			setZoom(7);
-			setMagazineSize(6);
-			setAccuracy(0.3f);
-			setDamage(6d);
-			setRateOfFire(25);
-			setZoomModifier(4f);
-			setReloadTime(2 * 20);
-			setType(WeaponType.SNIPER);
-		}
-	});
+	public final Gun GUN_INTERVENTION = new Gun(340, "Intervention",
+			new ItemStack(Material.WOOD_HOE), new GunData() {
+				{
+					setShootSound(new SoundData(Sound.EXPLODE, 2f, 1.5f));
+					setRarity(ItemRarity.ELITE);
+					setAmmo(AMMO_M2100);
+					setRecoil(1f);
+					setZoom(7);
+					setMagazineSize(6);
+					setAccuracy(0.3f);
+					setDamage(6d);
+					setRateOfFire(25);
+					setZoomModifier(4f);
+					setReloadTime(2 * 20);
+					setType(WeaponType.SNIPER);
+				}
+			});
 
-	public final Gun GUN_BARRET_50CAL = new Gun(341,"Barret .50cal", new ItemStack(Material.STONE_AXE), new GunData() {
-		{
-			setShootSound(new SoundData(Sound.EXPLODE, 2f, 1.5f));
-			setRarity(ItemRarity.BASIC);
-			setAmmo(AMMO_M2100);
-			setRecoil(1f);
-			setZoom(7);
-			setMagazineSize(6);
-			setAccuracy(0.35f);
-			setDamage(9d);
-			setRateOfFire(12);
-			setZoomModifier(2f);
-			setReloadTime(2 * 20);
-			setType(WeaponType.SNIPER);
-		}
-	});
+	public final Gun GUN_BARRET_50CAL = new Gun(341, "Barret .50cal",
+			new ItemStack(Material.STONE_AXE), new GunData() {
+				{
+					setShootSound(new SoundData(Sound.EXPLODE, 2f, 1.5f));
+					setRarity(ItemRarity.BASIC);
+					setAmmo(AMMO_M2100);
+					setRecoil(1f);
+					setZoom(7);
+					setMagazineSize(6);
+					setAccuracy(0.35f);
+					setDamage(9d);
+					setRateOfFire(12);
+					setZoomModifier(2f);
+					setReloadTime(2 * 20);
+					setType(WeaponType.SNIPER);
+				}
+			});
 
-	public final Gun GUN_M40A3 = new Gun(342,"M40A3", new ItemStack(Material.STONE_PICKAXE), new GunData() {
+	public final Gun GUN_M40A3 = new Gun(342, "M40A3", new ItemStack(
+			Material.STONE_PICKAXE), new GunData() {
 		{
 			setShootSound(new SoundData(Sound.EXPLODE, 2f, 1.5f));
 			setRarity(ItemRarity.PERFECT);
@@ -324,26 +348,28 @@ public class ItemManager {
 		}
 	});
 
-	public final Gun GUN_KALASHNIKOV = new Gun(343,"KALASHNIKOV", new ItemStack(Material.IRON_AXE), new GunData() {
-		{
-			setShootSound(new SoundData(Sound.EXPLODE, 2f, 1.5f));
-			setRarity(ItemRarity.RARE);
-			setAmmo(AMMO_M2100);
-			setRecoil(1f);
-			setZoom(7);
-			setMagazineSize(6);
-			setAccuracy(0.2f);
-			setDamage(6d);
-			setRateOfFire(15);
-			setZoomModifier(4f);
-			setReloadTime(2 * 20);
-			setType(WeaponType.SNIPER);
-		}
-	});
+	public final Gun GUN_KALASHNIKOV = new Gun(343, "KALASHNIKOV",
+			new ItemStack(Material.IRON_AXE), new GunData() {
+				{
+					setShootSound(new SoundData(Sound.EXPLODE, 2f, 1.5f));
+					setRarity(ItemRarity.RARE);
+					setAmmo(AMMO_M2100);
+					setRecoil(1f);
+					setZoom(7);
+					setMagazineSize(6);
+					setAccuracy(0.2f);
+					setDamage(6d);
+					setRateOfFire(15);
+					setZoomModifier(4f);
+					setReloadTime(2 * 20);
+					setType(WeaponType.SNIPER);
+				}
+			});
 
 	// -= Light Machineguns =- \\
 
-	public final Gun GUN_P250B = new Gun(350,"P250b", new ItemStack(Material.DIAMOND_HOE), new GunData() {
+	public final Gun GUN_P250B = new Gun(350, "P250b", new ItemStack(
+			Material.DIAMOND_HOE), new GunData() {
 		{
 			setRarity(ItemRarity.RARE);
 			setShootSound(new SoundData(Sound.CLICK, 2f, 1.5f));
@@ -360,7 +386,8 @@ public class ItemManager {
 		}
 	});
 
-	public final Gun GUN_UMP45 = new Gun(351,"Ump45", new ItemStack(Material.GOLD_PICKAXE), new GunData() {
+	public final Gun GUN_UMP45 = new Gun(351, "Ump45", new ItemStack(
+			Material.GOLD_PICKAXE), new GunData() {
 		{
 			setShootSound(new SoundData(Sound.CLICK, 2f, 1.5f));
 			setRarity(ItemRarity.RARE);
@@ -377,7 +404,8 @@ public class ItemManager {
 		}
 	});
 
-	public final Gun GUN_MP5 = new Gun(352,"MP5", new ItemStack(Material.WOOD_AXE), new GunData() {
+	public final Gun GUN_MP5 = new Gun(352, "MP5", new ItemStack(
+			Material.WOOD_AXE), new GunData() {
 		{
 			setRarity(ItemRarity.BASIC);
 			setShootSound(new SoundData(Sound.CLICK, 2f, 1.5f));
@@ -394,7 +422,8 @@ public class ItemManager {
 		}
 	});
 
-	public final Gun GUN_UZI = new Gun(353,"Uzi", new ItemStack(Material.STONE_SPADE), new GunData() {
+	public final Gun GUN_UZI = new Gun(353, "Uzi", new ItemStack(
+			Material.STONE_SPADE), new GunData() {
 		{
 			setRarity(ItemRarity.BASIC);
 			setShootSound(new SoundData(Sound.CLICK, 2f, 1.5f));
@@ -410,7 +439,186 @@ public class ItemManager {
 			setType(WeaponType.LIGHT);
 		}
 	});
-	
+
+	public final UniqueItem WHITEMASK = new UniqueItem(101, "White Mask") {
+
+		private ItemStack stack;
+
+		@Override
+		public ItemType getType() {
+			return ItemType.ARMOUR;
+		}
+
+		@Override
+		public ItemStack getStack(int i) {
+			if (stack == null) {
+				stack = new ItemStack(Material.LEATHER_HELMET);
+				ItemMeta meta = stack.getItemMeta();
+				meta.setDisplayName("jimmeh");
+				List<String> lore = new ArrayList<String>();
+				lore.add(ChatColor.GRAY + getIdent());
+				lore.add(ChatColor.YELLOW
+						+ "Once Equipped in stores a robbery will take place!");
+				meta.setLore(lore);
+				LeatherArmorMeta armourMeta = (LeatherArmorMeta) meta;
+				armourMeta.setColor(Color.WHITE);
+				stack.setItemMeta(armourMeta);
+			}
+			ItemStack clone = stack.clone();
+			clone.setAmount(i);
+			return clone;
+		}
+	};
+	public final UniqueItem REDMASK = new UniqueItem(101, "Red Mask") {
+
+		private ItemStack stack;
+
+		@Override
+		public ItemType getType() {
+			return ItemType.ARMOUR;
+		}
+
+		@Override
+		public ItemStack getStack(int i) {
+			if (stack == null) {
+				stack = new ItemStack(Material.LEATHER_HELMET);
+				ItemMeta meta = stack.getItemMeta();
+				meta.setDisplayName("jimmeh");
+				List<String> lore = new ArrayList<String>();
+				lore.add(ChatColor.GRAY + getIdent());
+				lore.add(ChatColor.YELLOW
+						+ "Once Equipped in stores a robbery will take place!");
+				meta.setLore(lore);
+				LeatherArmorMeta armourMeta = (LeatherArmorMeta) meta;
+				armourMeta.setColor(Color.RED);
+				stack.setItemMeta(armourMeta);
+			}
+			ItemStack clone = stack.clone();
+			clone.setAmount(i);
+			return clone;
+		}
+	};
+
+	public final UniqueItem BLACKMASK = new UniqueItem(101, "Black Mask") {
+
+		private ItemStack stack;
+
+		@Override
+		public ItemType getType() {
+			return ItemType.ARMOUR;
+		}
+
+		@Override
+		public ItemStack getStack(int i) {
+			if (stack == null) {
+				stack = new ItemStack(Material.LEATHER_HELMET);
+				ItemMeta meta = stack.getItemMeta();
+				meta.setDisplayName("jimmeh");
+				List<String> lore = new ArrayList<String>();
+				lore.add(ChatColor.GRAY + getIdent());
+				lore.add(ChatColor.YELLOW
+						+ "Once Equipped in stores a robbery will take place!");
+				meta.setLore(lore);
+				LeatherArmorMeta armourMeta = (LeatherArmorMeta) meta;
+				armourMeta.setColor(Color.BLACK);
+				stack.setItemMeta(armourMeta);
+			}
+			ItemStack clone = stack.clone();
+			clone.setAmount(i);
+			return clone;
+		}
+	};
+
+	public final UniqueItem ORANGEMASK = new UniqueItem(101, "Orange Mask") {
+
+		private ItemStack stack;
+
+		@Override
+		public ItemType getType() {
+			return ItemType.ARMOUR;
+		}
+
+		@Override
+		public ItemStack getStack(int i) {
+			if (stack == null) {
+				stack = new ItemStack(Material.LEATHER_HELMET);
+				ItemMeta meta = stack.getItemMeta();
+				meta.setDisplayName("jimmeh");
+				List<String> lore = new ArrayList<String>();
+				lore.add(ChatColor.GRAY + getIdent());
+				lore.add(ChatColor.YELLOW
+						+ "Once Equipped in stores a robbery will take place!");
+				meta.setLore(lore);
+				LeatherArmorMeta armourMeta = (LeatherArmorMeta) meta;
+				armourMeta.setColor(Color.ORANGE);
+				stack.setItemMeta(armourMeta);
+			}
+			ItemStack clone = stack.clone();
+			clone.setAmount(i);
+			return clone;
+		}
+	};
+
+	public final UniqueItem PURPLEMASK = new UniqueItem(101, "Purple Mask") {
+
+		private ItemStack stack;
+
+		@Override
+		public ItemType getType() {
+			return ItemType.ARMOUR;
+		}
+
+		@Override
+		public ItemStack getStack(int i) {
+			if (stack == null) {
+				stack = new ItemStack(Material.LEATHER_HELMET);
+				ItemMeta meta = stack.getItemMeta();
+				meta.setDisplayName("jimmeh");
+				List<String> lore = new ArrayList<String>();
+				lore.add(ChatColor.GRAY + getIdent());
+				lore.add(ChatColor.YELLOW
+						+ "Once Equipped in stores a robbery will take place!");
+				meta.setLore(lore);
+				LeatherArmorMeta armourMeta = (LeatherArmorMeta) meta;
+				armourMeta.setColor(Color.PURPLE);
+				stack.setItemMeta(armourMeta);
+			}
+			ItemStack clone = stack.clone();
+			clone.setAmount(i);
+			return clone;
+		}
+	};
+	public final UniqueItem YELLOWMASK = new UniqueItem(101, "Yellow Mask") {
+
+		private ItemStack stack;
+
+		@Override
+		public ItemType getType() {
+			return ItemType.ARMOUR;
+		}
+
+		@Override
+		public ItemStack getStack(int i) {
+			if (stack == null) {
+				stack = new ItemStack(Material.LEATHER_HELMET);
+				ItemMeta meta = stack.getItemMeta();
+				meta.setDisplayName("jimmeh");
+				List<String> lore = new ArrayList<String>();
+				lore.add(ChatColor.GRAY + getIdent());
+				lore.add(ChatColor.YELLOW
+						+ "Once Equipped in stores a robbery will take place!");
+				lore.add("" + ChatColor.GRAY + ChatColor.ITALIC + "For TheWhitford!");
+				meta.setLore(lore);
+				LeatherArmorMeta armourMeta = (LeatherArmorMeta) meta;
+				armourMeta.setColor(Color.YELLOW);
+				stack.setItemMeta(armourMeta);
+			}
+			ItemStack clone = stack.clone();
+			clone.setAmount(i);
+			return clone;
+		}
+	};
+
 	public final FragGrenade FRAG_GRENADE = new FragGrenade();
 
 	public ItemManager() {
@@ -450,17 +658,17 @@ public class ItemManager {
 
 	public UniqueItem getItem(int id) {
 		for (UniqueItem item : getItems()) {
-			if (item.getId()==id) {
+			if (item.getId() == id) {
 				return item;
 			}
 		}
 		return null;
 	}
-	
+
 	public List<UniqueItem> getItems(ItemType type) {
 		List<UniqueItem> items = new ArrayList<UniqueItem>();
 		for (UniqueItem item : getItems()) {
-			if (item.getType()==type) {
+			if (item.getType() == type) {
 				items.add(item);
 			}
 		}
@@ -469,7 +677,7 @@ public class ItemManager {
 
 	public UniqueItem getItem(ItemType type, int id) {
 		for (UniqueItem item : getItems(type)) {
-			if (item.getId()==id) {
+			if (item.getId() == id) {
 				return item;
 			}
 		}

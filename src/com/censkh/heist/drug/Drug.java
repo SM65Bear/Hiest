@@ -48,7 +48,7 @@ public class Drug extends UniqueItem {
 	}
 
 	public void apply(Player player) {
-		player.sendMessage(ChatColor.GRAY + "Oh yeah that's the stuff.");
+		player.sendMessage(ChatColor.AQUA + "[Sniff] " + ChatColor.GRAY +"Oh yeah that's the stuff.");
 		for (BuffData data : getData().getBuffs()) {
 			player.addPotionEffect(data.toPotionEffect());
 		}
