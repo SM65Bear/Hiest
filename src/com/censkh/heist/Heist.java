@@ -27,7 +27,7 @@ import com.censkh.heist.item.ItemManager;
 import com.censkh.heist.item.ItemType;
 import com.censkh.heist.item.UniqueItem;
 import com.censkh.heist.listener.EventListener;
-import com.censkh.heist.npcs.Npc;
+import com.censkh.heist.npcs.NpcListener;
 import com.censkh.heist.throwable.ThrowableManager;
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
@@ -47,7 +47,7 @@ public class Heist extends JavaPlugin {
 		new GunManager();
 		new EconomyManager();
 		new GuiMenuManager();
-		new Npc();
+		new NpcListener();
 		EventListener.createListeners();
 		getServer().getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
 			@Override
