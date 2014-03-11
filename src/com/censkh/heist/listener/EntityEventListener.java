@@ -1,7 +1,5 @@
 package com.censkh.heist.listener;
 
-import org.bukkit.Effect;
-import org.bukkit.Material;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.WitherSkull;
@@ -19,7 +17,6 @@ import com.censkh.heist.item.UniqueItem;
 
 public class EntityEventListener extends EventListener {
 
-	@SuppressWarnings("deprecation")
 	@EventHandler
 	public void onEntityDamageByEntityEvent(EntityDamageByEntityEvent event) {
 		Entity damager = event.getDamager();
@@ -27,7 +24,7 @@ public class EntityEventListener extends EventListener {
 			UniqueItem item = ItemManager.getInstance().getItem(ItemType.GUN,damager.getMetadata("gun").get(0).asInt());
 			if (item != null) {
 				Gun gun = (Gun) item;
-				event.getEntity().getWorld().playEffect(event.getEntity().getLocation().add(0, 1, 0), Effect.STEP_SOUND, Material.REDSTONE_BLOCK.getId());
+				//event.getEntity().getWorld().playEffect(event.getEntity().getLocation().add(0, 1, 0), Effect.STEP_SOUND, Material.REDSTONE_BLOCK.getId());
 				double damage = gun.getData().getDamage();
 				if (damager.getMetadata("zoomed").get(0).asBoolean()) {
 					damage *= gun.getData().getZoomModifier();
