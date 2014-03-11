@@ -23,6 +23,7 @@ public class GuiMenuManager {
 	public final GuiAdminMenu ADMIN = (GuiAdminMenu) addMenu(new GuiAdminMenu());
 	public final GuiBlackMarketGuns BLACK_MARKET_GUNS = (GuiBlackMarketGuns) addMenu(new GuiBlackMarketGuns());
 	public final GuiAmmoTypeMenu AMMO_TYPE = (GuiAmmoTypeMenu) addMenu(new GuiAmmoTypeMenu());
+	public final GuiDrugTypeMenu DRUG_TYPE = (GuiDrugTypeMenu) addMenu(new GuiDrugTypeMenu());
 
 	public GuiMenuManager() {
 		instance = this;

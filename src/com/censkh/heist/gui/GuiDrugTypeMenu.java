@@ -7,27 +7,27 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import com.censkh.heist.ammo.Ammo;
-import com.censkh.heist.ammo.AmmoManager;
+import com.censkh.heist.drug.Drug;
+import com.censkh.heist.drug.DrugManager;
 
-public class GuiAmmoTypeMenu extends GuiMenu {
+public class GuiDrugTypeMenu extends GuiMenu {
 
-	public GuiAmmoTypeMenu() {
-		super("Ammo");
+	public GuiDrugTypeMenu() {
+		super("Drugs");
 	}
 
 	@Override
 	public List<GuiIcon> initIcons() {
 		List<GuiIcon> icons = new ArrayList<GuiIcon>();
 		int i = 0;
-		for (Ammo a : AmmoManager.getInstance().getAmmo()) {
-			final Ammo ammo = a;
+		for (Drug d : DrugManager.getInstance().getDrugs()) {
+			final Drug drug = d;
 
-			icons.add(new GuiIcon(ammo.getName(), new ItemStack(ammo.getStack()), i) {
+			icons.add(new GuiIcon(drug.getName(), new ItemStack(drug.getStack()), i) {
 
 				@Override
 				public void run(Player player) {
-					player.getInventory().addItem(ammo.getStack());
+					player.getInventory().addItem(drug.getStack());
 				}
 			});
 			i++;

@@ -4,68 +4,55 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.potion.PotionEffectType;
 
-import com.censkh.heist.drug.Drug;
-import com.censkh.heist.drug.DrugManager;
+import com.censkh.heist.BuffData;
 
 public class DrugManager {
-	
+
 	private static DrugManager instance;
 	private final List<Drug> drugs = new ArrayList<Drug>();
-	public static DrugManager getInstance() {
-		
-		return instance;
-		
+
 	public DrugManager() {
-		
-		//fucked up here 2 /\
 		instance = this;
-		
-		addDrug(new Drug("Cocane", new ItemStack(Material.SUGAR), new DrugData() {
-			setCauseSpeed(1);
-			
-			//fucked up again
-			
-			
+
+		addDrug(new Drug(600, "Cocane", new ItemStack(Material.SUGAR), new DrugData() {
+			{
+				addBuff(new BuffData(PotionEffectType.SPEED, 20 * 3, 0));
+			}
 		}));
-		
-		addDrug(new Drug("Crack", new ItemStack(Material.SUGAR), new DrugData() {
-			setCauseSpeed(1);
-			
-			//fucked up again
-			
-			
+		addDrug(new Drug(601, "Crack", new ItemStack(Material.SUGAR), new DrugData() {
+			{
+				addBuff(new BuffData(PotionEffectType.SPEED, 20 * 3, 0));
+			}
 		}));
-		
-		addDrug(new Drug("Canabis", new ItemStack(Material.SUGAR), new DrugData() {
-			setCauseSpeed(1);
-			
-			//fucked up again
-			
-			
+		addDrug(new Drug(602, "Canabis", new ItemStack(Material.SUGAR), new DrugData() {
+			{
+				addBuff(new BuffData(PotionEffectType.SPEED, 20 * 3, 0));
+			}
 		}));
-		addDrug(new Drug("Herobrine/Heroin", new ItemStack(Material.SUGAR), new DrugData() {
-			setCauseSpeed(1);
-			
-			//and here too, oh they alll but this one start with a "c" - my name begins with a c..... oh :/ im a drug, deal with it bitch!
-			
-			
+		addDrug(new Drug(603, "Herobrine/Heroin", new ItemStack(Material.SUGAR), new DrugData() {
+			{
+				addBuff(new BuffData(PotionEffectType.SPEED, 20 * 3, 0));
+			}
 		}));
-		
-	}	//don't you love fucking up....i don't
-	
-	//have fun with this btw
-	
-		
-		
-		
-		
-		
-		
+
 	}
+
+	public Drug addDrug(Drug drug) {
+		drugs.add(drug);
+		return drug;
+	}
+
+	public static DrugManager getInstance() {
+		return instance;
+	}
+
 	public static void setInstance(DrugManager instance) {
 		DrugManager.instance = instance;
 	}
+
 	public List<Drug> getDrugs() {
 		return drugs;
 	}

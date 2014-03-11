@@ -15,6 +15,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.censkh.heist.ammo.AmmoManager;
+import com.censkh.heist.drug.DrugManager;
 import com.censkh.heist.event.EventBlockManager;
 import com.censkh.heist.gui.GuiMenuManager;
 import com.censkh.heist.gun.Gun;
@@ -39,6 +40,7 @@ public class Heist extends JavaPlugin {
 		new EventBlockManager();
 		new ThrowableManager();
 		new AmmoManager();
+		new DrugManager();
 		new GunManager();
 		new GuiMenuManager();
 		EventListener.createListeners();

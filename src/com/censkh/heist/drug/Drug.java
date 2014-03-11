@@ -1,13 +1,13 @@
 package com.censkh.heist.drug;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
-import org.bukkit.entity.LivingEntity;
+import org.bukkit.ChatColor;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
+import org.bukkit.inventory.meta.ItemMeta;
 
-import com.censkh.heist.drug.DrugData;
 import com.censkh.heist.item.UniqueItem;
 
 public class Drug extends UniqueItem {
@@ -20,38 +20,27 @@ public class Drug extends UniqueItem {
 	public Drug(int id,String name, ItemStack stack, DrugData data) {
 		super(id);
 		this.name = name;
-		this.stack = stack;
 		this.data = data;
+		this.stack = bake(stack);
+		
+	}
+
+	private ItemStack bake(ItemStack stack) {
+		ItemMeta meta = stack.getItemMeta();
+		meta.setDisplayName(ChatColor.LIGHT_PURPLE + getName());
+		List<String> lore = new ArrayList<String>(getData().toLore());
+		lore.add(ChatColor.DARK_GRAY + getIdent());
+		meta.setLore(lore);
+		stack.setItemMeta(meta);
+		return stack;
 	}
 
 	@Override
 	public ItemStack getStack(int i) {
-		DrugStack stack = new DrugStack(this);
+		ItemStack stack = this.stack.clone();
 		stack.setAmount(i);
-		return null;
+		return stack;
 	}
-	
-	public void CauseNausa(LivingEntity entity) {
-		entity.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 3, getData().getCauseNausa()), true);
-	}
-	
-	public void CauseSpeed(LivingEntity entity) {
-		entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 3, getData().getCauseSpeed()), true);
-		entity.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, 3, getData().getCauseSpeed()), true);
-	}
-	
-	public void CauseRegen(LivingEntity entity) {
-		entity.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 2, getData().getCauseRegen()), true);
-	}
-	
-	public void CauseRessist(LivingEntity entity) {
-		entity.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 1, getData().getCauseRessist()), true);
-	}
-	
-	public void CauseJump(LivingEntity entity) {
-		entity.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 3, getData().getCauseJump()), true);
-	}
-	
 	
 	public DrugData getData() {
 		return data;
