@@ -14,8 +14,6 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.censkh.heist.ammo.AmmoManager;
-import com.censkh.heist.drug.DrugManager;
 import com.censkh.heist.economy.EconomyManager;
 import com.censkh.heist.event.EventBlockManager;
 import com.censkh.heist.gui.GuiMenuManager;
@@ -25,6 +23,9 @@ import com.censkh.heist.gun.GunStack;
 import com.censkh.heist.gun.GunState;
 import com.censkh.heist.instance.Instance;
 import com.censkh.heist.instance.InstanceManager;
+import com.censkh.heist.item.ItemManager;
+import com.censkh.heist.item.ItemType;
+import com.censkh.heist.item.UniqueItem;
 import com.censkh.heist.listener.EventListener;
 import com.censkh.heist.throwable.ThrowableManager;
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
@@ -38,11 +39,10 @@ public class Heist extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		new SQLManager();
+		new ItemManager();
 		new InstanceManager();
 		new EventBlockManager();
 		new ThrowableManager();
-		new AmmoManager();
-		new DrugManager();
 		new GunManager();
 		new EconomyManager();
 		new GuiMenuManager();
@@ -57,8 +57,9 @@ public class Heist extends JavaPlugin {
 					}
 					if (player.getItemInHand() != null) {
 						if (player.getItemInHand().getType() != Material.AIR) {
-							Gun gun = GunManager.getInstance().getGun(player.getItemInHand());
-							if (gun != null) {
+							UniqueItem item = ItemManager.getInstance().getItem(ItemType.GUN,player.getItemInHand());
+							if (item != null) {
+								Gun gun = (Gun) item;
 								GunStack stack = new GunStack(player.getItemInHand());
 								if (stack.getState() == GunState.RELOADING) {
 									stack.setReloadCountdown(stack.getReloadCountdown() - 1);
@@ -93,8 +94,9 @@ public class Heist extends JavaPlugin {
 					List<Entity> re = new ArrayList<Entity>();
 					for (Entity e : world.getEntities()) {
 						if (e.hasMetadata("gun")) {
-							Gun gun = GunManager.getInstance().getGun(e.getMetadata("gun").get(0).asInt());
-							if (gun != null) {
+							UniqueItem item = ItemManager.getInstance().getItem(ItemType.GUN,e.getMetadata("gun").get(0).asInt());
+							if (item != null) {
+								Gun gun = (Gun) item;
 								if (e.getTicksLived() >= gun.getData().getAmmo().getLifetime()) {
 									re.add(e);
 								}

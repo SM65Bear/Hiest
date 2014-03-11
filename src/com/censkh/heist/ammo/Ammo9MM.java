@@ -8,7 +8,7 @@ import org.bukkit.inventory.ItemStack;
 public class Ammo9MM extends Ammo {
 	
 	public Ammo9MM() {
-		super(401);
+		super(401,"Ammo 9MM");
 	}
 	
 	@Override
@@ -17,18 +17,13 @@ public class Ammo9MM extends Ammo {
 	}
 
 	@Override
-	public Class<? extends Projectile> getType() {
+	public Class<? extends Projectile> getProjectileType() {
 		return Snowball.class;
 	}
 
 	@Override
 	public int getLifetime() {
 		return 5;
-	}
-
-	@Override
-	public String getName() {
-		return "Ammo 9MM";
 	}
 
 }

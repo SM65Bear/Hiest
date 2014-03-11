@@ -13,7 +13,9 @@ import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
 
 import com.censkh.heist.gun.Gun;
-import com.censkh.heist.gun.GunManager;
+import com.censkh.heist.item.ItemManager;
+import com.censkh.heist.item.ItemType;
+import com.censkh.heist.item.UniqueItem;
 
 public class EntityEventListener extends EventListener {
 
@@ -22,8 +24,9 @@ public class EntityEventListener extends EventListener {
 	public void onEntityDamageByEntityEvent(EntityDamageByEntityEvent event) {
 		Entity damager = event.getDamager();
 		if (damager.hasMetadata("gun")) {
-			Gun gun = GunManager.getInstance().getGun(damager.getMetadata("gun").get(0).asInt());
-			if (gun != null) {
+			UniqueItem item = ItemManager.getInstance().getItem(ItemType.GUN,damager.getMetadata("gun").get(0).asInt());
+			if (item != null) {
+				Gun gun = (Gun) item;
 				event.getEntity().getWorld().playEffect(event.getEntity().getLocation().add(0, 1, 0), Effect.STEP_SOUND, Material.REDSTONE_BLOCK.getId());
 				double damage = gun.getData().getDamage();
 				if (damager.getMetadata("zoomed").get(0).asBoolean()) {

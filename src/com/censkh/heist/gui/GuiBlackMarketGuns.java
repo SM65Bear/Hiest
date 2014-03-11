@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 import org.bukkit.inventory.ItemStack;
 
-import com.censkh.heist.gun.GunManager;
+import com.censkh.heist.item.ItemManager;
 
 public class GuiBlackMarketGuns extends GuiStore {
 
@@ -15,7 +15,7 @@ public class GuiBlackMarketGuns extends GuiStore {
 	@Override
 	public HashMap<ItemStack, Integer> initStore() {
 		HashMap<ItemStack, Integer> store = new HashMap<ItemStack, Integer>();
-		store.put(GunManager.getInstance().getGun(310).getStack(), 300);
+		store.put(ItemManager.getInstance().GUN_M4.getStack(), 300);
 		return store;
 	}
 

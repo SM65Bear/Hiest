@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import com.censkh.heist.item.ItemType;
 import com.censkh.heist.item.UniqueItem;
 import com.censkh.heist.util.BuffData;
 
@@ -16,12 +17,10 @@ public class Drug extends UniqueItem {
 	
 	private final ItemStack stack;
 	private final DrugData data;
-	private final String name;
 	public final Random random = new Random();
 
 	public Drug(int id,String name, ItemStack stack, DrugData data) {
-		super(id);
-		this.name = name;
+		super(id,name);
 		this.data = data;
 		this.stack = bake(stack);
 		
@@ -48,15 +47,16 @@ public class Drug extends UniqueItem {
 		return data;
 	}
 
-	public String getName() {
-		return name;
-	}
-
 	public void apply(Player player) {
 		player.sendMessage(ChatColor.GRAY + "Oh yeah that's the stuff.");
 		for (BuffData data : getData().getBuffs()) {
 			player.addPotionEffect(data.toPotionEffect());
 		}
+	}
+	
+	@Override
+	public ItemType getType() {
+		return ItemType.DRUG;
 	}
 
 }

@@ -11,6 +11,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import com.censkh.heist.item.ItemManager;
 import com.censkh.heist.util.ItemUtil;
 
 public class GunStack {
@@ -63,7 +64,7 @@ public class GunStack {
 			List<String> lore = meta.getLore();
 			String gunIdent = ChatColor.stripColor(lore.get(lore.size() - 1));
 			int gunId = Integer.parseInt(gunIdent.replaceAll("Item #", ""));
-			gun = GunManager.getInstance().getGun(gunId);
+			gun = (Gun) ItemManager.getInstance().getItem(gunId);
 			String bullets = lore.get(lore.size() - 3);
 			bullets = ChatColor.stripColor(bullets).substring("Bullets: ".length(), bullets.indexOf('/') - 3);
 			loadedBullets = Integer.parseInt(bullets);

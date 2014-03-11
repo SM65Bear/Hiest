@@ -8,7 +8,7 @@ import org.bukkit.inventory.ItemStack;
 public class AmmoM2100 extends Ammo {
 	
 	public AmmoM2100() {
-		super(402);
+		super(402,"Ammo M2100");
 	}
 	
 	@Override
@@ -17,18 +17,13 @@ public class AmmoM2100 extends Ammo {
 	}
 
 	@Override
-	public Class<? extends Projectile> getType() {
+	public Class<? extends Projectile> getProjectileType() {
 		return Arrow.class;
 	}
 
 	@Override
 	public int getLifetime() {
 		return 60;
-	}
-
-	@Override
-	public String getName() {
-		return "Ammo M2100";
 	}
 
 }

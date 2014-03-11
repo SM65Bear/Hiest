@@ -7,12 +7,16 @@ import org.bukkit.inventory.meta.ItemMeta;
 public abstract class UniqueItem {
 	
 	private final int id;
+	private final String name;
 	
-	public UniqueItem(int id) {
+	public UniqueItem(int id,String name) {
 		this.id = id;
+		this.name = name;
+		ItemManager.getInstance().addItem(this);
 	}
 	
 	public abstract ItemStack getStack(int i);
+	public abstract ItemType getType();
 	
 	public ItemStack getStack() {
 		return getStack(1);
@@ -34,6 +38,10 @@ public abstract class UniqueItem {
 			}
 		}
 		return false;
+	}
+
+	public String getName() {
+		return name;
 	}
 	
 }

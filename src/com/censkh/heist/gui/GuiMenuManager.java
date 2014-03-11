@@ -7,11 +7,10 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import com.censkh.heist.gun.Gun;
-import com.censkh.heist.gun.GunManager;
-import com.censkh.heist.gun.ItemType;
-import com.censkh.heist.throwable.Throwable;
-import com.censkh.heist.throwable.ThrowableManager;
+import com.censkh.heist.gun.WeaponType;
+import com.censkh.heist.item.ItemManager;
+import com.censkh.heist.item.UniqueItem;
+import com.censkh.heist.item.WeaponItem;
 
 public class GuiMenuManager {
 
@@ -27,38 +26,27 @@ public class GuiMenuManager {
 
 	public GuiMenuManager() {
 		instance = this;
-		for (ItemType t : ItemType.values()) {
-			final ItemType type = t;
+		for (WeaponType t : WeaponType.values()) {
+			final WeaponType type = t;
 			addMenu(new GuiMenu(type.getName()) {
 
 				@Override
 				public List<GuiIcon> initIcons() {
 					List<GuiIcon> icons = new ArrayList<GuiIcon>();
 					int i = 0;
-					for (Gun g : GunManager.getInstance().getGuns()) {
-						final Gun gun = g;
-						if (gun.getData().getType() == type) {
-							icons.add(new GuiIcon(gun.getName(), gun.getStack(), i) {
+					for (UniqueItem item : ItemManager.getInstance().getItems()) {
+						if (item instanceof WeaponItem) {
+							final WeaponItem w = (WeaponItem) item;
+							if (w.getWeaponType() == type) {
+								icons.add(new GuiIcon(w.getName(), w.getStack(), i) {
 
-								@Override
-								public void run(Player player) {
-									player.getInventory().addItem(gun.getStack());
-								}
-							});
-							i++;
-						}
-					}
-					for (Throwable t : ThrowableManager.getInstance().getThrowables()) {
-						final Throwable throwable = t;
-						if (throwable.getType() == type) {
-							icons.add(new GuiIcon(throwable.getName(), throwable.getStack(), i) {
-
-								@Override
-								public void run(Player player) {
-									player.getInventory().addItem(throwable.getStack());
-								}
-							});
-							i++;
+									@Override
+									public void run(Player player) {
+										player.getInventory().addItem(w.getStack());
+									}
+								});
+								i++;
+							}
 						}
 					}
 					icons.add(new GuiIcon("Back", new ItemStack(Material.ARROW), getSize() - 1) {

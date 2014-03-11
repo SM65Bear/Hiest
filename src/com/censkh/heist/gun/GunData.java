@@ -8,7 +8,8 @@ import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
 import com.censkh.heist.ammo.Ammo;
-import com.censkh.heist.ammo.AmmoManager;
+import com.censkh.heist.item.ItemManager;
+import com.censkh.heist.item.ItemRarity;
 import com.censkh.heist.util.SoundData;
 
 public class GunData {
@@ -22,8 +23,8 @@ public class GunData {
 	private int reloadTime = 2 * 20;
 	private int rateOfFire = 4;
 	private float zoomModifier = 1f;
-	private Ammo ammo = AmmoManager.getInstance().AMMO_556;
-	private ItemType type = ItemType.ASSAULT;
+	private Ammo ammo = ItemManager.getInstance().AMMO_556;
+	private WeaponType type = WeaponType.ASSAULT;
 	private ItemRarity rarity = ItemRarity.BASIC;
 	private SoundData shootSound = new SoundData(Sound.EXPLODE, 2f, 3f);
 	private double bulletTravelSpeed = 4.5d;
@@ -153,11 +154,11 @@ public class GunData {
 		this.shootSound = shootSound;
 	}
 
-	public ItemType getType() {
+	public WeaponType getType() {
 		return type;
 	}
 
-	public void setType(ItemType type) {
+	public void setType(WeaponType type) {
 		this.type = type;
 	}
 

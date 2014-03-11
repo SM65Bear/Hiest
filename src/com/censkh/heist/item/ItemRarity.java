@@ -1,4 +1,4 @@
-package com.censkh.heist.gun;
+package com.censkh.heist.item;
 
 import org.bukkit.ChatColor;
 

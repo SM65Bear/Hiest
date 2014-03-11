@@ -8,7 +8,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import com.censkh.heist.ammo.Ammo;
-import com.censkh.heist.ammo.AmmoManager;
+import com.censkh.heist.item.ItemManager;
+import com.censkh.heist.item.ItemType;
+import com.censkh.heist.item.UniqueItem;
 
 public class GuiAmmoTypeMenu extends GuiMenu {
 
@@ -20,8 +22,8 @@ public class GuiAmmoTypeMenu extends GuiMenu {
 	public List<GuiIcon> initIcons() {
 		List<GuiIcon> icons = new ArrayList<GuiIcon>();
 		int i = 0;
-		for (Ammo a : AmmoManager.getInstance().getAmmo()) {
-			final Ammo ammo = a;
+		for (UniqueItem item : ItemManager.getInstance().getItems(ItemType.AMMO)) {
+			final Ammo ammo = (Ammo) item;
 
 			icons.add(new GuiIcon(ammo.getName(), new ItemStack(ammo.getStack()), i) {
 

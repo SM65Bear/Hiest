@@ -7,7 +7,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import com.censkh.heist.gun.ItemType;
+import com.censkh.heist.gun.WeaponType;
 
 public class GuiGunTypeMenu extends GuiMenu {
 
@@ -19,8 +19,8 @@ public class GuiGunTypeMenu extends GuiMenu {
 	public List<GuiIcon> initIcons() {
 		List<GuiIcon> icons = new ArrayList<GuiIcon>();
 		int i = 0;
-		for (ItemType t : ItemType.values()) {
-			final ItemType type = t;
+		for (WeaponType t : WeaponType.values()) {
+			final WeaponType type = t;
 
 			icons.add(new GuiIcon(type.getName(), new ItemStack(type.getType()), i) {
 

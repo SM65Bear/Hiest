@@ -14,18 +14,17 @@ import org.bukkit.potion.PotionEffectType;
 import org.bukkit.util.Vector;
 
 import com.censkh.heist.Heist;
-import com.censkh.heist.item.UniqueItem;
+import com.censkh.heist.item.ItemType;
+import com.censkh.heist.item.WeaponItem;
 
-public class Gun extends UniqueItem {
+public class Gun extends WeaponItem {
 	
 	private final ItemStack stack;
 	private final GunData data;
-	private final String name;
 	public final Random random = new Random();
 
 	public Gun(int id,String name, ItemStack stack, GunData data) {
-		super(id);
-		this.name = name;
+		super(id,name);
 		this.stack = stack;
 		this.data = data;
 	}
@@ -38,7 +37,7 @@ public class Gun extends UniqueItem {
 		GunStack gunStack = new GunStack(stack);
 		if (gunStack.canFire(player)) {
 			for (int i = 0; i < getData().getBurst(); i++) {
-				Projectile projectile = player.launchProjectile(getData().getAmmo().getType());
+				Projectile projectile = player.launchProjectile(getData().getAmmo().getProjectileType());
 				projectile.setMetadata("gun", new FixedMetadataValue(Heist.getPlugin(Heist.class), getId()));
 				projectile.setMetadata("zoomed", new FixedMetadataValue(Heist.getPlugin(Heist.class), GunManager.getInstance().isZoomed(player)));
 				Vector velocity = calculateVelocity(player);
@@ -97,12 +96,18 @@ public class Gun extends UniqueItem {
 		return data;
 	}
 
-	public String getName() {
-		return name;
-	}
-
 	public boolean equals(Gun gun) {
 		return gun.getName().equals(getName());
+	}
+
+	@Override
+	public ItemType getType() {
+		return ItemType.GUN;
+	}
+
+	@Override
+	public WeaponType getWeaponType() {
+		return getData().getType();
 	}
 
 }

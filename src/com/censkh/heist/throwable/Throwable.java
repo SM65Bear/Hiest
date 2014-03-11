@@ -11,15 +11,15 @@ import org.bukkit.entity.Snowball;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import com.censkh.heist.gun.ItemType;
-import com.censkh.heist.item.UniqueItem;
+import com.censkh.heist.item.ItemType;
+import com.censkh.heist.item.WeaponItem;
 
-public abstract class Throwable extends UniqueItem {
+public abstract class Throwable extends WeaponItem {
 
 	private final ItemStack stack;
 
-	public Throwable(int id) {
-		super(id);
+	public Throwable(int id,String name) {
+		super(id,name);
 		this.stack = bake(createStack());
 	}
 
@@ -37,11 +37,7 @@ public abstract class Throwable extends UniqueItem {
 
 	public abstract ItemStack createStack();
 
-	public abstract String getName();
-
 	public abstract float getSpeedMultiplier();
-
-	public abstract ItemType getType();
 
 	public void shoot(LivingEntity entity) {
 		Projectile p = entity.launchProjectile(Snowball.class);
@@ -57,6 +53,11 @@ public abstract class Throwable extends UniqueItem {
 		ItemStack clone = stack.clone();
 		clone.setAmount(i);
 		return clone;
+	}
+	
+	@Override
+	public ItemType getType() {
+		return ItemType.THROWABLE;
 	}
 
 }
