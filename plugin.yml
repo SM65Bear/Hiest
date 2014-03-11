@@ -1,7 +1,7 @@
 name: Heist
 version: 0.0.1
 main: com.censkh.heist.Heist
-depend: [WorldGuard]
+depend: [WorldGuard,WGCustomFlags]
 
 commands:
  admin:

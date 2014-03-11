@@ -14,10 +14,12 @@ public class GuiMenuManager {
 
 	private static GuiMenuManager instance;
 	private final List<GuiMenu> menus = new ArrayList<GuiMenu>();
-
-	public final GuiGunTypeMenu GUN_TYPE = (GuiGunTypeMenu) addMenu(new GuiGunTypeMenu());
-	public final GuiItemGive ITEMS = (GuiItemGive) addMenu(new GuiItemGive());
+	
+	{instance=this;}
+	
 	public final GuiAdminMenu ADMIN = (GuiAdminMenu) addMenu(new GuiAdminMenu());
+	public final GuiWeaponTypeMenu WEAPONS = (GuiWeaponTypeMenu) addMenu(new GuiWeaponTypeMenu());
+	public final GuiItemGive ITEMS = (GuiItemGive) addMenu(new GuiItemGive());
 	public final GuiBlackMarketGuns BLACK_MARKET_GUNS = (GuiBlackMarketGuns) addMenu(new GuiBlackMarketGuns());
 	public final GuiBlackMarketArmour BLACK_MARKET_ARMOUR= (GuiBlackMarketArmour) addMenu(new GuiBlackMarketArmour());
 	public final GuiBlackMarketDrugs BLACK_MARKET_DRUGS = (GuiBlackMarketDrugs) addMenu(new GuiBlackMarketDrugs());
@@ -27,10 +29,9 @@ public class GuiMenuManager {
 	public final GuiDrugTypeMenu DRUG_TYPE = (GuiDrugTypeMenu) addMenu(new GuiDrugTypeMenu());
 
 	public GuiMenuManager() {
-		instance = this;
 		for (WeaponType t : WeaponType.values()) {
 			final WeaponType type = t;
-			addMenu(new GuiAdminSubmenu(type.getName()) {
+			addMenu(new GuiMenu(type.getName()) {
 
 				@Override
 				public List<GuiIcon> initIcons() {
@@ -59,6 +60,13 @@ public class GuiMenuManager {
 
 					return (9 * 6);
 				}
+
+				@Override
+				public GuiMenu getBackMenu() {
+					return WEAPONS;
+				}
+
+				
 			});
 
 		}

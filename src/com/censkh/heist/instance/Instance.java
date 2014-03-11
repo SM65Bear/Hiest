@@ -18,12 +18,12 @@ import com.sk89q.worldguard.protection.flags.StringFlag;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 
 public class Instance extends EventListener {
-
+	
 	private static int iid = 0;
 	public static final String REGION_PREFIX = "instance_";
 
 	private final int id = iid++;
-	private final String name;
+	private final String ident;
 	private final List<Player> players = new ArrayList<Player>();
 	private ProtectedRegion region;
 	private boolean started = false;
@@ -31,7 +31,7 @@ public class Instance extends EventListener {
 
 	public Instance(ProtectedRegion region) {
 		super();
-		this.name = region.getId();
+		this.ident = region.getId();
 		this.region = region;
 		scoreboard = createScoreboard();
 		updateRegion();
@@ -40,7 +40,7 @@ public class Instance extends EventListener {
 	private Scoreboard createScoreboard() {
 		Scoreboard scoreboard = Bukkit.getScoreboardManager().getNewScoreboard();
 		Objective objective = scoreboard.registerNewObjective("sidebar", "dummy");
-		objective.setDisplayName(Node.INSTANCE_NAME_COLOUR + getName());
+		objective.setDisplayName(Node.INSTANCE_NAME_COLOUR + getIdent());
 		objective.setDisplaySlot(DisplaySlot.SIDEBAR);
 		objective.getScore(Bukkit.getOfflinePlayer("Started")).setScore(0);
 		return scoreboard;
@@ -48,15 +48,15 @@ public class Instance extends EventListener {
 
 	@Override
 	public String toString() {
-		return getName();
+		return getIdent();
 	}
 
 	public List<Player> getPlayers() {
 		return players;
 	}
 
-	public String getName() {
-		return name;
+	public String getIdent() {
+		return ident;
 	}
 
 	public int getId() {
@@ -68,6 +68,12 @@ public class Instance extends EventListener {
 		setFlag(DefaultFlag.GREET_MESSAGE, Node.INSTANCE_MESSAGE_COLOUR + "You have entered " + Node.INSTANCE_NAME_COLOUR + getName() + Node.INSTANCE_MESSAGE_COLOUR + ", there is "
 				+ (isStarted() ? "a mission occuring" : "no mission going on") + ".");
 		setFlag(DefaultFlag.FAREWELL_MESSAGE, Node.INSTANCE_MESSAGE_COLOUR + "You have left " + Node.INSTANCE_NAME_COLOUR + getName() + Node.INSTANCE_MESSAGE_COLOUR + ".");
+	}
+	
+	public String getName() {
+		String name = (String)getRegion().getFlag(InstanceManager.INSTANCE_NAME);
+		if (name==null) return getIdent();
+		return name;
 	}
 
 	public void setFlag(StringFlag flag, String value) {

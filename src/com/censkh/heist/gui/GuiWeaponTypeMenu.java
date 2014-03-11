@@ -8,10 +8,10 @@ import org.bukkit.inventory.ItemStack;
 
 import com.censkh.heist.gun.WeaponType;
 
-public class GuiGunTypeMenu extends GuiAdminSubmenu {
+public class GuiWeaponTypeMenu extends GuiAdminSubmenu {
 
-	public GuiGunTypeMenu() {
-		super("Guns");
+	public GuiWeaponTypeMenu() {
+		super("Weapons");
 	}
 
 	@Override
