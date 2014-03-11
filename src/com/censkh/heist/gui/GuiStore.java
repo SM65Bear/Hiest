@@ -54,5 +54,10 @@ public abstract class GuiStore extends GuiMenu {
 	public HashMap<Integer, GuiShopIcon> getStore() {
 		return store;
 	}
+	
+	@Override
+	public GuiMenu getBackMenu() {
+		return null;
+	}
 
 }

@@ -7,7 +7,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-public class GuiItemGive extends GuiMenu {
+public class GuiItemGive extends GuiAdminSubmenu {
 
 	public GuiItemGive() {
 		super("Items");

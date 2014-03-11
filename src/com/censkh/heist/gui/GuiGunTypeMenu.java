@@ -3,13 +3,12 @@ package com.censkh.heist.gui;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import com.censkh.heist.gun.WeaponType;
 
-public class GuiGunTypeMenu extends GuiMenu {
+public class GuiGunTypeMenu extends GuiAdminSubmenu {
 
 	public GuiGunTypeMenu() {
 		super("Guns");
@@ -31,13 +30,6 @@ public class GuiGunTypeMenu extends GuiMenu {
 				}
 			});
 			i++;
-			icons.add(new GuiIcon("Back", new ItemStack(Material.ARROW), getSize() - 1) {
-
-				@Override
-				public void run(Player player) {
-					GuiMenuManager.getInstance().ADMIN.open(player);
-				}
-			});
 		}
 		return icons;
 	}

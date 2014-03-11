@@ -10,6 +10,7 @@ import org.bukkit.event.Event.Result;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 
 import com.censkh.heist.chat.Node;
 import com.censkh.heist.listener.EventListener;
@@ -23,11 +24,21 @@ public abstract class GuiMenu extends EventListener {
 	public GuiMenu(String name) {
 		this.name = name;
 		this.icons.addAll(initIcons());
+		if (getBackMenu()!=null) {
+			icons.add(new GuiIcon("Back to " + getBackMenu().getName(), new ItemStack(Material.ARROW), getSize() - 1) {
+
+				@Override
+				public void run(Player player) {
+					getBackMenu().open(player);
+				}
+			});
+		}
 	}
 
 	public abstract List<GuiIcon> initIcons();
 
 	public abstract int getSize();
+	public abstract GuiMenu getBackMenu();
 
 	public void open(Player player) {
 		player.openInventory(getInventory());

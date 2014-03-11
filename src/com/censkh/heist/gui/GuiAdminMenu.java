@@ -69,4 +69,9 @@ public class GuiAdminMenu extends GuiMenu {
 		return 9 * 6;
 	}
 
+	@Override
+	public GuiMenu getBackMenu() {
+		return null;
+	}
+
 }

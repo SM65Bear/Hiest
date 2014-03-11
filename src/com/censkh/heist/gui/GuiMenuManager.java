@@ -3,9 +3,7 @@ package com.censkh.heist.gui;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 
 import com.censkh.heist.gun.WeaponType;
 import com.censkh.heist.item.ItemManager;
@@ -32,7 +30,7 @@ public class GuiMenuManager {
 		instance = this;
 		for (WeaponType t : WeaponType.values()) {
 			final WeaponType type = t;
-			addMenu(new GuiMenu(type.getName()) {
+			addMenu(new GuiAdminSubmenu(type.getName()) {
 
 				@Override
 				public List<GuiIcon> initIcons() {
@@ -53,13 +51,6 @@ public class GuiMenuManager {
 							}
 						}
 					}
-					icons.add(new GuiIcon("Back", new ItemStack(Material.ARROW), getSize() - 1) {
-
-						@Override
-						public void run(Player player) {
-							GuiMenuManager.getInstance().GUN_TYPE.open(player);
-						}
-					});
 					return icons;
 				}
 

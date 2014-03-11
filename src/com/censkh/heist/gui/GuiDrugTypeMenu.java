@@ -3,7 +3,6 @@ package com.censkh.heist.gui;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -12,7 +11,7 @@ import com.censkh.heist.item.ItemManager;
 import com.censkh.heist.item.ItemType;
 import com.censkh.heist.item.UniqueItem;
 
-public class GuiDrugTypeMenu extends GuiMenu {
+public class GuiDrugTypeMenu extends GuiAdminSubmenu {
 
 	public GuiDrugTypeMenu() {
 		super("Drugs");
@@ -33,13 +32,6 @@ public class GuiDrugTypeMenu extends GuiMenu {
 				}
 			});
 			i++;
-			icons.add(new GuiIcon("Back", new ItemStack(Material.ARROW), getSize() - 1) {
-
-				@Override
-				public void run(Player player) {
-					GuiMenuManager.getInstance().ADMIN.open(player);
-				}
-			});
 		}
 		return icons;
 	}
