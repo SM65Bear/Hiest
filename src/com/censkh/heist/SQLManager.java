@@ -3,6 +3,7 @@ package com.censkh.heist;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.censkh.heist.economy.EconomyAccount;
@@ -95,23 +96,23 @@ public class SQLManager {
 		}
 	}
 	
-	public void insertAccount(EconomyAccount account) {
+	public void insertAccount(EconomyAccount account,int balance) {
 		try {
 			Connection conn = getConnection();
 			PreparedStatement ps = conn.prepareStatement("INSERT INTO economy (name,balance) VALUES (?,?)");
 			ps.setString(1, account.getName());
-			ps.setInt(2, account.getBalance());
+			ps.setInt(2, balance);
 			ps.executeUpdate();
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
 	}
 
-	public void updateAccount(EconomyAccount account) {
+	public void updateAccount(EconomyAccount account,int balance) {
 		try {
 			Connection conn = getConnection();
 			PreparedStatement ps = conn.prepareStatement("UPDATE economy SET balance=? WHERE name = ?");
-			ps.setInt(1, account.getBalance());
+			ps.setInt(1, balance);
 			ps.setString(2, account.getName());
 			ps.executeUpdate();
 		} catch (SQLException ex) {
@@ -119,20 +120,16 @@ public class SQLManager {
 		}
 	}
 	
-	/*public Location getAccountBalance(World world) {
-		Location location = world.getSpawnLocation();
+	public int getAccountBalance(EconomyAccount account) {
+		int balance = 0;
 		ResultSet rs = null;
 		try {
 			Connection conn = getConnection();
-			PreparedStatement ps = conn.prepareStatement("SELECT * FROM battle.locations WHERE world = ? AND type = ?");
-			ps.setString(1, world.getName());
-			ps.setString(2, LocationType.WORLD_SPAWN.name());
+			PreparedStatement ps = conn.prepareStatement("SELECT `balance` FROM economy WHERE name = ?");
+			ps.setString(1, account.getName());
 			rs = ps.executeQuery();
 			if (rs.next()) {
-				int x = rs.getInt("x");
-				int y = rs.getInt("y");
-				int z = rs.getInt("z");
-				location = new Location(world, x, y, z);
+				balance = rs.getInt("balance");
 			}
 
 		} catch (SQLException ex) {
@@ -145,24 +142,18 @@ public class SQLManager {
 				ex.printStackTrace();
 			}
 		}
-		return location;
+		return balance;
 	}
 
-	public boolean hasPlayerRegistered(BattlePlayer player) {
-		boolean reg = true;
+	public boolean isAccountCreated(EconomyAccount account) {
+		boolean e = false;
 		ResultSet rs = null;
 		try {
 			Connection conn = getConnection();
-			PreparedStatement ps = conn.prepareStatement("SELECT user_hash FROM battle.players WHERE uuid = ?");
-			ps.setString(1, player.getId());
+			PreparedStatement ps = conn.prepareStatement("SELECT `id` FROM economy WHERE name = ?");
+			ps.setString(1, account.getName());
 			rs = ps.executeQuery();
-			if (rs.next()) {
-				String hash = rs.getString("user_hash");
-				if (hash.charAt(0) == '_') {
-					reg = false;
-				}
-			}
-
+			e = rs.next();
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		} finally {
@@ -173,7 +164,7 @@ public class SQLManager {
 				ex.printStackTrace();
 			}
 		}
-		return reg;
-	}*/
+		return e;
+	}
 
 }

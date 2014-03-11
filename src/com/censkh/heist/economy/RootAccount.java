@@ -1,5 +1,7 @@
 package com.censkh.heist.economy;
 
+import com.censkh.heist.SQLManager;
+
 public abstract class RootAccount implements EconomyAccount {
 	
 	private final String name;
@@ -10,11 +12,15 @@ public abstract class RootAccount implements EconomyAccount {
 	}
 	
 	public int getBalance() {
-		return 0;
+		return SQLManager.getInstance().getAccountBalance(this);
 	}
 	
 	public void setBalance(int balance) {
-		
+		if (SQLManager.getInstance().isAccountCreated(this)) {
+			SQLManager.getInstance().updateAccount(this,balance);
+		} else {
+			SQLManager.getInstance().insertAccount(this,balance);
+		}
 	}
 	
 	public String getName() {
