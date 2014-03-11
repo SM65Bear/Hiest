@@ -9,8 +9,8 @@ import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import com.censkh.heist.SoundData;
 import com.censkh.heist.ammo.AmmoManager;
+import com.censkh.heist.util.SoundData;
 
 public class GunManager {
 

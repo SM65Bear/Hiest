@@ -27,4 +27,16 @@ public abstract class RootAccount implements EconomyAccount {
 		return getNamePrefix() + name;
 	}
 	
+	public boolean hasEnough(int i) {
+		return getBalance()>=i;
+	}
+	
+	public void removeMoney(int i) {
+		setBalance(getBalance()-i);
+	}
+	
+	public void addMoney(int i) {
+		setBalance(getBalance()+i);
+	}
+	
 }

@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import com.censkh.heist.ItemUtil;
+import com.censkh.heist.util.ItemUtil;
 
 public class GunStack {
 

@@ -21,9 +21,9 @@ public class EconomyManager {
 	
 	public PlayerAccount getPlayerAccount(Player player) {
 		if (hasAccount(PlayerAccount.class,player.getName())) {
-			return (PlayerAccount) getAccount(PlayerAccount.class,player.getName());
+			return (PlayerAccount) getAccount(PlayerAccount.class,player.getUniqueId().toString());
 		} else {
-			return new PlayerAccount(player.getName());
+			return new PlayerAccount(player.getUniqueId().toString());
 		}
 	}
 	

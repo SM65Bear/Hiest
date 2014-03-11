@@ -1,4 +1,4 @@
-package com.censkh.heist;
+package com.censkh.heist.util;
 
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;

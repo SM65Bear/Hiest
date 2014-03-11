@@ -1,4 +1,4 @@
-package com.censkh.heist;
+package com.censkh.heist.util;
 
 import org.bukkit.Location;
 import org.bukkit.Sound;

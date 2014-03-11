@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.bukkit.ChatColor;
 
-import com.censkh.heist.BuffData;
+import com.censkh.heist.util.BuffData;
 
 public class DrugData {
 	

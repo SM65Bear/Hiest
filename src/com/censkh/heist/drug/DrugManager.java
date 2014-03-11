@@ -7,7 +7,7 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffectType;
 
-import com.censkh.heist.BuffData;
+import com.censkh.heist.util.BuffData;
 
 public class DrugManager {
 

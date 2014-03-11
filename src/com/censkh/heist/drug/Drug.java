@@ -9,8 +9,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import com.censkh.heist.BuffData;
 import com.censkh.heist.item.UniqueItem;
+import com.censkh.heist.util.BuffData;
 
 public class Drug extends UniqueItem {
 	

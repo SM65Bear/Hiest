@@ -7,9 +7,9 @@ import org.bukkit.ChatColor;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
-import com.censkh.heist.SoundData;
 import com.censkh.heist.ammo.Ammo;
 import com.censkh.heist.ammo.AmmoManager;
+import com.censkh.heist.util.SoundData;
 
 public class GunData {
 
