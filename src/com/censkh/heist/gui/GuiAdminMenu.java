@@ -45,7 +45,7 @@ public class GuiAdminMenu extends GuiMenu {
 
 			}
 		});
-		icons.add(new GuiIcon("Armour", new ItemStack(Material.LEATHER_HELMET), 5) {
+		icons.add(new GuiIcon("Armour", new ItemStack(Material.LEATHER_HELMET), 6) {
 
 			@Override
 			public void run(Player player) {
@@ -53,7 +53,7 @@ public class GuiAdminMenu extends GuiMenu {
 
 			}
 		});
-		icons.add(new GuiIcon("Drugs", new ItemStack(Material.SUGAR), 6) {
+		icons.add(new GuiIcon("Drugs", new ItemStack(Material.SUGAR), 7) {
 
 			@Override
 			public void run(Player player) {
