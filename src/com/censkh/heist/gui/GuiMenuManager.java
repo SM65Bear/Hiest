@@ -21,6 +21,9 @@ public class GuiMenuManager {
 	public final GuiItemGive ITEMS = (GuiItemGive) addMenu(new GuiItemGive());
 	public final GuiAdminMenu ADMIN = (GuiAdminMenu) addMenu(new GuiAdminMenu());
 	public final GuiBlackMarketGuns BLACK_MARKET_GUNS = (GuiBlackMarketGuns) addMenu(new GuiBlackMarketGuns());
+	public final GuiBlackMarketArmour BLACK_MARKET_ARMOUR= (GuiBlackMarketArmour) addMenu(new GuiBlackMarketArmour());
+	public final GuiBlackMarketDrugs BLACK_MARKET_DRUGS = (GuiBlackMarketDrugs) addMenu(new GuiBlackMarketDrugs());
+	public final GuiBlackMarketMasks BLACK_MARKET_AGENT = (GuiBlackMarketMasks) addMenu(new GuiBlackMarketMasks());
 	public final GuiAmmoTypeMenu AMMO_TYPE = (GuiAmmoTypeMenu) addMenu(new GuiAmmoTypeMenu());
 	public final GuiDrugTypeMenu DRUG_TYPE = (GuiDrugTypeMenu) addMenu(new GuiDrugTypeMenu());
 

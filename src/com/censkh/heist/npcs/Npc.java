@@ -48,7 +48,7 @@ public class Npc {
 			if (e.getCustomName() != null) {
 				String name = ChatColor.stripColor(e.getCustomName());
 				if (name.equalsIgnoreCase("Blackmarket Drug Dealer")) {
-					GuiMenuManager.getInstance().BLACK_MARKET_GUNS.open(event.getPlayer());
+					GuiMenuManager.getInstance().BLACK_MARKET_DRUGS.open(event.getPlayer());
 				}
 				event.setCancelled(true);
 			}
@@ -62,7 +62,7 @@ public class Npc {
 			if (e.getCustomName() != null) {
 				String name = ChatColor.stripColor(e.getCustomName());
 				if (name.equalsIgnoreCase("Agent")) {
-					GuiMenuManager.getInstance().BLACK_MARKET_GUNS.open(event.getPlayer());
+					GuiMenuManager.getInstance().BLACK_MARKET_AGENT.open(event.getPlayer());
 				}
 				event.setCancelled(true);
 			}
