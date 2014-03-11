@@ -13,7 +13,7 @@ public abstract class GuiIcon {
 
 	public GuiIcon(String name, ItemStack stack, int slot) {
 		this.name = name;
-		this.stack = bake(stack);
+		this.stack = bake(stack.clone());
 		this.slot = slot;
 	}
 
