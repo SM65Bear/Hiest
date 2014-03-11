@@ -49,7 +49,7 @@ public class GuiAdminMenu extends GuiMenu {
 
 			@Override
 			public void run(Player player) {
-				GuiMenuManager.getInstance().AMMO_TYPE.open(player);
+				GuiMenuManager.getInstance().ARMOUR_TYPE.open(player);
 
 			}
 		});
