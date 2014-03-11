@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.Bukkit;
-import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
@@ -21,31 +20,21 @@ import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 public class Instance extends EventListener {
 
 	private static int iid = 0;
+	public static final String REGION_PREFIX = "instance_";
 
 	private final int id = iid++;
 	private final String name;
-	private World world;
 	private final List<Player> players = new ArrayList<Player>();
 	private ProtectedRegion region;
 	private boolean started = false;
 	private final Scoreboard scoreboard;
 
-	public Instance(String name) {
+	public Instance(ProtectedRegion region) {
 		super();
-		this.name = name;
+		this.name = region.getId();
+		this.region = region;
 		scoreboard = createScoreboard();
-		World world = null;
-		for (World w : Bukkit.getWorlds()) {
-			if (WorldGuardPlugin.inst().getRegionManager(w).hasRegion(getRegionName())) {
-				world = w;
-			}
-		}
-		setWorld(world);
-		if (!hasRegion()) {
-			System.out.println("Instance " + toString() + " does not have a w/g region setup, fix it stupids. Create a region called '" + getRegionName() + "'");
-		} else {
-			updateRegion();
-		}
+		updateRegion();
 	}
 
 	private Scoreboard createScoreboard() {
@@ -59,7 +48,7 @@ public class Instance extends EventListener {
 
 	@Override
 	public String toString() {
-		return getRegionName() + "(name:" + getName() + ")";
+		return getName();
 	}
 
 	public List<Player> getPlayers() {
@@ -74,26 +63,7 @@ public class Instance extends EventListener {
 		return id;
 	}
 
-	public String getRegionName() {
-		return "instance-" + getId();
-	}
-
-	public boolean hasRegion() {
-		return getWorld() != null;
-	}
-
-	public World getWorld() {
-		return world;
-	}
-
-	public void setWorld(World world) {
-		this.world = world;
-	}
-
 	public void updateRegion() {
-		if (!hasRegion()) {
-			return;
-		}
 		// ProtectedRegion region =getRegion();
 		setFlag(DefaultFlag.GREET_MESSAGE, Node.INSTANCE_MESSAGE_COLOUR + "You have entered " + Node.INSTANCE_NAME_COLOUR + getName() + Node.INSTANCE_MESSAGE_COLOUR + ", there is "
 				+ (isStarted() ? "a mission occuring" : "no mission going on") + ".");
@@ -109,17 +79,7 @@ public class Instance extends EventListener {
 	}
 
 	public ProtectedRegion getRegion() {
-		if (region == null) {
-			if (hasRegion()) {
-				region = WorldGuardPlugin.inst().getRegionManager(getWorld()).getRegion(getRegionName());
-				return region;
-			} else {
-				return null;
-			}
-		} else {
 			return region;
-		}
-
 	}
 
 	public boolean isStarted() {

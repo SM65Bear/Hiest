@@ -9,7 +9,7 @@ import com.censkh.heist.item.ItemManager;
 public class GuiBlackMarketDrugs extends GuiStore {
 
 	public GuiBlackMarketDrugs() {
-		super("The High Mother Fucker");
+		super("Drug Dealer");
 	}
 
 	@Override

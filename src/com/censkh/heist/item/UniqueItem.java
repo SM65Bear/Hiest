@@ -27,7 +27,11 @@ public abstract class UniqueItem {
 	}
 	
 	public String getIdent() {
-		return "Item #" + getId();
+		return getIdent(getId());
+	}
+	
+	public static String getIdent(int id) {
+		return "Item #" + id;
 	}
 	
 	public boolean isStack(ItemStack item) {

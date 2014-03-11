@@ -23,22 +23,22 @@ public class GuiArmourTypeMenu extends GuiMenu {
 		int i = 0;
 		for (UniqueItem it : ItemManager.getInstance().getItems(ItemType.ARMOUR)) {
 			final UniqueItem item = it;
-			   icons.add(new GuiIcon(item.getName(), new ItemStack(item.getStack()), i) {
+			icons.add(new GuiIcon(item.getName(), new ItemStack(item.getStack()), i) {
 
-			    @Override
-			    public void run(Player player) {
-			     player.getInventory().addItem(item.getStack());
-			    }
-			   });
-			   i++;
-			   icons.add(new GuiIcon("Back", new ItemStack(Material.ARROW), getSize() - 1) {
+				@Override
+				public void run(Player player) {
+					player.getInventory().addItem(item.getStack());
+				}
+			});
+			i++;
+			icons.add(new GuiIcon("Back", new ItemStack(Material.ARROW), getSize() - 1) {
 
-			    @Override
-			    public void run(Player player) {
-			     GuiMenuManager.getInstance().ADMIN.open(player);
-			    }
-			   });
-			  }
+				@Override
+				public void run(Player player) {
+					GuiMenuManager.getInstance().ADMIN.open(player);
+				}
+			});
+		}
 		return icons;
 	}
 

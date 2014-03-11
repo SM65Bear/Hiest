@@ -8,7 +8,7 @@ import org.bukkit.inventory.ItemStack;
 public class GuiBlackMarketMasks extends GuiStore {
 
 	public GuiBlackMarketMasks() {
-		super("Black Market Guns");
+		super("Black Market Masks");
 	}
 
 	@Override
@@ -23,7 +23,7 @@ public class GuiBlackMarketMasks extends GuiStore {
 
 	@Override
 	public int getSize() {
-		return 1 * 6;
+		return 1 * 9;
 	}
 
 }

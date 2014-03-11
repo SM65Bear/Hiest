@@ -3,6 +3,13 @@ package com.censkh.heist.instance;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bukkit.Bukkit;
+import org.bukkit.World;
+
+import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
+import com.sk89q.worldguard.protection.managers.RegionManager;
+import com.sk89q.worldguard.protection.regions.ProtectedRegion;
+
 public class InstanceManager {
 
 	private static InstanceManager instance;
@@ -10,7 +17,19 @@ public class InstanceManager {
 
 	public InstanceManager() {
 		instance = this;
-		add(new Instance("Greenhead Bank"));
+		init();
+	}
+
+	public void init() {
+		instances.clear();
+		for (World world : Bukkit.getWorlds()) {
+			RegionManager regionManager = WorldGuardPlugin.inst().getRegionManager(world);
+			for (ProtectedRegion region : regionManager.getRegions().values()) {
+				if (region.getId().startsWith(Instance.REGION_PREFIX)) {
+					add(new Instance(region));
+				}
+			}
+		}
 	}
 
 	private void add(Instance instance) {
