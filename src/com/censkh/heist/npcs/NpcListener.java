@@ -18,7 +18,7 @@ public class NpcListener extends EventListener {
 			LivingEntity e = (LivingEntity) entity;
 			if (e.getCustomName() != null) {
 				String name = ChatColor.stripColor(e.getCustomName());
-				if (name.equalsIgnoreCase("Blackmarket Gun Dealer")) {
+				if (name.equalsIgnoreCase(ChatColor.DARK_AQUA + "Blackmarket Gun Dealer")) {
 					GuiMenuManager.getInstance().BLACK_MARKET_GUNS.open(event.getPlayer());
 				} else if (name.equalsIgnoreCase("Blackmarket Armour Dealer")) {
 					GuiMenuManager.getInstance().BLACK_MARKET_GUNS.open(event.getPlayer());
