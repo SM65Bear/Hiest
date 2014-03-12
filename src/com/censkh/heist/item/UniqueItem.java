@@ -17,6 +17,7 @@ public abstract class UniqueItem {
 	
 	public abstract ItemStack getStack(int i);
 	public abstract ItemType getType();
+	public abstract void onItemUseEvent(ItemUseEvent event);
 	
 	public ItemStack getStack() {
 		return getStack(1);

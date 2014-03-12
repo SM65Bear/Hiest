@@ -35,4 +35,9 @@ public class MaskItem extends GenericItem {
 		return ItemType.ARMOUR;
 	}
 
+	@Override
+	public void onItemUseEvent(ItemUseEvent event) {
+		
+	}
+
 }

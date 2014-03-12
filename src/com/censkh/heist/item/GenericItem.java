@@ -17,5 +17,10 @@ public abstract class GenericItem extends UniqueItem {
 		clone.setAmount(i);
 		return clone;
 	}
+	
+	@Override
+	public void onItemUseEvent(ItemUseEvent event) {
+		
+	}
 
 }

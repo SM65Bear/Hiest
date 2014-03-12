@@ -12,6 +12,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import com.censkh.heist.item.ItemType;
+import com.censkh.heist.item.ItemUseEvent;
 import com.censkh.heist.item.WeaponItem;
 
 public abstract class Throwable extends WeaponItem {
@@ -58,6 +59,12 @@ public abstract class Throwable extends WeaponItem {
 	@Override
 	public ItemType getType() {
 		return ItemType.THROWABLE;
+	}
+	
+	@Override
+	public void onItemUseEvent(ItemUseEvent event) {
+		shoot(event.getPlayer());
+		event.getPlayer().getInventory().removeItem(getStack());
 	}
 
 }

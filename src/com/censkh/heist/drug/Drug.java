@@ -10,6 +10,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import com.censkh.heist.item.ItemType;
+import com.censkh.heist.item.ItemUseEvent;
 import com.censkh.heist.item.UniqueItem;
 import com.censkh.heist.util.BuffData;
 
@@ -57,6 +58,12 @@ public class Drug extends UniqueItem {
 	@Override
 	public ItemType getType() {
 		return ItemType.DRUG;
+	}
+	
+	@Override
+	public void onItemUseEvent(ItemUseEvent event) {
+		apply(event.getPlayer());
+		event.getPlayer().getInventory().removeItem(getStack());
 	}
 
 }

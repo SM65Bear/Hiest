@@ -6,6 +6,7 @@ import java.util.List;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.event.EventHandler;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffectType;
 
@@ -19,11 +20,12 @@ import com.censkh.heist.drug.DrugData;
 import com.censkh.heist.gun.Gun;
 import com.censkh.heist.gun.GunData;
 import com.censkh.heist.gun.WeaponType;
+import com.censkh.heist.listener.EventListener;
 import com.censkh.heist.throwable.FragGrenade;
 import com.censkh.heist.util.BuffData;
 import com.censkh.heist.util.SoundData;
 
-public class ItemManager {
+public class ItemManager extends EventListener {
 
 	private static ItemManager instance;
 	private final List<UniqueItem> items = new ArrayList<UniqueItem>();
@@ -423,6 +425,11 @@ public class ItemManager {
 
 	public ItemManager() {
 
+	}
+	
+	@EventHandler
+	public void onItemUseEvent(ItemUseEvent event) {
+		event.getItem().onItemUseEvent(event);
 	}
 
 	public UniqueItem addItem(UniqueItem item) {

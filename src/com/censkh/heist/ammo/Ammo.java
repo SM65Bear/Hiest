@@ -8,6 +8,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import com.censkh.heist.item.ItemType;
+import com.censkh.heist.item.ItemUseEvent;
 import com.censkh.heist.item.UniqueItem;
 
 public abstract class Ammo extends UniqueItem {
@@ -39,6 +40,11 @@ public abstract class Ammo extends UniqueItem {
 	@Override
 	public ItemType getType() {
 		return ItemType.AMMO;
+	}
+	
+	@Override
+	public void onItemUseEvent(ItemUseEvent event) {
+		
 	}
 
 }

@@ -15,6 +15,8 @@ import org.bukkit.util.Vector;
 
 import com.censkh.heist.Heist;
 import com.censkh.heist.item.ItemType;
+import com.censkh.heist.item.ItemUseEvent;
+import com.censkh.heist.item.ItemUseType;
 import com.censkh.heist.item.WeaponItem;
 
 public class Gun extends WeaponItem {
@@ -108,6 +110,17 @@ public class Gun extends WeaponItem {
 	@Override
 	public WeaponType getWeaponType() {
 		return getData().getType();
+	}
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public void onItemUseEvent(ItemUseEvent event) {
+		if (event.getType()==ItemUseType.RIGHT_CLICK) {
+			event.getPlayer().setItemInHand(shoot(event.getPlayer(), event.getStack()));
+			event.getPlayer().updateInventory();
+		} else if (event.getType()==ItemUseType.LEFT_CLICK) {
+			GunManager.getInstance().setZoomed(event.getPlayer(), !GunManager.getInstance().isZoomed(event.getPlayer()));
+		}
 	}
 
 }
