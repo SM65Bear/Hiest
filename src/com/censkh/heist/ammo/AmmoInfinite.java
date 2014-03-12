@@ -5,15 +5,15 @@ import org.bukkit.entity.Projectile;
 import org.bukkit.entity.Snowball;
 import org.bukkit.inventory.ItemStack;
 
-public class Ammo556 extends Ammo {
+public class AmmoInfinite extends Ammo {
 
-	public Ammo556() {
-		super(405,"Ammo 556");
+	public AmmoInfinite() {
+		super(400,"Ammo Infinite");
 	}
 
 	@Override
 	public ItemStack createStack() {
-		return new ItemStack(Material.INK_SACK, 1, (short) 0);
+		return new ItemStack(Material.INK_SACK, 1, (short) 15);
 	}
 
 	@Override

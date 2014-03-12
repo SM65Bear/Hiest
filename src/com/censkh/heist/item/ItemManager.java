@@ -12,6 +12,7 @@ import org.bukkit.potion.PotionEffectType;
 
 import com.censkh.heist.ammo.Ammo556;
 import com.censkh.heist.ammo.Ammo9MM;
+import com.censkh.heist.ammo.AmmoInfinite;
 import com.censkh.heist.ammo.AmmoM2100;
 import com.censkh.heist.ammo.AmmoRocket;
 import com.censkh.heist.ammo.AmmoShotgunShells;
@@ -33,7 +34,7 @@ public class ItemManager extends EventListener {
 	{
 		instance = this;
 	}
-
+	public final AmmoInfinite AMMO_INFINITE = new AmmoInfinite();
 	public final Ammo556 AMMO_556 = new Ammo556();
 	public final AmmoRocket AMMO_ROCKET = new AmmoRocket();
 	public final AmmoM2100 AMMO_M2100 = new AmmoM2100();

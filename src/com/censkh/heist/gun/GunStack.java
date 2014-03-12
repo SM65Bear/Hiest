@@ -114,9 +114,18 @@ public class GunStack {
 	}
 
 	public GunStack reload(Player player) {
-		if (player.getInventory().containsAtLeast(getGun().getData().getAmmo().getStack(), 1) || player.getGameMode() == GameMode.CREATIVE) {
-			player.getInventory().removeItem(getGun().getData().getAmmo().getStack());
-			player.sendMessage(ChatColor.GRAY + "Reloading, " + (ItemUtil.getItemCount(player.getInventory(), getGun().getData().getAmmo().getStack())) + " mags left.");
+		if (getState() == GunState.RELOADING) {
+			player.sendMessage(ChatColor.GRAY + "This gun is already reloading.");
+			return this;
+		}
+		if (player.getInventory().containsAtLeast(getGun().getData().getAmmo().getStack(), 1) || player.getGameMode() == GameMode.CREATIVE
+				|| player.getInventory().containsAtLeast(ItemManager.getInstance().AMMO_INFINITE.getStack(), 1)) {
+			if (player.getGameMode() == GameMode.CREATIVE || player.getInventory().containsAtLeast(ItemManager.getInstance().AMMO_INFINITE.getStack(), 1)) {
+				player.sendMessage(ChatColor.GRAY + "Reloading.");
+			} else {
+				player.getInventory().removeItem(getGun().getData().getAmmo().getStack());
+				player.sendMessage(ChatColor.GRAY + "Reloading, " + (ItemUtil.getItemCount(player.getInventory(), getGun().getData().getAmmo().getStack())) + " mags left.");
+			}
 			player.playSound(player.getLocation(), Sound.DOOR_OPEN, 2f, 2f);
 			setReloadCountdown(getGun().getData().getReloadTime() - (int) (getGun().getData().getReloadTime() * 0.5f * ((float) getLoadedBullets() / (float) getGun().getData().getMagazineSize())));
 			setState(GunState.RELOADING);
