@@ -26,6 +26,8 @@ public class NpcListener extends EventListener {
 					GuiMenuManager.getInstance().BLACK_MARKET_DRUGS.open(event.getPlayer());
 				} else if (name.equalsIgnoreCase("Agent")) {
 					GuiMenuManager.getInstance().BLACK_MARKET_AGENT.open(event.getPlayer());
+				} else if (name.equalsIgnoreCase("TheWhitford")) {
+					GuiMenuManager.getInstance().BLACK_MARKET_DRUGS.open(event.getPlayer());
 				}
 				event.setCancelled(true);
 			}
